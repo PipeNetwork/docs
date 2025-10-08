@@ -1,40 +1,49 @@
 # Mainnet
 
-Coming 2025!
+A quick, clean guide to get your PipeCDN node online and ready for mainnet.
 
-The Pipe Network Mainnet is scheduled to launch in 2025. Stay tuned for more information and updates.
+---
 
- Running a PipeCDN POP Node
+## 1. Requirements
 
-Quick guide to get your CDN node up and running.
+**Supported OS**
 
-## Prerequisites
+* Ubuntu 22.04+ or Debian 11+
 
-- **Linux** (Ubuntu 22.04+, Debian 11+)
-- **Ports 80 & 443** accessible
+**Network**
 
-## Installation
+* Open TCP ports: `80` and `443`
 
-### Option 1: Pre-built linux Binary
+**Storage**
 
-curl -L https://pipe.network/p1-cdn/releases/latest/download/pop -o pop
-chmod +x pop
+* At least 20 GB free space
+* SSD/NVMe recommended for cache
 
-# Configuration
+---
 
-### 1. Set Your Wallet (Required for Earnings)
+## 2. Installation
 
-Create `.env` file or export environment variable:
+### **Step 1 — Create installation directory**
 
 ```bash
-export NODE_SOLANA_PUBLIC_KEY="your_solana_wallet_address_here"
+cd /opt
+mkdir pipe && cd pipe
 ```
 
-This is where you'll receive PIPE token rewards for serving traffic.
+### **Step 2 — Download the latest binary**
 
-### 2. Essential Settings
+```bash
+curl -L https://pipe.network/p1-cdn/releases/latest/download/pop -o pop
+chmod +x pop
+```
 
-Create `.env` file:
+> 💡 **Tip:** Keep the binary inside `/opt/pipe` for easy service management and updates.
+
+---
+
+## 3. Configuration
+
+Create a file named `.env` inside `/opt/pipe`:
 
 ```bash
 # Wallet for earnings
@@ -58,57 +67,87 @@ HTTPS_PORT=443
 UPNP_ENABLED=true
 ```
 
-# Ports
+> 💡 **Tip:**  If you run on a VPS, keep `UPNP_ENABLED=false`.
+> For home setups, enable it and make sure your router allows UPnP.
 
-### Required Ports
+---
 
-- **80** (HTTP) - Redirects to HTTPS
-- **443** (HTTPS) - Main traffic
+## 4. Wallet Setup
 
-### Home Networks
+If you don’t have a Solana wallet yet:
 
-If running at home, enable **UPnP** in your router settings. The node will automatically forward ports 80 and 443.
+1. Install **[Phantom Wallet](https://phantom.app)**, or
+2. Use Solana CLI:
 
-If UPnP doesn't work, manually forward:
-- External Port 80 → Your Machine IP:80
-- External Port 443 → Your Machine IP:443
+   ```bash
+   solana-keygen new
+   solana address
+   ```
+3. Copy your **public key** (44 chars, starts with letters/numbers).
+   Paste it into `.env` as `NODE_SOLANA_PUBLIC_KEY`.
 
-### Servers/VPS
+> ⚠️ **Never** share your private key or seed phrase.
 
-Ports should already be accessible. Just ensure firewall allows them:
+---
 
-```bash
-# UFW
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+## 5. Run the Node
 
-# iptables
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-```
+> Choose **one** of the options below to start your node — pick the method that fits your setup.
 
-### Optional Ports
+### **Option 1 — Manual Run**
 
-- **8081** - Health check endpoint
-- **9090** - Metrics (Prometheus)
-
-## Running
-
-### Start the Node
-
-```bash
-./pop
-```
-
-Or with environment file:
+Ideal for quick testing or temporary sessions.
 
 ```bash
 source .env && ./pop
 ```
 
+### **Option 2 — Background Process**
 
-# Verification
+Run it detached from the terminal (logs to `pop.log`).
 
+```bash
+nohup bash -c "source .env && ./pop" > pop.log 2>&1 &
+```
+
+### **Option 3 — Systemd Service (Recommended)**
+
+Create `/etc/systemd/system/pipe.service`:
+
+```ini
+[Unit]
+Description=Pipe Network POP Node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/opt/pipe
+ExecStart=/bin/bash -c 'source /opt/pipe/.env && /opt/pipe/pop'
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable pipe
+
+sudo systemctl start pipe
+sudo journalctl -u pipe -f
+```
+
+> 💡 **Tip:** Systemd ensures auto-restart on crash and starts automatically at boot.
+
+
+---
+
+## 6. Verification
 Check if it's running:
 
 ```bash
@@ -122,78 +161,47 @@ curl -I http://localhost
 curl -Ik https://localhost
 ```
 
-## Getting Your Solana Wallet
+---
 
-If you don't have a Solana wallet:
+## 7. Monitoring
 
-1. **Install Phantom Wallet**: https://phantom.app
-2. **Or use Solana CLI**:
-   ```bash
-   solana-keygen new
-   solana address
-   ```
-3. Copy your public key (starts with letters/numbers, ~44 characters)
-4. Add to `.env` as `NODE_SOLANA_PUBLIC_KEY`
-
-⚠️ **Never share your private key/seed phrase!** Only the public key is needed.
-
-## Monitoring
-
-### Check Status
+View node status and earnings:
 
 ```bash
-./pop status           # Node status
-./pop earnings         # View earnings
+cd /opt/pipe
+
+./pop status
+./pop earnings
 ```
 
-### View Metrics
+Prometheus metrics:
 
 ```bash
 curl http://localhost:9090/metrics
 ```
 
-### Check Logs
+Logs ( If use Systemd Service):
 
 ```bash
-# If running directly
-./pop 2>&1 | tee pop.log
-
-
-# Troubleshooting
-
-### Port Already in Use
-
-```bash
-sudo lsof -i :80
-sudo lsof -i :443
-# Kill the process or change ports
+journalctl -u pipe -f
 ```
 
-### UPnP Failed (Home Networks)
+---
 
-1. Enable UPnP in router settings
-2. Or manually forward ports 80/443
-3. Or disable UPnP: `UPNP_ENABLED=false ./pop`
+## 8. Troubleshooting
 
-### Out of Disk Space
+| Issue                      | Solution                                          |
+| -------------------------- | ------------------------------------------------- |
+| **Port 80/443 in use**     | `sudo lsof -i :80` → kill conflicting process     |
+| **UPnP failed (home use)** | Enable UPnP in router or set `UPNP_ENABLED=false` |
+| **Low disk space**         | Reduce `DISK_CACHE_SIZE_GB` in `.env`             |
+| **High memory usage**      | Lower `MEMORY_CACHE_SIZE_MB` (e.g. 256)           |
 
-Reduce cache size in `.env`:
+---
 
-```bash
-DISK_CACHE_SIZE_GB=50
-```
+## 9. Performance Tuning
 
-### High Memory Usage
-
-Reduce memory cache:
-
-```bash
-MEMORY_CACHE_SIZE_MB=256
-```
-
-## Performance Tuning
-
-For high-traffic nodes:
+For high-traffic setups:
 
 ```bash
 # Increase worker threads
@@ -207,6 +215,18 @@ export DISK_CACHE_SIZE_GB=500
 export DISK_CACHE_PATH=/mnt/nvme/cache
 ```
 
+Use SSD/NVMe for best caching performance.
 
-**That's it!** Your node should now be serving traffic and earning rewards. 🚀
+---
+
+## 10. Quick Recap
+
+* Download binary -> `chmod +x pop`
+* Create `.env`
+* Open ports 80 & 443
+* Run with `source .env && ./pop`
+* Verify with `/health` - the output should return`"status":"healthy"`
+
+
+Your node is now part of the PipeCDN mesh and ready to earn $PIPE rewards. 🚀
 
