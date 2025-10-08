@@ -153,12 +153,6 @@ Check if it's running:
 ```bash
 # Health check
 curl http://localhost:8081/health
-
-# Test HTTP
-curl -I http://localhost
-
-# Test HTTPS (self-signed cert on first run)
-curl -Ik https://localhost
 ```
 
 ---
