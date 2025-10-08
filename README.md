@@ -55,7 +55,7 @@ Software-defined routing layer that finds the fastest paths across multiple netw
 
 ### For PoP Node Operators
 - Linux operating system
-- Minimum 4GB RAM (16GB+ recommended for production)
+- Minimum 16GB RAM (32GB+ recommended for production)
 - 100GB+ SSD storage
 - 1Gbps+ network connection
 - 24/7 internet connectivity
