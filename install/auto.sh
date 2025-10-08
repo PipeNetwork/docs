@@ -13,7 +13,7 @@ fi
 apt update && apt upgrade -y
 apt install -y curl ufw
 
-# Option 1: Pre-built Linux Binary
+# Pre-built Linux Binary
 curl -L https://pipe.network/p1-cdn/releases/latest/download/pop -o /usr/local/bin/pop && chmod +x /usr/local/bin/pop
 
 # Create cache directory
