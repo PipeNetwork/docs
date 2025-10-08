@@ -21,7 +21,7 @@ Introduction to Pipe Network and its capabilities
 Decentralized storage solution with client-side encryption
 
 ### Nodes
-- [Mainnet](docs/nodes/mainnet.md) - Mainnet information (Coming 2025)
+- [Mainnet](docs/nodes/mainnet.md) - Mainnet information
 - [Workdrop](docs/Workdrop.md) - Workdrop program
 
 ### CDN API
@@ -29,7 +29,6 @@ Decentralized storage solution with client-side encryption
 
 ### Appendix
 - [Pipe Network CDN for Solana Snapshots](docs/appendix/solana-snapshots.md) - Solana validator optimization
-- [Old Guardian Node](docs/appendix/old-guardian-node.md) - Legacy Guardian Node information
 
 ## 🚀 Quick Links
 
