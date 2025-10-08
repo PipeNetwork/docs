@@ -71,12 +71,12 @@ Software-defined routing layer that finds the fastest paths across multiple netw
 
 ## 🛠️ Usage
 
-### Download the setup script to your server:
+**Download the setup script to your server:**
 ```bash
 wget https://raw.githubusercontent.com/pipenetwork/docs/main/install/auto.sh
 nano setup-pop-node.sh
 ```
-### Inside the script, you can customize your node settings in the .env section:
+**Inside the script, you can customize your node settings in the .env section:**
 ```bash
 NODE_SOLANA_PUBLIC_KEY="your_solana_wallet_address"
 NODE_NAME="my-pop-node"
@@ -91,7 +91,7 @@ HTTP_PORT=80
 HTTPS_PORT=443
 UPNP_ENABLED=true
 ```
-### Once you’re done editing, make the script executable and run it as root:
+**Once you’re done editing, make the script executable and run it as root:** 
 ```bash
 chmod +x setup-pop-node.sh
 sudo ./setup-pop-node.sh
