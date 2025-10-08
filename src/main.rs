@@ -79,6 +79,8 @@ async fn serve_index() -> Response {
         <li><a href="/docs/index.md">Documentation Index</a></li>
         <li><a href="/docs/getting-started/introduction.md">Introduction</a></li>
         <li><a href="/docs/getting-started/quickstart.md">Quickstart</a></li>
+        <li><a href="/docs/Tokenomics.md">Tokenomics</a></li>
+        <li><a href="/docs/Workdrop.md">Workdrop</a></li>
         <li><a href="/static/">Browse Raw Files</a></li>
     </ul>
 </body>

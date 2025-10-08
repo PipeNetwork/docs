@@ -13,7 +13,7 @@ Introduction to Pipe Network and its capabilities
 - [Key Features](docs/getting-started/key-features.md) - Core features and capabilities
 - [Scalability and Network Growth](docs/getting-started/scalability-and-network-growth.md) - How Pipe Network scales
 - [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md) - Real-world applications
-- [$PIPE Tokenomics](docs/getting-started/tokenomics.md) - Token economics and utility
+- [$PIPE Tokenomics](docs/Tokenomics.md) - Token economics and utility
 - [Quickstart](docs/getting-started/quickstart.md) - Operating a DevNet CDN PoP Node
 - [Performance and Fraud Detection](docs/getting-started/performance-and-fraud-detection.md) - Security measures
 
@@ -25,6 +25,7 @@ Decentralized storage solution with client-side encryption
   - [Troubleshooting](docs/nodes/devnet-2/troubleshooting.md) - Common issues and solutions
 - [Testnet](docs/nodes/testnet.md) - Testnet configuration guide
 - [Mainnet](docs/nodes/mainnet.md) - Mainnet information (Coming 2025)
+- [Workdrop](docs/Workdrop.md) - Workdrop program
 
 ### CDN API
 - [API Documentation](docs/cdn-api/api-documentation.md) - Complete API reference
@@ -79,6 +80,9 @@ This documentation is maintained by the Pipe Network community. If you find any 
 - **DevNet Warning**: Current implementations run on Solana DevNet. DO NOT USE MAINNET SOL.
 - **Mainnet Launch**: Full mainnet is scheduled for 2025
 - **Node Registration**: Fill out the [registration form](https://docs.google.com/forms/d/e/1FAIpQLScbxN1qlstpbyU55K5I1UPufzfwshcv7uRJG6aLZQDk52ma0w/viewform) to be notified of updates
+
+### Mica whitepaper
+- [Mica whitepaper](docs/mica.pdf)
 
 ## 📝 License
 
