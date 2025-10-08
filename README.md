@@ -21,9 +21,6 @@ Introduction to Pipe Network and its capabilities
 Decentralized storage solution with client-side encryption
 
 ### Nodes
-- [DevNet 2](docs/nodes/devnet-2.md) - DevNet 2 node setup and operation
-  - [Troubleshooting](docs/nodes/devnet-2/troubleshooting.md) - Common issues and solutions
-- [Testnet](docs/nodes/testnet.md) - Testnet configuration guide
 - [Mainnet](docs/nodes/mainnet.md) - Mainnet information (Coming 2025)
 - [Workdrop](docs/Workdrop.md) - Workdrop program
 
