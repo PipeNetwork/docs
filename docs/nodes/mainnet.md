@@ -51,8 +51,8 @@ NODE_SOLANA_PUBLIC_KEY=your_solana_wallet_address
 
 # Node identity
 NODE_NAME=my-pop-node
-NODE_EMAIL=operator@example.com
-NODE_LOCATION=San Francisco, USA
+NODE_EMAIL="operator@example.com"
+NODE_LOCATION="San Francisco, USA"
 
 # Cache configuration
 MEMORY_CACHE_SIZE_MB=512
