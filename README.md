@@ -81,4 +81,4 @@ Please refer to the official Pipe Network repositories for license information.
 
 ---
 
-*Last updated: January 2025*
+*Last updated: October 2025*
