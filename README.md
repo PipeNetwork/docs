@@ -75,12 +75,6 @@ Software-defined routing layer that finds the fastest paths across multiple netw
 
 This documentation is maintained by the Pipe Network community. If you find any issues or would like to contribute improvements, please submit a pull request or open an issue.
 
-## ⚠️ Important Notes
-
-- **DevNet Warning**: Current implementations run on Solana DevNet. DO NOT USE MAINNET SOL.
-- **Mainnet Launch**: Full mainnet is scheduled for 2025
-- **Node Registration**: Fill out the [registration form](https://docs.google.com/forms/d/e/1FAIpQLScbxN1qlstpbyU55K5I1UPufzfwshcv7uRJG6aLZQDk52ma0w/viewform) to be notified of updates
-
 ### Mica whitepaper
 - [Mica whitepaper](docs/mica.pdf)
 
