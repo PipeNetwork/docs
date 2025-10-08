@@ -12,7 +12,7 @@
 **Download the setup script to your server:**
 ```bash
 wget https://raw.githubusercontent.com/pipenetwork/docs/main/install/auto.sh
-nano setup-pop-node.sh
+nano auto.sh
 ```
 **Inside the script, you can customize your node settings in the .env section:**
 ```bash
@@ -31,6 +31,20 @@ UPNP_ENABLED=true
 ```
 **Once you’re done editing, make the script executable and run it as root:** 
 ```bash
-chmod +x setup-pop-node.sh
-sudo ./setup-pop-node.sh
+chmod +x auto.sh
+sudo ./auto.sh
 ```
+## Monitoring
+**View node status and earnings:**
+```bash
+pop status
+pop earnings
+```
+**Prometheus metrics:**
+```bash
+curl http://localhost:9090/metrics
+```
+**Logs ( If use Systemd Service):**
+```bash
+sudo journalctl -u pipe-node -f
+``
