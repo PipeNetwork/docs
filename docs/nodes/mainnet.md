@@ -51,8 +51,8 @@ NODE_SOLANA_PUBLIC_KEY=your_solana_wallet_address
 
 # Node identity
 NODE_NAME=my-pop-node
-NODE_EMAIL=operator@example.com
-NODE_LOCATION=San Francisco, USA
+NODE_EMAIL="operator@example.com"
+NODE_LOCATION="San Francisco, USA"
 
 # Cache configuration
 MEMORY_CACHE_SIZE_MB=512
@@ -153,12 +153,6 @@ Check if it's running:
 ```bash
 # Health check
 curl http://localhost:8081/health
-
-# Test HTTP
-curl -I http://localhost
-
-# Test HTTPS (self-signed cert on first run)
-curl -Ik https://localhost
 ```
 
 ---
