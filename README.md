@@ -21,10 +21,7 @@ Introduction to Pipe Network and its capabilities
 Decentralized storage solution with client-side encryption
 
 ### Nodes
-- [DevNet 2](docs/nodes/devnet-2.md) - DevNet 2 node setup and operation
-  - [Troubleshooting](docs/nodes/devnet-2/troubleshooting.md) - Common issues and solutions
-- [Testnet](docs/nodes/testnet.md) - Testnet configuration guide
-- [Mainnet](docs/nodes/mainnet.md) - Mainnet information (Coming 2025)
+- [Mainnet](docs/nodes/mainnet.md) - Mainnet information
 - [Workdrop](docs/Workdrop.md) - Workdrop program
 
 ### CDN API
@@ -32,7 +29,6 @@ Decentralized storage solution with client-side encryption
 
 ### Appendix
 - [Pipe Network CDN for Solana Snapshots](docs/appendix/solana-snapshots.md) - Solana validator optimization
-- [Old Guardian Node](docs/appendix/old-guardian-node.md) - Legacy Guardian Node information
 
 ## 🚀 Quick Links
 
@@ -55,7 +51,7 @@ Software-defined routing layer that finds the fastest paths across multiple netw
 
 ### For PoP Node Operators
 - Linux operating system
-- Minimum 4GB RAM (16GB+ recommended for production)
+- Minimum 16GB RAM (32GB+ recommended for production)
 - 100GB+ SSD storage
 - 1Gbps+ network connection
 - 24/7 internet connectivity
@@ -75,12 +71,6 @@ Software-defined routing layer that finds the fastest paths across multiple netw
 
 This documentation is maintained by the Pipe Network community. If you find any issues or would like to contribute improvements, please submit a pull request or open an issue.
 
-## ⚠️ Important Notes
-
-- **DevNet Warning**: Current implementations run on Solana DevNet. DO NOT USE MAINNET SOL.
-- **Mainnet Launch**: Full mainnet is scheduled for 2025
-- **Node Registration**: Fill out the [registration form](https://docs.google.com/forms/d/e/1FAIpQLScbxN1qlstpbyU55K5I1UPufzfwshcv7uRJG6aLZQDk52ma0w/viewform) to be notified of updates
-
 ### Mica whitepaper
 - [Mica whitepaper](docs/mica.pdf)
 
@@ -90,4 +80,4 @@ Please refer to the official Pipe Network repositories for license information.
 
 ---
 
-*Last updated: January 2025*
+*Last updated: October 2025*
