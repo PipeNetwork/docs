@@ -117,22 +117,15 @@ Create `/etc/systemd/system/pipe.service`:
 ```ini
 [Unit]
 Description=Pipe Network POP Node
-After=network.target
-Wants=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-Type=simple
 WorkingDirectory=/opt/pipe
 EnvironmentFile=/opt/pipe/.env
 ExecStart=/opt/pipe/pop
-Restart=on-failure
+Restart=always
 RestartSec=3
-
-TimeoutStartSec=5min
-TimeoutStopSec=15s
-KillSignal=SIGINT
-KillMode=process
-
 StandardOutput=journal
 StandardError=journal
 LimitNOFILE=65535
