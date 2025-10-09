@@ -122,9 +122,10 @@ Wants=network-online.target
 
 [Service]
 WorkingDirectory=/opt/pipe
-ExecStart=/bin/bash -c 'source /opt/pipe/.env && /opt/pipe/pop'
+EnvironmentFile=/opt/pipe/.env
+ExecStart=/opt/pipe/pop
 Restart=always
-RestartSec=5
+RestartSec=3
 StandardOutput=journal
 StandardError=journal
 LimitNOFILE=65535
@@ -139,11 +140,15 @@ sudo systemctl daemon-reload
 sudo systemctl enable pipe
 
 sudo systemctl start pipe
-sudo journalctl -u pipe -f
 ```
 
 > 💡 **Tip:** Systemd ensures auto-restart on crash and starts automatically at boot.
 
+Logs
+
+```bash
+journalctl -u pipe -f
+```
 
 ---
 
@@ -168,17 +173,17 @@ cd /opt/pipe
 ./pop earnings
 ```
 
-Prometheus metrics:
+### **Optional: Prometheus Metrics**
+
+The node exposes an optional Prometheus-compatible endpoint on **port 9090**.
 
 ```bash
 curl http://localhost:9090/metrics
 ```
-
-Logs ( If use Systemd Service):
-
-```bash
-journalctl -u pipe -f
-```
+> 💡 **Note:**
+> This endpoint is **optional** and **not required** for your node to operate.
+> It is intended only for **local monitoring** or integration with observability tools such as **Prometheus**, **Grafana**, or **Telegraf**.
+>
 
 ---
 
