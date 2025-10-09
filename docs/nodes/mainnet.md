@@ -8,7 +8,7 @@ A quick, clean guide to get your PipeCDN node online and ready for mainnet.
 
 **Supported OS**
 
-* Ubuntu 22.04+ or Debian 11+
+* Ubuntu 24.04+ or Debian 11+
 
 **Network**
 
