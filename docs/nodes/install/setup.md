@@ -16,8 +16,8 @@ bash <(curl -sSL https://raw.githubusercontent.com/pipenetwork/docs/main/docs/no
 ## Monitoring
 **View node status and earnings:**
 ```bash
-pop status
-pop earnings
+./pop status
+./pop earnings
 ```
 **Prometheus metrics:**
 ```bash
