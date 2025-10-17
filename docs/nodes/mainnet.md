@@ -12,7 +12,7 @@ A quick, clean guide to get your PipeCDN node online and ready for mainnet.
 
 **Network**
 
-* Open TCP ports: `80` and `443`
+* Open TCP ports: `80` `443` and `8081`
 
 **Storage**
 
