@@ -1,54 +1,18 @@
-# $PIPE Tokenomics
+# $PIPE Tokenomics 2.0 (Mainnet)
 
-Pipe Network is a decentralized CDN protocol on Solana that uses blockchain incentives to create a globally distributed network of PoP nodes, delivering faster, cheaper, and more reliable content delivery.
+This page is a quick operator snapshot of Mainnet Tokenomics 2.0.
 
-## Token Utility
+## Source of Truth
 
-PIPE is a multi-utility token serving five primary roles:
+- Canonical policy: [Tokenomics Policy](../Tokenomics.md)
+- Operator summary: [Mainnet Quality Standards Guide](../nodes/mainnet-quality-standards.md)
+- If there is any conflict, [Tokenomics Policy](../Tokenomics.md) is authoritative.
 
-- **Staking**: Node operators stake PIPE to participate in the network, improving reputation and selection likelihood
-- **Delegated Staking**: Token holders can delegate PIPE to active nodes and earn proportional rewards
-- **Payments via Data Credits (DCs)**: Users burn PIPE to mint DCs for content delivery and storage
-- **Priority Services**: Users pay in DCs for enhanced CDN services like faster delivery and premium caching
-- **Governance**: Staked PIPE grants voting rights on protocol upgrades, emissions, and key economic parameters
+## Canonical Sections
 
-## Data Credit Model
-
-Pipe introduces a dual-token architecture where PIPE is converted into non-transferable Data Credits (DCs) used to pay for CDN services:
-
-- Conversion = PIPE burned to mint DCs
-- Pricing based on oracle-driven rates
-- DCs expire after 30-day epochs
-
-## Emission Model
-
-The network uses a demand-driven mint-and-burn model:
-
-- DC Purchases burn PIPE
-- PIPE minted based on DCs burned
-- 100% of rewards go to bandwidth
-- 7% of node rewards allocated to individual stakers
-
-## Service Economics
-
-The platform introduces an auction-style marketplace for:
-
-- Priority Bandwidth
-- Priority Cache
-
-## Network Security & Governance
-
-- Staking-based Sybil resistance
-- Cryptographic proofs of delivery
-- Decentralized governance via staked PIPE
-- Ongoing third-party audits and bug bounties
-
-## Token Supply & Sustainability
-
-- Controlled emissions
-- Stake lockups
-- Consumption equilibrium
-- Governance-controlled adjustments
-- Potential future supply cap
-
-The native token, PIPE, powers everything from staking and governance to bandwidth purchases through Data Credits (DCs).
+- Rates and gates: [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility)
+- Payout formulas and scheduler math: [Tokenomics §8](../Tokenomics.md#8-per-epoch-node-payout-formulas)
+- Settlement order and rounding: [Tokenomics §2](../Tokenomics.md#2-units-metering-and-rounding)
+- Fail-closed controls, anti-sybil, suspension: [Tokenomics §12](../Tokenomics.md#12-oracle-assignment-and-anti-gaming-controls)
+- Parameter defaults: [Tokenomics §14](../Tokenomics.md#14-parameter-registry-defaults)
+- Stake into LovePIPE pool: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>

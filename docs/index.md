@@ -14,9 +14,11 @@ Pipe Network is the **permissionless full-stack cloud**. It combines **content d
 1. Read the "Getting Started" guide to set up keys and your first request
 2. Pick a product track: CDN, Firestarter Storage, or P1 Overlay Network
 3. Explore best practices for performance, security, and monitoring when ready for production
+4. Review [Mainnet Tokenomics 2.0](Tokenomics.md) for rates and payout policy
 
 > If you're new to Pipe, begin with the overview pages for each product. If you already know where you're headed, jump straight to the API reference and quickstarts.
 
 ## Operating Nodes
 
-- **[Quality Multiplier Guide](nodes/quality-multiplier.md)** - Learn how to maximize your node earnings through performance optimization
+- **[Mainnet Quality Standards Guide (Tokenomics 2.0)](nodes/mainnet-quality-standards.md)** - Mainnet quality eligibility gates and flat-rate payout rules
+- **[LovePIPE Restaking Vault](https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/)** - Stake PIPE for per-node mainnet activation eligibility

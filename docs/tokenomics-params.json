@@ -1,0 +1,259 @@
+{
+  "version": "2.6.0",
+  "generated_from": "docs/Tokenomics.md#14-parameter-registry-defaults",
+  "parameters": [
+    {
+      "Parameter": "CDN_RATE_USD_PER_TB",
+      "Current Value": "0.25",
+      "Unit": "USD/TB",
+      "Min": "0.01",
+      "Max": "5.00",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "STORAGE_RATE_USD_PER_TB_MONTH",
+      "Current Value": "0.25",
+      "Unit": "USD/TB-month",
+      "Min": "0.01",
+      "Max": "5.00",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "BW_BUCKET_CAP_PCT",
+      "Current Value": "25",
+      "Unit": "% of monthly cap",
+      "Min": "0",
+      "Max": "50",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "ST_BUCKET_CAP_PCT",
+      "Current Value": "25",
+      "Unit": "% of monthly cap",
+      "Min": "0",
+      "Max": "50",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "TREASURY_ON_MINT_FEE_BPS",
+      "Current Value": "300",
+      "Unit": "bps",
+      "Min": "0",
+      "Max": "1000",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "STAKING_COMMISSION_BPS",
+      "Current Value": "700",
+      "Unit": "bps",
+      "Min": "0",
+      "Max": "2000",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "PIPE_DECIMALS",
+      "Current Value": "6",
+      "Unit": "decimal places",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "Off-chain settlement output",
+      "Protocol-Updateable": "No",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Settlement Engineering"
+    },
+    {
+      "Parameter": "SETTLEMENT_ROUNDING_MODE",
+      "Current Value": "round_down",
+      "Unit": "enum",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "Off-chain settlement output",
+      "Protocol-Updateable": "No",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Settlement Engineering"
+    },
+    {
+      "Parameter": "STAKE_MIN",
+      "Current Value": "100",
+      "Unit": "PIPE per node",
+      "Min": "100",
+      "Max": "100000",
+      "Enforced Where": "Off-chain eligibility checker",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Economics"
+    },
+    {
+      "Parameter": "PRIORITY_STAKE_CAP",
+      "Current Value": "4.0",
+      "Unit": "weight ratio cap",
+      "Min": "1.0",
+      "Max": "8.0",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Assignment Engineering"
+    },
+    {
+      "Parameter": "MAX_QUEUE_SHARE",
+      "Current Value": "20",
+      "Unit": "% per node per queue per settlement_epoch",
+      "Min": "5",
+      "Max": "50",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Assignment Engineering"
+    },
+    {
+      "Parameter": "CLUSTER_QUEUE_SHARE_CAP",
+      "Current Value": "25",
+      "Unit": "% per related-node cluster per queue per settlement_epoch",
+      "Min": "10",
+      "Max": "60",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Assignment Engineering"
+    },
+    {
+      "Parameter": "NEW_NODE_RAMP_EPOCHS",
+      "Current Value": "2",
+      "Unit": "settlement_epochs",
+      "Min": "0",
+      "Max": "6",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Assignment Engineering"
+    },
+    {
+      "Parameter": "NEW_NODE_QUEUE_SHARE_CAP",
+      "Current Value": "5",
+      "Unit": "% per queue in ramp",
+      "Min": "1",
+      "Max": "10",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Assignment Engineering"
+    },
+    {
+      "Parameter": "FAIL_STREAK_SUSPEND_THRESHOLD",
+      "Current Value": "3",
+      "Unit": "failed settlement_epochs",
+      "Min": "1",
+      "Max": "6",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Reliability Engineering"
+    },
+    {
+      "Parameter": "SUSPEND_EPOCHS",
+      "Current Value": "1",
+      "Unit": "settlement_epochs",
+      "Min": "1",
+      "Max": "6",
+      "Enforced Where": "Off-chain assignment scheduler",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Reliability Engineering"
+    },
+    {
+      "Parameter": "TELEMETRY_MAX_GAP_SECONDS",
+      "Current Value": "900",
+      "Unit": "seconds",
+      "Min": "60",
+      "Max": "3600",
+      "Enforced Where": "Off-chain eligibility checker",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Observability Engineering"
+    },
+    {
+      "Parameter": "TELEMETRY_MAX_DELAY_SECONDS",
+      "Current Value": "3600",
+      "Unit": "seconds",
+      "Min": "300",
+      "Max": "86400",
+      "Enforced Where": "Off-chain eligibility checker",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Observability Engineering"
+    },
+    {
+      "Parameter": "ORACLE_MAX_AGE_SECONDS",
+      "Current Value": "3600",
+      "Unit": "seconds",
+      "Min": "60",
+      "Max": "21600",
+      "Enforced Where": "Off-chain settlement engine",
+      "Protocol-Updateable": "Yes",
+      "Change Effective Field": "effective_settlement_epoch",
+      "Parameter Owner": "Oracle Operations"
+    },
+    {
+      "Parameter": "PAYOUT_WALLET_BINDING_MODE",
+      "Current Value": "1:1 strict",
+      "Unit": "enum",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "Off-chain eligibility checker",
+      "Protocol-Updateable": "No",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Protocol Ops"
+    },
+    {
+      "Parameter": "JITO_EPOCH_LENGTH_SLOTS",
+      "Current Value": "432000",
+      "Unit": "slots",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "On-chain Jito config",
+      "Protocol-Updateable": "No (external upstream)",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Jito (External)"
+    },
+    {
+      "Parameter": "LOVEPIPE_UNSTAKE_TIMING_MODE",
+      "Current Value": "epoch_based",
+      "Unit": "enum",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "On-chain Jito + off-chain settlement ops",
+      "Protocol-Updateable": "No (external upstream)",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Jito + Protocol Ops"
+    },
+    {
+      "Parameter": "GLOBAL_BOOST_PROGRAMS",
+      "Current Value": "disabled",
+      "Unit": "boolean",
+      "Min": "n/a",
+      "Max": "n/a",
+      "Enforced Where": "Policy + off-chain settlement engine",
+      "Protocol-Updateable": "No",
+      "Change Effective Field": "n/a",
+      "Parameter Owner": "Economics"
+    }
+  ]
+}

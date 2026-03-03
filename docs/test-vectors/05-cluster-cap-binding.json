@@ -1,0 +1,69 @@
+{
+  "name": "cluster_cap_binding",
+  "type": "assignment",
+  "inputs": {
+    "stake_min": "100",
+    "priority_stake_cap": "4.0",
+    "max_queue_share": "0.20",
+    "cluster_queue_share_cap": "0.25",
+    "new_node_queue_share_cap": "0.05",
+    "nodes": [
+      {
+        "id": "node-a1",
+        "stake": "1600",
+        "eligible": 1,
+        "cluster": "cluster-a",
+        "is_new": false
+      },
+      {
+        "id": "node-a2",
+        "stake": "1600",
+        "eligible": 1,
+        "cluster": "cluster-a",
+        "is_new": false
+      },
+      {
+        "id": "node-b",
+        "stake": "100",
+        "eligible": 1,
+        "cluster": "cluster-b",
+        "is_new": false
+      },
+      {
+        "id": "node-c",
+        "stake": "100",
+        "eligible": 1,
+        "cluster": "cluster-c",
+        "is_new": false
+      },
+      {
+        "id": "node-d",
+        "stake": "100",
+        "eligible": 1,
+        "cluster": "cluster-d",
+        "is_new": false
+      },
+      {
+        "id": "node-e",
+        "stake": "100",
+        "eligible": 1,
+        "cluster": "cluster-e",
+        "is_new": false
+      }
+    ]
+  },
+  "expected": {
+    "alloc_share": {
+      "node-a1": "0.125",
+      "node-a2": "0.125",
+      "node-b": "0.1875",
+      "node-c": "0.1875",
+      "node-d": "0.1875",
+      "node-e": "0.1875"
+    },
+    "cluster_totals": {
+      "cluster-a": "0.25"
+    },
+    "unallocated_share": "0"
+  }
+}

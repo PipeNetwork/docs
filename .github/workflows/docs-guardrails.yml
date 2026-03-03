@@ -1,0 +1,107 @@
+name: Docs Guardrails
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "docs/**"
+      - ".github/workflows/docs-guardrails.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "README.md"
+      - "docs/**"
+      - ".github/workflows/docs-guardrails.yml"
+
+jobs:
+  legacy-tokenomics-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Block legacy tokenomics strings
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          fail=0
+
+          blocked_strings=(
+            '$1/TB'
+            '$1 per TB'
+            '$10/TB-month'
+            '$10 per TB-month'
+            'quality multiplier'
+            '1.5x'
+            '0.85x'
+            '0.7x'
+            'governance'
+            'voting'
+            'votes'
+            'Boost: 2x'
+            'Whitelist Bonus = Extra 2x Multiplier'
+            'whitelist 2x'
+            'workdrop'
+            'stake pool'
+          )
+
+          blocked_claim_patterns=(
+            '\\bis a 30-?day cooldown\\b'
+            '\\bis 30-?day cooldown\\b'
+            '\\bhas a 30-?day cooldown\\b'
+            '\\buses a 30-?day cooldown\\b'
+            '\\bis a fixed 30-?day lock\\b'
+            '\\bis fixed 30-?day lock\\b'
+            '\\bhas a fixed 30-?day lock\\b'
+            '\\buses a fixed 30-?day lock\\b'
+          )
+
+          for blocked in "${blocked_strings[@]}"; do
+            if grep -RIn --exclude-dir=.git --binary-files=without-match -i -F "$blocked" README.md docs; then
+              echo "Blocked legacy string: $blocked"
+              fail=1
+            fi
+          done
+
+          for pattern in "${blocked_claim_patterns[@]}"; do
+            if grep -RIn --exclude-dir=.git --binary-files=without-match -i -E "$pattern" README.md docs; then
+              echo "Blocked misleading cooldown claim pattern: $pattern"
+              fail=1
+            fi
+          done
+
+          if [[ "$fail" -ne 0 ]]; then
+            echo "Legacy tokenomics/workdrop wording detected. Update docs to Tokenomics 2.0 policy."
+            exit 1
+          fi
+
+      - name: Check tokenomics parameter drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 docs/scripts/check_tokenomics_params_sync.py
+
+      - name: Check markdown links and anchors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 docs/scripts/check_markdown_links.py
+
+      - name: Run tokenomics test vectors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 docs/scripts/run_tokenomics_test_vectors.py
+
+      - name: Enforce redirect sunset
+        shell: bash
+        run: |
+          set -euo pipefail
+          cutoff="2026-06-30"
+          today="$(date -u +%Y-%m-%d)"
+          if [[ "$today" > "$cutoff" && -f docs/nodes/quality-multiplier.md ]]; then
+            echo "docs/nodes/quality-multiplier.md must be removed after ${cutoff}."
+            exit 1
+          fi

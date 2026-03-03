@@ -1,0 +1,42 @@
+{
+  "name": "empty_storage_bucket_demand",
+  "type": "settlement",
+  "inputs": {
+    "oracle_price_usd_per_pipe": "0.25",
+    "oracle_age_seconds": 200,
+    "oracle_max_age_seconds": 3600,
+    "e_cap_month_pipe": "1000",
+    "cdn_rate_usd_per_tb": "0.25",
+    "storage_rate_usd_per_tb_month": "0.25",
+    "bw_bucket_cap_pct": "25",
+    "st_bucket_cap_pct": "25",
+    "staking_commission_bps": "700",
+    "pipe_decimals": 6,
+    "nodes": [
+      {
+        "id": "node-cdn-only",
+        "bw_tb": "1",
+        "st_tbm": "0",
+        "q": 1,
+        "s": 1,
+        "w": 1
+      }
+    ]
+  },
+  "expected": {
+    "settlement_state": "OK",
+    "B_scale": "1",
+    "S_scale": "0",
+    "nodes": {
+      "node-cdn-only": {
+        "e": 1,
+        "gross_pipe": "1",
+        "net_pipe": "0.930000"
+      }
+    },
+    "totals": {
+      "gross_pipe": "1",
+      "net_pipe": "0.930000"
+    }
+  }
+}

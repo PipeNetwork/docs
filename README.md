@@ -13,7 +13,7 @@ Introduction to Pipe Network and its capabilities
 - [Key Features](docs/getting-started/key-features.md) - Core features and capabilities
 - [Scalability and Network Growth](docs/getting-started/scalability-and-network-growth.md) - How Pipe Network scales
 - [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md) - Real-world applications
-- [$PIPE Tokenomics](docs/Tokenomics.md) - Token economics and utility
+- [$PIPE Tokenomics 2.0 (Mainnet)](docs/Tokenomics.md) - Mainnet economic model, rates, and payout policy
 - [Quickstart](docs/getting-started/quickstart.md) - Operating a DevNet CDN PoP Node
 - [Performance and Fraud Detection](docs/getting-started/performance-and-fraud-detection.md) - Security measures
 
@@ -22,8 +22,8 @@ Decentralized storage solution with client-side encryption
 
 ### Nodes
 - [Mainnet](docs/nodes/mainnet.md) - Mainnet information
-- [Workdrop](docs/Workdrop.md) - Workdrop program
-- [Quality Multiplier Guide](docs/nodes/quality-multiplier.md) - Learn how to maximize your node earnings through performance optimization
+- [Mainnet Quality Standards Guide (Tokenomics 2.0)](docs/nodes/mainnet-quality-standards.md) - Mainnet quality eligibility gates and flat-rate payout rules
+- [LovePIPE Restaking Vault](https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/) - Stake PIPE for per-node mainnet activation eligibility
 
 ### CDN API
 - [API Documentation](docs/cdn-api/api-documentation.md) - Complete API reference
@@ -81,4 +81,4 @@ Please refer to the official Pipe Network repositories for license information.
 
 ---
 
-*Last updated: October 2025*
+*Last updated: March 2026*

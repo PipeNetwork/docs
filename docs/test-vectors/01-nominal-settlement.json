@@ -1,0 +1,55 @@
+{
+  "name": "nominal_settlement",
+  "type": "settlement",
+  "inputs": {
+    "oracle_price_usd_per_pipe": "0.50",
+    "oracle_age_seconds": 120,
+    "oracle_max_age_seconds": 3600,
+    "e_cap_month_pipe": "1000",
+    "cdn_rate_usd_per_tb": "0.25",
+    "storage_rate_usd_per_tb_month": "0.25",
+    "bw_bucket_cap_pct": "25",
+    "st_bucket_cap_pct": "25",
+    "staking_commission_bps": "700",
+    "pipe_decimals": 6,
+    "nodes": [
+      {
+        "id": "node-a",
+        "bw_tb": "12",
+        "st_tbm": "8",
+        "q": 1,
+        "s": 1,
+        "w": 1
+      },
+      {
+        "id": "node-b",
+        "bw_tb": "4",
+        "st_tbm": "2",
+        "q": 1,
+        "s": 1,
+        "w": 1
+      }
+    ]
+  },
+  "expected": {
+    "settlement_state": "OK",
+    "B_scale": "1",
+    "S_scale": "1",
+    "nodes": {
+      "node-a": {
+        "e": 1,
+        "gross_pipe": "10",
+        "net_pipe": "9.300000"
+      },
+      "node-b": {
+        "e": 1,
+        "gross_pipe": "3",
+        "net_pipe": "2.790000"
+      }
+    },
+    "totals": {
+      "gross_pipe": "13",
+      "net_pipe": "12.090000"
+    }
+  }
+}

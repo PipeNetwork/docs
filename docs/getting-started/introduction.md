@@ -28,5 +28,5 @@ Pipe Network provides a unified stack built on the PoP fabric:
 | **Infrastructure Model** | Centralized data centers in limited regions | Distributed hyperlocal PoP nodes run permissionlessly |
 | **Latency** | Optimized regionally, often >20ms | Sub‑10ms from hyperlocal PoPs |
 | **Scalability** | Requires capital‑intensive buildout | Scales organically as new participants deploy PoPs |
-| **Control** | Centralized ownership and governance | Community‑driven, permissionless participation |
+| **Control** | Centralized ownership and decision-making | Community‑driven, permissionless participation |
 | **Economics** | Proprietary pricing models | Transparent, market-driven pricing |

@@ -1,0 +1,55 @@
+{
+  "name": "gate_failure_zero_payout",
+  "type": "settlement",
+  "inputs": {
+    "oracle_price_usd_per_pipe": "1.00",
+    "oracle_age_seconds": 100,
+    "oracle_max_age_seconds": 3600,
+    "e_cap_month_pipe": "1000",
+    "cdn_rate_usd_per_tb": "0.25",
+    "storage_rate_usd_per_tb_month": "0.25",
+    "bw_bucket_cap_pct": "25",
+    "st_bucket_cap_pct": "25",
+    "staking_commission_bps": "700",
+    "pipe_decimals": 6,
+    "nodes": [
+      {
+        "id": "node-pass",
+        "bw_tb": "10",
+        "st_tbm": "10",
+        "q": 1,
+        "s": 1,
+        "w": 1
+      },
+      {
+        "id": "node-fail",
+        "bw_tb": "10",
+        "st_tbm": "10",
+        "q": 0,
+        "s": 1,
+        "w": 1
+      }
+    ]
+  },
+  "expected": {
+    "settlement_state": "OK",
+    "B_scale": "1",
+    "S_scale": "1",
+    "nodes": {
+      "node-pass": {
+        "e": 1,
+        "gross_pipe": "5",
+        "net_pipe": "4.650000"
+      },
+      "node-fail": {
+        "e": 0,
+        "gross_pipe": "0",
+        "net_pipe": "0.000000"
+      }
+    },
+    "totals": {
+      "gross_pipe": "5",
+      "net_pipe": "4.650000"
+    }
+  }
+}

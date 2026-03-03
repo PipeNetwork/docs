@@ -2,6 +2,15 @@
 
 A quick, clean guide to get your PipeCDN node online and ready for mainnet.
 
+## Policy Header
+
+| Field | Value |
+| --- | --- |
+| Version | 2.6.0 |
+| Effective Date | March 3, 2026 |
+| Status | Active |
+| Supersedes | Prior mainnet operator payout guidance with legacy boost programs, soft gates, or no stake activation gate |
+
 ---
 
 ## 1. Requirements
@@ -182,7 +191,22 @@ journalctl -u pipe -f
 
 ---
 
-## 8. Troubleshooting
+## 8. Mainnet Earnings Policy (Tokenomics 2.0)
+
+This section is a quick summary. Canonical policy lives in [Tokenomics Policy](../Tokenomics.md).
+
+Canonical references:
+
+- Rates and activation gates: [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility)
+- Payout math and scheduler shares: [Tokenomics §8](../Tokenomics.md#8-per-epoch-node-payout-formulas)
+- Rounding, oracle, fail-closed, anti-sybil, suspension: [Tokenomics §2](../Tokenomics.md#2-units-metering-and-rounding) and [Tokenomics §12](../Tokenomics.md#12-oracle-assignment-and-anti-gaming-controls)
+- Parameter defaults: [Tokenomics §14](../Tokenomics.md#14-parameter-registry-defaults)
+- Stake into LovePIPE pool: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
+- Operator summary page: [Mainnet Quality Standards Guide](mainnet-quality-standards.md)
+
+---
+
+## 9. Troubleshooting
 
 | Issue                      | Solution                                          |
 | -------------------------- | ------------------------------------------------- |
@@ -193,7 +217,7 @@ journalctl -u pipe -f
 
 ---
 
-## 9. Performance Tuning
+## 10. Performance Tuning
 
 For high-traffic setups:
 
@@ -213,14 +237,14 @@ Use SSD/NVMe for best caching performance.
 
 ---
 
-## 10. Quick Recap
+## 11. Quick Recap
 
 * Download binary -> `chmod +x pop`
 * Create `.env`
 * Open ports 80 & 443
 * Run with `source .env && ./pop`
 * Verify with `/health` - the output should return`"status":"healthy"`
+* Review policy summary in Section 8 (source of truth is `docs/Tokenomics.md`)
 
 
-Your node is now part of the PipeCDN mesh and ready to earn $PIPE rewards. 🚀
-
+Your node is now part of the PipeCDN mesh and ready to earn Mainnet node rewards.
