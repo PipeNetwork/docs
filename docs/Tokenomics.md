@@ -1,12 +1,6 @@
 # Pipe Network Mainnet Tokenomics Policy
 
-## Policy Header
-
-| Field | Value |
-| --- | --- |
-| Version | 2.6.0 |
-| Effective Date | March 3, 2026 |
-| Status | Active |
+Metadata: `Version 2.6.0` | Effective Date: March 3, 2026 | Status: Active
 
 This document is the canonical reference for Mainnet payout rules.
 
@@ -74,6 +68,14 @@ Eligibility gates are fail-closed:
 | Active stake | `stake_i >= STAKE_MIN` for full settlement_epoch | `s_i = 0` for that settlement_epoch |
 | Wallet binding | Exactly one payout wallet per node and no shared payout wallet for full settlement_epoch | `w_i = 0` for that settlement_epoch |
 
+Stake gate adjudication (`s_i`) is deterministic:
+
+- Data source: finalized on-chain LovePIPE stake records for each node.
+- Sampling cadence: hourly snapshots across the full settlement_epoch.
+- Pass condition: every snapshot must satisfy `stake_i >= STAKE_MIN`.
+- Any snapshot below `STAKE_MIN` sets `s_i = 0` for the full settlement_epoch.
+- `STAKE_MIN` updates activate only at `effective_settlement_epoch` boundaries.
+
 Combined settlement eligibility:
 
 ```text
@@ -119,7 +121,7 @@ net_pipe_i     = floor_6(gross_pipe_i * 0.93)
 
 ## Implementation References
 
-- Operations and settlement controls: [Tokenomics Operations Spec](tokenomics-operations-spec.md)
+- Settlement math and parameter registry: [Tokenomics Operations Spec](tokenomics-operations-spec.md)
 - Machine-readable parameter registry: [tokenomics-params.json](tokenomics-params.json)
 - Deterministic vectors: `docs/test-vectors/*.json`
 

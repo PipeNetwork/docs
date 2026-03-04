@@ -8,7 +8,7 @@ from pathlib import Path
 POLICY_PATH = Path("docs/Tokenomics.md")
 SPEC_PATH = Path("docs/tokenomics-operations-spec.md")
 PARAMS_JSON_PATH = Path("docs/tokenomics-params.json")
-SECTION_HEADER = "## 7) Parameter Registry (Defaults)"
+SECTION_HEADER = "## 2) Parameter Registry (Defaults)"
 
 
 def fail(msg: str) -> None:
@@ -17,10 +17,21 @@ def fail(msg: str) -> None:
 
 
 def parse_tokenomics_version(md: str) -> str:
+    # Backward compatibility for older table-based header.
     m = re.search(r"^\|\s*Version\s*\|\s*([^\|]+?)\s*\|$", md, flags=re.MULTILINE)
-    if not m:
-        fail("Could not parse Tokenomics version from policy header table.")
-    return m.group(1).strip()
+    if m:
+        return m.group(1).strip()
+
+    # Current canonical metadata line format.
+    m = re.search(
+        r"^Metadata:\s*`Version\s+([0-9]+\.[0-9]+\.[0-9]+)`",
+        md,
+        flags=re.MULTILINE,
+    )
+    if m:
+        return m.group(1).strip()
+
+    fail("Could not parse Tokenomics version from policy metadata.")
 
 
 def parse_parameter_table(md: str) -> list[dict[str, str]]:

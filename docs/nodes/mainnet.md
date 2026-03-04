@@ -70,25 +70,11 @@ UPNP_ENABLED=true
 
 For VPS or server deployments, set `UPNP_ENABLED=false`.
 
----
-
-## 4. Wallet Setup
-
-If you do not have a Solana wallet:
-
-1. Install [Phantom Wallet](https://phantom.app), or
-2. Use Solana CLI:
-
-```bash
-solana-keygen new
-solana address
-```
-
-Use the public key as `NODE_SOLANA_PUBLIC_KEY` in `.env`.
+Wallet setup reference: [Node Wallet Setup](wallet-setup.md)
 
 ---
 
-## 5. Run the Node
+## 4. Run the Node
 
 Choose one method.
 
@@ -138,7 +124,9 @@ sudo journalctl -u pipe -f
 
 ---
 
-## 6. Verification
+## 5. Verification
+
+The local health endpoint runs on control port `8081` and is independent of public `HTTP_PORT`/`HTTPS_PORT`.
 
 ```bash
 curl http://localhost:8081/health
@@ -148,8 +136,9 @@ Expected health output includes `"status":"healthy"`.
 
 ---
 
-## 7. Next Steps
+## 6. Next Steps
 
+- Wallet setup details: [Node Wallet Setup](wallet-setup.md)
 - Operational monitoring and troubleshooting: [Mainnet Node Operations](mainnet-operations.md)
 - Eligibility checklist: [Mainnet Quality Standards Checklist](mainnet-quality-standards.md)
 - Canonical policy rules: [Mainnet Tokenomics Policy](../Tokenomics.md)

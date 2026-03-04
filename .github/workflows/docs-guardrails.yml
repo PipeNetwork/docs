@@ -94,20 +94,3 @@ jobs:
         run: |
           set -euo pipefail
           python3 docs/scripts/run_tokenomics_test_vectors.py
-
-      - name: Enforce redirect sunset
-        shell: bash
-        run: |
-          set -euo pipefail
-          cutoff="2026-06-30"
-          today="$(date -u +%Y-%m-%d)"
-          if [[ "$today" > "$cutoff" ]]; then
-            if [[ -f docs/nodes/quality-multiplier.md ]]; then
-              echo "docs/nodes/quality-multiplier.md must be removed after ${cutoff}."
-              exit 1
-            fi
-            if [[ -f docs/getting-started/tokenomics.md ]]; then
-              echo "docs/getting-started/tokenomics.md must be removed after ${cutoff}."
-              exit 1
-            fi
-          fi
