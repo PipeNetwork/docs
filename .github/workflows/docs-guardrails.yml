@@ -73,7 +73,7 @@ jobs:
           done
 
           if [[ "$fail" -ne 0 ]]; then
-            echo "Legacy tokenomics/workdrop wording detected. Update docs to Tokenomics 2.0 policy."
+            echo "Legacy tokenomics/workdrop wording detected. Update docs to Mainnet Tokenomics policy."
             exit 1
           fi
 
@@ -101,7 +101,13 @@ jobs:
           set -euo pipefail
           cutoff="2026-06-30"
           today="$(date -u +%Y-%m-%d)"
-          if [[ "$today" > "$cutoff" && -f docs/nodes/quality-multiplier.md ]]; then
-            echo "docs/nodes/quality-multiplier.md must be removed after ${cutoff}."
-            exit 1
+          if [[ "$today" > "$cutoff" ]]; then
+            if [[ -f docs/nodes/quality-multiplier.md ]]; then
+              echo "docs/nodes/quality-multiplier.md must be removed after ${cutoff}."
+              exit 1
+            fi
+            if [[ -f docs/getting-started/tokenomics.md ]]; then
+              echo "docs/getting-started/tokenomics.md must be removed after ${cutoff}."
+              exit 1
+            fi
           fi

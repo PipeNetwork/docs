@@ -1,15 +1,9 @@
 # Mainnet
 
-A quick, clean guide to get your PipeCDN node online and ready for mainnet.
+A focused setup guide to install and run your PipeCDN node on mainnet.
 
-## Policy Header
-
-| Field | Value |
-| --- | --- |
-| Version | 2.6.0 |
-| Effective Date | March 3, 2026 |
-| Status | Active |
-| Supersedes | Prior mainnet operator payout guidance with legacy boost programs, soft gates, or no stake activation gate |
+Canonical policy version: [Mainnet Tokenomics Policy](../Tokenomics.md) (`v2.6.0`, effective March 3, 2026).
+Settlement implementation reference: [Tokenomics Operations Spec](../tokenomics-operations-spec.md) (`v2.6.0`).
 
 ---
 
@@ -17,42 +11,40 @@ A quick, clean guide to get your PipeCDN node online and ready for mainnet.
 
 **Supported OS**
 
-* Ubuntu 24.04+ or Debian 11+
+- Ubuntu 24.04+ or Debian 11+
 
 **Network**
 
-* Open TCP ports: `80` and `443`
+- Open TCP ports: `80` and `443`
 
 **Storage**
 
-* At least 20 GB free space
-* SSD/NVMe recommended for cache
+- At least 20 GB free space
+- SSD/NVMe recommended for cache
 
 ---
 
 ## 2. Installation
 
-### **Step 1 — Create installation directory**
+### Step 1: Create installation directory
 
 ```bash
 cd /opt
 mkdir pipe && cd pipe
 ```
 
-### **Step 2 — Download the latest binary**
+### Step 2: Download the latest binary
 
 ```bash
 curl -L https://pipe.network/p1-cdn/releases/latest/download/pop -o pop
 chmod +x pop
 ```
 
-> 💡 **Tip:** Keep the binary inside `/opt/pipe` for easy service management and updates.
-
 ---
 
 ## 3. Configuration
 
-Create a file named `.env` inside `/opt/pipe`:
+Create `.env` inside `/opt/pipe`:
 
 ```bash
 # Wallet for earnings
@@ -76,50 +68,43 @@ HTTPS_PORT=443
 UPNP_ENABLED=true
 ```
 
-> 💡 **Tip:**  If you run on a VPS, keep `UPNP_ENABLED=false`.
-> For home setups, enable it and make sure your router allows UPnP.
+For VPS or server deployments, set `UPNP_ENABLED=false`.
 
 ---
 
 ## 4. Wallet Setup
 
-If you don’t have a Solana wallet yet:
+If you do not have a Solana wallet:
 
-1. Install **[Phantom Wallet](https://phantom.app)**, or
+1. Install [Phantom Wallet](https://phantom.app), or
 2. Use Solana CLI:
 
-   ```bash
-   solana-keygen new
-   solana address
-   ```
-3. Copy your **public key** (44 chars, starts with letters/numbers).
-   Paste it into `.env` as `NODE_SOLANA_PUBLIC_KEY`.
+```bash
+solana-keygen new
+solana address
+```
 
-> ⚠️ **Never** share your private key or seed phrase.
+Use the public key as `NODE_SOLANA_PUBLIC_KEY` in `.env`.
 
 ---
 
 ## 5. Run the Node
 
-> Choose **one** of the options below to start your node — pick the method that fits your setup.
+Choose one method.
 
-### **Option 1 — Manual Run**
-
-Ideal for quick testing or temporary sessions.
+### Option 1: Manual run
 
 ```bash
 source .env && ./pop
 ```
 
-### **Option 2 — Background Process**
-
-Run it detached from the terminal (logs to `pop.log`).
+### Option 2: Background process
 
 ```bash
 nohup bash -c "source .env && ./pop" > pop.log 2>&1 &
 ```
 
-### **Option 3 — Systemd Service (Recommended)**
+### Option 3: Systemd service (recommended)
 
 Create `/etc/systemd/system/pipe.service`:
 
@@ -143,108 +128,29 @@ WantedBy=multi-user.target
 ```
 
 Enable and start:
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable pipe
-
 sudo systemctl start pipe
 sudo journalctl -u pipe -f
 ```
 
-> 💡 **Tip:** Systemd ensures auto-restart on crash and starts automatically at boot.
-
-
 ---
 
 ## 6. Verification
-Check if it's running:
 
 ```bash
-# Health check
 curl http://localhost:8081/health
 ```
 
----
-
-## 7. Monitoring
-
-View node status and earnings:
-
-```bash
-cd /opt/pipe
-
-./pop status
-./pop earnings
-```
-
-Prometheus metrics:
-
-```bash
-curl http://localhost:9090/metrics
-```
-
-Logs ( If use Systemd Service):
-
-```bash
-journalctl -u pipe -f
-```
+Expected health output includes `"status":"healthy"`.
 
 ---
 
-## 8. Mainnet Earnings Policy (Tokenomics 2.0)
+## 7. Next Steps
 
-This section is a quick summary. Canonical policy lives in [Tokenomics Policy](../Tokenomics.md).
-
-Canonical references:
-
-- Rates and activation gates: [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility)
-- Payout math and scheduler shares: [Tokenomics §8](../Tokenomics.md#8-per-epoch-node-payout-formulas)
-- Rounding, oracle, fail-closed, anti-sybil, suspension: [Tokenomics §2](../Tokenomics.md#2-units-metering-and-rounding) and [Tokenomics §12](../Tokenomics.md#12-oracle-assignment-and-anti-gaming-controls)
-- Parameter defaults: [Tokenomics §14](../Tokenomics.md#14-parameter-registry-defaults)
+- Operational monitoring and troubleshooting: [Mainnet Node Operations](mainnet-operations.md)
+- Eligibility checklist: [Mainnet Quality Standards Checklist](mainnet-quality-standards.md)
+- Canonical policy rules: [Mainnet Tokenomics Policy](../Tokenomics.md)
 - Stake into LovePIPE pool: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
-- Operator summary page: [Mainnet Quality Standards Guide](mainnet-quality-standards.md)
-
----
-
-## 9. Troubleshooting
-
-| Issue                      | Solution                                          |
-| -------------------------- | ------------------------------------------------- |
-| **Port 80/443 in use**     | `sudo lsof -i :80` → kill conflicting process     |
-| **UPnP failed (home use)** | Enable UPnP in router or set `UPNP_ENABLED=false` |
-| **Low disk space**         | Reduce `DISK_CACHE_SIZE_GB` in `.env`             |
-| **High memory usage**      | Lower `MEMORY_CACHE_SIZE_MB` (e.g. 256)           |
-
----
-
-## 10. Performance Tuning
-
-For high-traffic setups:
-
-```bash
-# Increase worker threads
-export TOKIO_WORKER_THREADS=16
-
-# Larger cache
-export MEMORY_CACHE_SIZE_MB=8192
-export DISK_CACHE_SIZE_GB=500
-
-# Use SSD/NVMe for cache
-export DISK_CACHE_PATH=/mnt/nvme/cache
-```
-
-Use SSD/NVMe for best caching performance.
-
----
-
-## 11. Quick Recap
-
-* Download binary -> `chmod +x pop`
-* Create `.env`
-* Open ports 80 & 443
-* Run with `source .env && ./pop`
-* Verify with `/health` - the output should return`"status":"healthy"`
-* Review policy summary in Section 8 (source of truth is `docs/Tokenomics.md`)
-
-
-Your node is now part of the PipeCDN mesh and ready to earn Mainnet node rewards.

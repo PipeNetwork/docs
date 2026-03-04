@@ -13,7 +13,8 @@ Introduction to Pipe Network and its capabilities
 - [Key Features](docs/getting-started/key-features.md) - Core features and capabilities
 - [Scalability and Network Growth](docs/getting-started/scalability-and-network-growth.md) - How Pipe Network scales
 - [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md) - Real-world applications
-- [$PIPE Tokenomics 2.0 (Mainnet)](docs/Tokenomics.md) - Mainnet economic model, rates, and payout policy
+- [Mainnet Tokenomics Policy](docs/Tokenomics.md) - Canonical payout rates, eligibility gates, and formulas
+- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md) - Settlement implementation, controls, and parameter registry
 - [Quickstart](docs/getting-started/quickstart.md) - Operating a DevNet CDN PoP Node
 - [Performance and Fraud Detection](docs/getting-started/performance-and-fraud-detection.md) - Security measures
 
@@ -22,7 +23,8 @@ Decentralized storage solution with client-side encryption
 
 ### Nodes
 - [Mainnet](docs/nodes/mainnet.md) - Mainnet information
-- [Mainnet Quality Standards Guide (Tokenomics 2.0)](docs/nodes/mainnet-quality-standards.md) - Mainnet quality eligibility gates and flat-rate payout rules
+- [Mainnet Node Operations](docs/nodes/mainnet-operations.md) - Monitoring, troubleshooting, and performance tuning
+- [Mainnet Quality Standards Checklist](docs/nodes/mainnet-quality-standards.md) - Mainnet activation and quality eligibility checklist
 - [LovePIPE Restaking Vault](https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/) - Stake PIPE for per-node mainnet activation eligibility
 
 ### CDN API

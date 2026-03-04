@@ -1,34 +1,28 @@
-# Mainnet Quality Standards Guide (Tokenomics 2.0)
+# Mainnet Quality Standards Checklist
 
-## Policy Header
+Canonical policy version: [Mainnet Tokenomics Policy](../Tokenomics.md) (`v2.6.0`, effective March 3, 2026).
+Settlement implementation reference: [Tokenomics Operations Spec](../tokenomics-operations-spec.md) (`v2.6.0`).
 
-| Field | Value |
+All checks are pass/fail for the full `settlement_epoch`.
+
+| Check | Pass Condition |
 | --- | --- |
-| Version | 2.6.0 |
-| Effective Date | March 3, 2026 |
-| Status | Active |
-| Scope | Mainnet operators only |
+| Stake minimum | Active stake `>= 100 PIPE` in LovePIPE for full settlement_epoch |
+| Wallet binding | Strict `1:1` binding for full settlement_epoch |
+| Uptime | `>= 98%` for full settlement_epoch |
+| Reliability error rate | `< 0.1%` for full settlement_epoch |
+| Latency | Within healthy band for route class for full settlement_epoch |
+| CDN cache efficiency | `>= 80%` for CDN workload for full settlement_epoch |
 
-## Source of Truth
+| Rule | Result |
+| --- | --- |
+| Any check fails in settlement_epoch | Node is ineligible (`e_i = 0`) for that full settlement_epoch |
+| No check fails in settlement_epoch | Node remains eligible (`e_i = 1`) |
 
-- The canonical policy is [Tokenomics Policy](../Tokenomics.md).
-- This page is an operator summary only.
-- If anything here conflicts with [Tokenomics Policy](../Tokenomics.md), the tokenomics policy wins.
+| Fixed Economics | Value |
+| --- | --- |
+| CDN payout rate | `$0.25/TB` |
+| Storage capacity payout rate | `$0.25/TB-month` |
+| Bonus tiers | None |
 
-## Canonical Sections
-
-- Rates, gates, and activation requirements: [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility)
-- Payout and assignment formulas: [Tokenomics §8](../Tokenomics.md#8-per-epoch-node-payout-formulas)
-- Oracle, fail-closed, anti-sybil, suspension: [Tokenomics §12](../Tokenomics.md#12-oracle-assignment-and-anti-gaming-controls)
-- Parameter defaults and ownership: [Tokenomics §14](../Tokenomics.md#14-parameter-registry-defaults)
-- Stake into LovePIPE pool: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
-
-## FAQ
-
-### Are payouts flat-rate?
-
-See [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility).
-
-### Is LovePIPE unstake cooldown 30 days?
-
-See [Tokenomics §7](../Tokenomics.md#7-base-rates-and-quality-eligibility).
+Stake link: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>

@@ -5,9 +5,10 @@ import sys
 from pathlib import Path
 
 
-TOKENOMICS_PATH = Path("docs/Tokenomics.md")
+POLICY_PATH = Path("docs/Tokenomics.md")
+SPEC_PATH = Path("docs/tokenomics-operations-spec.md")
 PARAMS_JSON_PATH = Path("docs/tokenomics-params.json")
-SECTION_HEADER = "## 14) Parameter Registry (Defaults)"
+SECTION_HEADER = "## 7) Parameter Registry (Defaults)"
 
 
 def fail(msg: str) -> None:
@@ -110,27 +111,28 @@ def load_json_params() -> tuple[str, list[dict[str, str]]]:
 
 
 def main() -> None:
-    md = TOKENOMICS_PATH.read_text()
-    md_version = parse_tokenomics_version(md)
-    md_rows = parse_parameter_table(md)
+    policy_md = POLICY_PATH.read_text()
+    spec_md = SPEC_PATH.read_text()
+    policy_version = parse_tokenomics_version(policy_md)
+    spec_rows = parse_parameter_table(spec_md)
     json_version, json_rows = load_json_params()
 
-    if md_version != json_version:
+    if policy_version != json_version:
         fail(
-            f"Version mismatch: Tokenomics.md has `{md_version}` but tokenomics-params.json has `{json_version}`."
+            f"Version mismatch: Tokenomics.md has `{policy_version}` but tokenomics-params.json has `{json_version}`."
         )
 
-    if md_rows != json_rows:
+    if spec_rows != json_rows:
         print("ERROR: Parameter registry drift detected between markdown table and JSON.")
-        print(f"Tokenomics rows: {len(md_rows)} | JSON rows: {len(json_rows)}")
-        min_len = min(len(md_rows), len(json_rows))
+        print(f"Spec rows: {len(spec_rows)} | JSON rows: {len(json_rows)}")
+        min_len = min(len(spec_rows), len(json_rows))
         for i in range(min_len):
-            if md_rows[i] != json_rows[i]:
+            if spec_rows[i] != json_rows[i]:
                 print(f"First mismatch at row {i + 1}:")
-                print(f"  markdown: {md_rows[i]}")
+                print(f"  markdown: {spec_rows[i]}")
                 print(f"  json:     {json_rows[i]}")
                 sys.exit(1)
-        if len(md_rows) != len(json_rows):
+        if len(spec_rows) != len(json_rows):
             print("Row counts differ.")
             sys.exit(1)
         fail("Unknown parameter table mismatch.")

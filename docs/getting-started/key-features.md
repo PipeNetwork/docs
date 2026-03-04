@@ -8,7 +8,7 @@ Pipe Network's hyperlocal Points of Presence (PoP) nodes are a fundamental aspec
 
 ## 2. Cost Efficiency
 
-One of Pipe Network's core goals is to provide a cost-effective alternative to centralized CDNs. With its decentralized infrastructure and a blockchain-based system, Pipe Network can deliver content at a significantly lower price. The burn-mint equilibrium system ensures that users only pay for what they use, with Data Credits being consumed as data is transferred.
+One of Pipe Network's core goals is to provide a cost-effective alternative to centralized CDNs. With its decentralized infrastructure and transparent usage-based pricing, Pipe Network can deliver content at a significantly lower price while keeping costs predictable.
 
 ## 3. Real-time Data Delivery
 

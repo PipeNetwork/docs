@@ -1,6 +1,6 @@
 {
   "version": "2.6.0",
-  "generated_from": "docs/Tokenomics.md#14-parameter-registry-defaults",
+  "generated_from": "docs/tokenomics-operations-spec.md#7-parameter-registry-defaults",
   "parameters": [
     {
       "Parameter": "CDN_RATE_USD_PER_TB",
