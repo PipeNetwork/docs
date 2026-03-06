@@ -52,7 +52,7 @@ Detailed settlement ordering and tie-break rules are defined in [Tokenomics Oper
 
 ## 4) Activation and Hard-Fail Eligibility
 
-- Stake requirement: minimum active stake per node in LovePIPE is `STAKE_MIN = 100 PIPE`.
+- Stake requirement: minimum active stake per node is `STAKE_MIN = 100 PIPE` (verified via LovePIPE). PIPE is staked via the LovePIPE (Jito) vault, and LovePIPE is the receipt token used to verify eligibility.
 - Stake link: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
 - `STAKE_MIN` can change with protocol updates.
 - Wallet binding requirement: one payout wallet per node, and one node per payout wallet (strict `1:1`).
