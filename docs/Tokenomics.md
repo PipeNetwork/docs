@@ -8,7 +8,7 @@ This document is the canonical reference for Mainnet payout rules.
 
 - CDN payout rate is fixed at `$0.25/TB`.
 - Storage capacity payout rate is fixed at `$0.25/TB-month`.
-- Minimum active stake per node is `100 PIPE` in LovePIPE.
+- Minimum active stake per node is `1,000 PIPE` in LovePIPE.
 - Payout wallet binding is strict `1:1` (one node per wallet, one wallet per node).
 - Any gate breach in a settlement_epoch makes the node ineligible for that full settlement_epoch.
 - Pricing scope is fixed to CDN bandwidth and storage capacity; storage bandwidth pricing is out of scope.
@@ -52,7 +52,7 @@ Detailed settlement ordering and tie-break rules are defined in [Tokenomics Oper
 
 ## 4) Activation and Hard-Fail Eligibility
 
-- Stake requirement: minimum active stake per node is `STAKE_MIN = 100 PIPE` (verified via LovePIPE). PIPE is staked via the LovePIPE (Jito) vault, and LovePIPE is the receipt token used to verify eligibility.
+- Stake requirement: minimum active stake per node is `STAKE_MIN = 1,000 PIPE` (verified via LovePIPE). PIPE is staked via the LovePIPE (Jito) vault, and LovePIPE is the receipt token used to verify eligibility.
 - Stake link: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
 - `STAKE_MIN` can change with protocol updates.
 - Wallet binding requirement: one payout wallet per node, and one node per payout wallet (strict `1:1`).
