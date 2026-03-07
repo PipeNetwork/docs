@@ -107,7 +107,7 @@ All protocol-updateable rows must be activated only at a settlement boundary via
 | `STAKING_COMMISSION_BPS` | `700` | bps | `0` | `2000` | Off-chain settlement engine | Yes | `effective_settlement_epoch` | Economics |
 | `PIPE_DECIMALS` | `6` | decimal places | `n/a` | `n/a` | Off-chain settlement output | No | `n/a` | Settlement Engineering |
 | `SETTLEMENT_ROUNDING_MODE` | `round_down` | enum | `n/a` | `n/a` | Off-chain settlement output | No | `n/a` | Settlement Engineering |
-| `STAKE_MIN` | `100` | PIPE per node | `100` | `100000` | Off-chain eligibility checker | Yes | `effective_settlement_epoch` | Economics |
+| `STAKE_MIN` | `1000` | PIPE per node | `1000` | `100000` | Off-chain eligibility checker | Yes | `effective_settlement_epoch` | Economics |
 | `PRIORITY_STAKE_CAP` | `4.0` | weight ratio cap | `1.0` | `8.0` | Off-chain assignment scheduler | Yes | `effective_settlement_epoch` | Assignment Engineering |
 | `MAX_QUEUE_SHARE` | `20` | % per node per queue per settlement_epoch | `5` | `50` | Off-chain assignment scheduler | Yes | `effective_settlement_epoch` | Assignment Engineering |
 | `CLUSTER_QUEUE_SHARE_CAP` | `25` | % per related-node cluster per queue per settlement_epoch | `10` | `60` | Off-chain assignment scheduler | Yes | `effective_settlement_epoch` | Assignment Engineering |

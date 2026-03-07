@@ -92,9 +92,9 @@
     },
     {
       "Parameter": "STAKE_MIN",
-      "Current Value": "100",
+      "Current Value": "1000",
       "Unit": "PIPE per node",
-      "Min": "100",
+      "Min": "1000",
       "Max": "100000",
       "Enforced Where": "Off-chain eligibility checker",
       "Protocol-Updateable": "Yes",
