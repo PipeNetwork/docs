@@ -7,10 +7,10 @@ This document is the canonical reference for Mainnet payout rules.
 ## Non-Negotiables
 
 - CDN payout rate is fixed at `$0.25/TB`.
-- Storage capacity payout rate is fixed at `$0.25/TB-month`.
+- Storage capacity payout rate is fixed at `$0.50/TB-month`.
 - Minimum active stake per node is `1,000 PIPE` in LovePIPE.
 - Payout wallet binding is strict `1:1` (one node per wallet, one wallet per node).
-- Any gate breach in a settlement_epoch makes the node ineligible for that full settlement_epoch.
+- Audit and eligibility gates are mandatory. Any gate breach in a settlement_epoch makes the node ineligible for payout for that full settlement_epoch.
 - Pricing scope is fixed to CDN bandwidth and storage capacity; storage bandwidth pricing is out of scope.
 
 ## 1) Scope
@@ -47,7 +47,7 @@ Detailed settlement ordering and tie-break rules are defined in [Tokenomics Oper
 ## 3) Mainnet Base Rates
 
 - CDN bandwidth: `$0.25` per TB delivered
-- Storage capacity: `$0.25` per TB-month held
+- Storage capacity: `$0.50` per TB-month held
 - Payout rates are flat. No bonus tiers.
 
 ## 4) Activation and Hard-Fail Eligibility
@@ -57,7 +57,7 @@ Detailed settlement ordering and tie-break rules are defined in [Tokenomics Oper
 - `STAKE_MIN` can change with protocol updates.
 - Wallet binding requirement: one payout wallet per node, and one node per payout wallet (strict `1:1`).
 
-Eligibility gates are fail-closed:
+Eligibility gates are mandatory and fail-closed. Nodes must satisfy all audit, performance, stake, and wallet-binding requirements for the full settlement_epoch to remain eligible for payout:
 
 | Rule | Threshold / Requirement | Breach Result |
 | --- | --- | --- |
@@ -84,9 +84,9 @@ e_i = q_i * s_i * w_i
 
 Ruthless enforcement:
 
-- Any single breach sets ineligibility for the full settlement_epoch.
+- Any single audit or eligibility breach makes the node ineligible for payout for the full settlement_epoch.
 - No pro-rating, no grace windows, and no in-settlement_epoch manual override.
-- Re-eligibility is evaluated at the next settlement_epoch boundary.
+- Re-eligibility is evaluated only at the next settlement_epoch boundary.
 
 Assignment note:
 
@@ -112,7 +112,7 @@ Canonical settlement formulas:
 
 ```text
 cdn_usd_i      = bw_tb_i * 0.25 * e_i
-st_usd_i       = st_tbm_i * 0.25 * e_i
+st_usd_i       = st_tbm_i * 0.50 * e_i
 cdn_raw_pipe_i = cdn_usd_i / P
 st_raw_pipe_i  = st_usd_i / P
 gross_pipe_i   = (cdn_raw_pipe_i * B_scale) + (st_raw_pipe_i * S_scale)
