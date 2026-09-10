@@ -1,33 +1,19 @@
-# Performance and Fraud Detection
+# Storage Performance and Integrity
 
-Ensuring node operators are physically located in their claimed regions is a critical challenge for decentralized networks like Pipe Network. The network aims to prevent location spoofing through a multi-faceted verification approach.
+Node participation depends on verifiable identity, LovePIPE ownership, healthy storage, and authorized service. These checks protect stored data and customer accounting. **They do not calculate node rewards; individual nodes receive no rewards or payouts.**
 
-## Verification Methods
+## Identity and Ownership
 
-### 1. Multi-Layered IP Address Verification
+The control plane enrolls persistent node identities and verifies finalized ownership of LovePIPE LSTs representing at least **10,000 PIPE per node**. Fleet-wide hourly observations prevent a transferred position from being counted for both the sending and receiving wallets in the same observation. Every hour of a complete UTC calendar month must pass for qualification.
 
-Objectives include:
+## Authorized Work and Data Verification
 
-- **GeoIP Databases**: Using commercial databases like MaxMind to verify IP address locations down to city or region level
-- **IP Address History**: Tracking IP address consistency to detect potential VPN usage
-- **VPN and Proxy Detection**: Integrating specialized services to filter out anonymization techniques
+Nodes verify signed authority for storage operations. Gateways verify returned content and integrity evidence. Signed receipts and matching authenticated router reports support usage accounting and investigation; conflicting proofs remain available for review without generating node earnings.
 
-### 2. Latency-Based Location Verification
+Health checks, capacity admission, replication, adaptive storage policies, and repair help keep data available. Optional external S3 instances require backend qualification and continuing checks; a successful HTTP health response alone does not demonstrate storage readiness.
 
-Techniques include:
+## Participation Controls
 
-- **Ping Tests**: Running latency tests to strategically placed servers to estimate actual node location
-- **Traceroute Analysis**: Examining network paths to identify potential location spoofing
+The control plane can exclude unhealthy or ineligible nodes from routing and placement. Administrators can blacklist a node and preserve its evidence for investigation. These actions do not seize, burn, withdraw, or transfer the operator's LovePIPE position.
 
-### 3. Crowdsourced or Peer Verification
-
-- Node-to-node verification
-- Challenge-response mechanisms with geographically localized tasks
-
-### 4. Economic Disincentives
-
-- Penalties for false location reporting
-- Periodic re-verification of node locations
-- Potential reward slashing or node deactivation for fraudulent behavior
-
-The goal is to create a robust system that makes location spoofing difficult and economically unappealing.
+See [Node Operations](../nodes/mainnet-operations.md) and the [Eligibility Checklist](../nodes/mainnet-quality-standards.md) for the operational requirements.

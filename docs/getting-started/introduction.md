@@ -1,32 +1,23 @@
 # Introduction
 
-Pipe Network is the **permissionless full-stack cloud**, designed to deliver, store, and route data with hyperscaler-grade performance — but built on a fundamentally different architecture. Instead of relying on centralized data centers, Pipe leverages a fabric of **hyperlocal PoP (Points of Presence) nodes** operated permissionlessly around the world.
-
-## The Power of Pipe PoP Nodes
-
-Conventional CDNs place infrastructure in a handful of metro hubs. Pipe's innovation is its **hyperlocalized PoP nodes**, deployed as close as ~50 miles from end users — inside ISP facilities, local IXPs, or even community-operated locations.
-
-These PoPs offer:
-
-- **Ultra-low latency**: sub‑10ms RTTs, often approaching LAN-like speeds
-- **Higher throughput**: optimized TCP performance due to reduced Bandwidth‑Delay Product (BDP)
-- **Resilience**: no single points of failure, with dynamic routing around congestion and outages
-- **Accessibility**: coverage in underserved and rural regions where hyperscalers rarely deploy
+Pipe Network provides content delivery, distributed object storage, and network routing. Independent operators contribute infrastructure that stores data and brings content closer to users.
 
 ## Products
 
-Pipe Network provides a unified stack built on the PoP fabric:
+- **Pipe CDN** delivers content through distributed points of presence.
+- **Pipe Storage** uses Lattice gateways, a control plane, and storage nodes to provide S3-compatible and native object access.
+- **P1 Overlay Network** provides routing across network paths.
 
-- **Pipe CDN**: Hyperlocal content delivery designed for video, gaming, dApps, and AI workloads
-- **Firestarter Storage**: Decentralized origin storage integrated with delivery
-- **P1 Overlay Network**: A software-defined routing layer that stitches the fastest paths across multiple networks
+## The Current Storage System
 
-## Pipe vs. Hyperscalers
+Customers purchase prepaid storage credit with USDC on Solana and access objects through a gateway. A central control plane manages enrollment, eligibility, metadata, customer accounting, and storage jobs. The public `lattice-node` software holds object data and serves authorized requests.
 
-| Feature | Hyperscalers | Pipe Network |
-|---------|--------------|------------|
-| **Infrastructure Model** | Centralized data centers in limited regions | Distributed hyperlocal PoP nodes run permissionlessly |
-| **Latency** | Optimized regionally, often >20ms | Sub‑10ms from hyperlocal PoPs |
-| **Scalability** | Requires capital‑intensive buildout | Scales organically as new participants deploy PoPs |
-| **Control** | Centralized ownership and decision-making | Community‑driven, permissionless participation |
-| **Economics** | Proprietary pricing models | Transparent, market-driven pricing |
+Storage uses replication and adaptive layouts, with verified reads and repair across eligible infrastructure. Participation depends on enrollment, LovePIPE ownership, node health, capacity, and the selected storage policy. See [Architecture](architecture.md) and [Pipe Storage](../storage/overview.md).
+
+## Node Participation and Long-Term Sustainability
+
+**Each node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to the protocol over the long term. Removing recurring node-payment obligations and reward emissions supports protocol sustainability.
+
+The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
+
+Read [Tokenomics](../Tokenomics.md) for the policy or [Quickstart](quickstart.md) to begin.

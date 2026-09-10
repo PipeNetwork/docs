@@ -1,86 +1,57 @@
 # Pipe Network Documentation
 
-Welcome to the official Pipe Network documentation repository. This documentation covers the permissionless full-stack cloud platform that combines content delivery (CDN), Firestarter Storage, and overlay network capabilities.
+Pipe Network provides content delivery, distributed object storage, and network routing. These docs describe the current mainnet Lattice storage system and its node participation model.
 
-## 📚 Documentation Structure
+**Running a storage node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
-### [Welcome](docs/index.md)
-Introduction to Pipe Network and its capabilities
+A percentage of net protocol revenue will support PIPE buyback and burn, with a LovePIPE contribution equal to 7% of the monthly buyback reference amount. See [Tokenomics](docs/Tokenomics.md) for the policy and the accounting details still to be specified.
 
-### Getting Started
-- [Introduction](docs/getting-started/introduction.md) - Overview of Pipe Network architecture and benefits
-- [Architecture](docs/getting-started/architecture.md) - Technical architecture and design principles
-- [Key Features](docs/getting-started/key-features.md) - Core features and capabilities
-- [Scalability and Network Growth](docs/getting-started/scalability-and-network-growth.md) - How Pipe Network scales
-- [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md) - Real-world applications
-- [Mainnet Tokenomics Policy](docs/Tokenomics.md) - Canonical payout rates, eligibility gates, and formulas
-- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md) - Settlement implementation, controls, and parameter registry
-- [Quickstart](docs/getting-started/quickstart.md) - Operating a DevNet CDN PoP Node
-- [Performance and Fraud Detection](docs/getting-started/performance-and-fraud-detection.md) - Security measures
+## Start Here
 
-### [Pipe Firestarter Storage](docs/pipe-firestarter-storage.md)
-Decentralized storage solution with client-side encryption
+- [Welcome](docs/index.md): products and participation.
+- [Introduction](docs/getting-started/introduction.md): overview of Pipe Network.
+- [Architecture](docs/getting-started/architecture.md): gateways, control plane, storage nodes, and Solana integration.
+- [Quickstart](docs/getting-started/quickstart.md): choose customer storage or node participation.
+- [Pipe Storage](docs/storage/overview.md): S3-compatible access, customer credits, and storage behavior.
+- [Storage API Quickstart](docs/storage/api.md): fund an account, create credentials, and upload an object.
 
-### Nodes
-- [Mainnet](docs/nodes/mainnet.md) - Mainnet information
-- [Mainnet Node Operations](docs/nodes/mainnet-operations.md) - Monitoring, troubleshooting, and performance tuning
-- [Mainnet Quality Standards Checklist](docs/nodes/mainnet-quality-standards.md) - Mainnet activation and quality eligibility checklist
-- [LovePIPE Restaking Vault](https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/) - Stake PIPE for per-node mainnet activation eligibility
+## Storage Nodes
 
-### CDN API
-- [API Documentation](docs/cdn-api/api-documentation.md) - Complete API reference
+- [Mainnet Storage Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
+- [Wallet and LovePIPE Setup](docs/nodes/wallet-setup.md): node identity and the 10,000 PIPE requirement.
+- [Node Operations](docs/nodes/mainnet-operations.md): health, capacity, and troubleshooting.
+- [Eligibility Checklist](docs/nodes/mainnet-quality-standards.md): qualification and ongoing participation.
+- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for `lattice-node`.
+- [LovePIPE](https://pipe.love): staking, wallet positions, and storage account access.
 
-### Appendix
-- [Pipe Network CDN for Solana Snapshots](docs/appendix/solana-snapshots.md) - Solana validator optimization
+## Protocol and Economics
 
-## 🚀 Quick Links
+- [Tokenomics](docs/Tokenomics.md): no individual node rewards, revenue-funded buybacks, and shared LovePIPE backing.
+- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): allocation accounting, policy parameters, and implementation boundaries.
+- [Network Growth](docs/getting-started/scalability-and-network-growth.md): capacity, coverage, and long-term participation.
+- [Performance and Integrity](docs/getting-started/performance-and-fraud-detection.md): storage verification and node eligibility.
 
-- [GitHub Repository](https://github.com/PipeNetwork/pipe)
-- [Official Website](https://pipe.network)
-- [DevNet Form](https://docs.google.com/forms/d/e/1FAIpQLScbxN1qlstpbyU55K5I1UPufzfwshcv7uRJG6aLZQDk52ma0w/viewform)
+## Other Documentation
 
-## 🛠️ Key Components
+- [Key Features](docs/getting-started/key-features.md)
+- [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md)
+- [Historical Whitepaper](docs/archive/README.md): dated publication, separate from current mainnet policy.
 
-### Pipe CDN
-Hyperlocal content delivery designed for video, gaming, dApps, and AI workloads with sub-10ms latency.
+## Contributing
 
-### Firestarter Storage
-Decentralized origin storage integrated with delivery, supporting client-side encryption and various storage tiers.
+Submit documentation changes through a pull request. The wallet helper and its tests require Python's `cryptography` package. Run the same checks as CI from the repository root:
 
-### P1 Overlay Network
-Software-defined routing layer that finds the fastest paths across multiple networks.
+```bash
+python3 docs/scripts/check_mainnet_docs.py
+python3 docs/scripts/check_markdown_links.py
+python3 docs/scripts/check_tokenomics_params_sync.py
+python3 -m unittest discover -s tests -p 'test_*.py'
+cargo fmt --check
+cargo test
+```
 
-## 💻 System Requirements
+Run the documentation server locally with `cargo run` and open `http://localhost:3000`. Markdown is rendered under `/docs/`; PDF and JSON links return their original bytes. `/static/` serves raw files from the public documentation tree. Maintainer notes in `internal/` are outside that tree.
 
-### For PoP Node Operators
-- Linux operating system
-- Minimum 32GB RAM (128GB+ recommended for production)
-- 500GB+ SSD storage
-- 1Gbps+ network connection
-- 24/7 internet connectivity
+Refer to the relevant Pipe Network repositories for license information.
 
-### For Storage Users
-- Rust/Cargo for building pipe-cli
-- Solana DevNet SOL for transactions
-
-## 📖 Getting Started
-
-1. **New to Pipe Network?** Start with the [Introduction](docs/getting-started/introduction.md)
-2. **Want to run a node?** Check out the [DevNet 2 setup guide](docs/nodes/devnet-2.md)
-3. **Need storage?** Learn about [Firestarter Storage](docs/pipe-firestarter-storage.md)
-4. **Building on Pipe?** Review the [API Documentation](docs/cdn-api/api-documentation.md)
-
-## 🤝 Contributing
-
-This documentation is maintained by the Pipe Network community. If you find any issues or would like to contribute improvements, please submit a pull request or open an issue.
-
-### Mica whitepaper
-- [Mica whitepaper](docs/mica.pdf)
-
-## 📝 License
-
-Please refer to the official Pipe Network repositories for license information.
-
----
-
-*Last updated: March 2026*
+Last updated: September 10, 2026.

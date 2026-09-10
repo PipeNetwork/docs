@@ -84,6 +84,8 @@ def main() -> None:
 
             if not path_part:
                 target_file = file_path
+            elif path_part.startswith("/static/"):
+                target_file = (ROOT / "docs" / path_part.removeprefix("/static/")).resolve()
             elif path_part.startswith("/"):
                 target_file = (ROOT / path_part.lstrip("/")).resolve()
             else:
@@ -95,9 +97,19 @@ def main() -> None:
                 )
                 continue
 
+            if target_file != ROOT / "README.md" and not target_file.is_relative_to(ROOT / "docs"):
+                errors.append(f"{rel_file}: link leaves the published documentation tree: {raw_target}")
+                continue
+            if target_file.suffix not in {".md", ".json", ".pdf", ".py"}:
+                errors.append(f"{rel_file}: unsupported document type: {raw_target}")
+                continue
+            if anchor and target_file.suffix != ".md":
+                if target_file.suffix != ".pdf" or not re.fullmatch(r"page=\d+", anchor):
+                    errors.append(f"{rel_file}: unsupported asset fragment: {raw_target}")
+                continue
             if anchor:
                 if target_file not in anchor_cache:
-                    anchor_cache[target_file] = build_anchor_set(target_file.read_text())
+                    anchor_cache[target_file] = build_anchor_set(strip_code_fences(target_file.read_text()))
                 normalized = normalize_anchor(anchor)
                 if normalized not in anchor_cache[target_file]:
                     errors.append(

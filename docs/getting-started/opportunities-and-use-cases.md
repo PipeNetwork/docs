@@ -1,25 +1,19 @@
 # Opportunities and Use Cases
 
-## Opportunities in the CDN Space
+## Store Application Objects
 
-As demand for high-speed, low-latency streaming continues to grow, traditional CDNs are struggling to keep up. Pipe Network offers a fresh solution, leveraging Solana's decentralized architecture to deliver content reliably and at lower costs.
+Use Pipe's S3-compatible interface for application assets, datasets, media, and other objects. Scoped credentials let applications access selected buckets, prefixes, and operations. Native HTTP interfaces and SDKs provide additional integration options.
 
-Key benefits include:
+## Deliver Content
 
-- Ultra-low Latency: Fast, decentralized content delivery ensures smoother user experiences.
-- Scalability: Effortlessly adapts to growing content demands without major infrastructure investment.
-- Enhanced Security: Hyper-localized distributed design protects against cyberattacks and system failures.
-- Cost efficiency: Provides a more affordable content delivery solution for providers of all sizes.
+Pipe's storage, CDN, and routing products support serving content from distributed infrastructure. Plan for the availability and performance characteristics of the deployed service and the storage policy selected for your data.
 
-Pipe Network is the next evolution in content delivery, shaping the future of the internet. Join us in building today!
+## Contribute Storage Capacity
 
-## Pipe Network CDN Advantages
+Running a storage node adds capacity and availability to the protocol. Each node requires **10,000 PIPE staked through LovePIPE** and must satisfy enrollment, qualification, and operational checks. **Individual nodes receive no rewards or payouts.** Operators contribute resources to support the protocol over the long term.
 
-Pipe Network uses hyper-local cache (L2 Pipe PoP) that brings content closer to the end user than traditional CDNs, resulting in reduced latency, faster delivery times, and enhanced streaming quality.
+## Participate through LovePIPE
 
-For example, if content originates from a hyperscaler located 350 miles away, it will then pass through two layers of caching:
+The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
 
-- L1 Pipe PoP (Country/Metro Cache): A cache located 150 miles from the user.
-- L2 Pipe PoP (Hyperlocal Cache): A second, much closer cache located within 10 miles of the end user, ensuring ultra-low latency and significantly faster content delivery.
-
-Ultimately, achieving reduced travel distance, enhanced speed, and optimal efficiency compared to traditional CDN setups.
+Start with [Pipe Storage](../storage/overview.md), [Mainnet Storage Nodes](../nodes/mainnet.md), or [Tokenomics](../Tokenomics.md).

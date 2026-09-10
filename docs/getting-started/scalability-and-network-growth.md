@@ -1,25 +1,17 @@
 # Scalability and Network Growth
 
-Pipe Network is designed to scale seamlessly as demand for content delivery increases. The network's decentralized, permissionless architecture, combined with the hyperlocal PoP node strategy, ensures that it can grow organically while maintaining performance, security, and cost-efficiency.
+Storage nodes add useful capacity, geographic coverage, and availability to Pipe Network. Growth depends on reliable operators, customer demand, and the protocol's ability to place, verify, and repair data across eligible infrastructure.
 
-## Decentralized Scalability
+## Contributing Capacity
 
-Unlike centralized CDNs, where capacity is constrained by infrastructure investments, Pipe Network's decentralized model allows anyone to contribute to the network by operating a node. This permissionless approach encourages rapid expansion, as node operators are incentivized through the scarcity-based reward system, creating a natural distribution of nodes in underserved areas where demand is high.
+Each node must meet the **10,000 PIPE staking requirement through LovePIPE**, complete enrollment and qualification, and maintain healthy storage. The control plane and gateways consider eligibility, capacity, and storage policy when assigning work. Contributing additional capacity does not guarantee that all of it will be used.
 
-As more nodes join the network, content delivery speeds improve, especially in regions where traditional CDNs struggle to provide fast, reliable service. The hyperlocal focus of Pipe PoP nodes also ensures that the network can grow without requiring large, centralized data centers, making it inherently more flexible and scalable.
+Replication, erasure coding, and repair distribute data across approved hosts. Operators in underserved regions can improve coverage and resilience, without receiving location-based node rewards.
 
-## Network Expansion Strategy
+## Supporting the Protocol Over Time
 
-Pipe Network's growth strategy is centered around encouraging node operators to deploy in regions with high demand but low coverage. The system's rewards model, based on local resource scarcity, ensures that nodes are set up in underserved areas where they can provide the most value.
+**Individual nodes receive no rewards or payouts.** Operators contribute infrastructure and ongoing availability to support the protocol's long-term usefulness. Removing recurring node-payment obligations and node reward emissions supports long-term sustainability.
 
-Additionally, Pipe Network has implemented a phased development approach:
+The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
 
-- **Phase 1**: The current design involves nodes that are connected to a cache management system, which manages content distribution. This phase ensures that content is cached locally at the PoP nodes, reducing the load on the CMS and improving delivery speeds.
-
-- **Phase 2**: In future phases, Pipe Network will enable peer-to-peer connections between nodes. This will allow nodes to synchronize and share cached content directly, reducing reliance on the CMS and improving the overall efficiency of the network.
-
-- **Phase 3**: In the long term, Pipe Network will focus on advanced features such as synchronized caching across nodes, real-time analytics, and geographic expansion to further enhance performance and reliability.
-
-## Hyperlocal PoP Nodes and Global Reach
-
-Hyperlocal PoP nodes are critical to Pipe Network's scalability. By placing these nodes in closer proximity to end-users, Pipe Network ensures that data does not need to travel long distances, significantly reducing latency and improving user experiences.
+This connects the shared staking benefit to protocol revenue rather than to per-node traffic or performance payments. Read the [tokenomics policy](../Tokenomics.md) and [storage overview](../storage/overview.md).

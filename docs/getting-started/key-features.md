@@ -1,25 +1,23 @@
 # Key Features
 
-Pipe Network's decentralized CDN model is designed to address the specific needs of modern content delivery. By combining innovative technology with a robust feature set, Pipe Network offers a unique solution for businesses, developers, and users seeking to optimize content distribution.
+## Object Storage and Delivery
 
-## 1. Hyperlocal Pipe PoP Nodes
+Pipe Storage supports S3-compatible clients, native HTTP interfaces, and SDKs. Customers use scoped credentials to store and retrieve objects, while gateways coordinate access to distributed storage nodes. Pipe's CDN and routing products support content delivery across the network.
 
-Pipe Network's hyperlocal Points of Presence (PoP) nodes are a fundamental aspect of the network's performance and efficiency. These PoP nodes are deployed in localized areas, enabling content to be delivered from the closest possible node to the end-user, significantly reducing latency. Unlike traditional CDNs that concentrate nodes in major cities, Pipe Network's decentralized model allows nodes to be set up in any region, including underserved and remote areas. This helps achieve true real-time data delivery across the globe.
+## Customer Usage Accounting
 
-## 2. Cost Efficiency
+Customers purchase prepaid storage credit with USDC on Solana. The control plane reserves and debits credit for authorized usage and retains accounting evidence. These charges do not create individual node rewards.
 
-One of Pipe Network's core goals is to provide a cost-effective alternative to centralized CDNs. With its decentralized infrastructure and transparent usage-based pricing, Pipe Network can deliver content at a significantly lower price while keeping costs predictable.
+## Verification, Replication, and Repair
 
-## 3. Real-time Data Delivery
+Nodes serve authorized requests and provide signed receipts and integrity evidence. The storage system supports full replication and adaptive erasure coding, verifies reads, and repairs unavailable replicas or fragments. Placement depends on eligible hosts, capacity, and policy.
 
-Pipe Network outperforms competitors in real-time content delivery by leveraging its decentralized, hyperlocal PoP nodes. The proximity of these nodes to users minimizes latency, ensuring that data is delivered faster than traditional CDNs. This is particularly important for applications requiring real-time responsiveness, such as live video streaming, gaming, and real-time communications.
+Persistent disk is the standalone node's default backend. Compatible releases can qualify an optional external S3 backend, with local metadata and continuing integrity checks.
 
-## 4. Security and Data Integrity
+## LovePIPE Participation
 
-Pipe Network incorporates several advanced security features to ensure data integrity and protect against malicious attacks:
+Each storage node requires **10,000 PIPE staked through LovePIPE**, verified through current LST ownership. **There are no individual node rewards or payouts.** Nodes contribute capacity and availability to support the protocol over the long term.
 
-- **DDoS Protection**: The network provides built-in Distributed Denial of Service (DDoS) protection for endpoints, mitigating the risk of attacks that could overwhelm content delivery.
+The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
 
-- **DMCA Complaint System**: Pipe Network has a backend system that allows customers to file and manage Digital Millennium Copyright Act (DMCA) complaints. The system parses URLs and connects them to the relevant customer, ensuring that content takedown requests are handled efficiently and securely.
-
-- **IP Allowlisting**: Customers can enable IP allowlisting to restrict access to their content, ensuring that only authorized users can retrieve data from the network.
+See the [storage guide](../storage/overview.md) for customer access and the [node guide](../nodes/mainnet.md) for participation requirements.

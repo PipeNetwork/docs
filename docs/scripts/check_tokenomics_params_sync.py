@@ -125,13 +125,34 @@ def main() -> None:
     policy_md = POLICY_PATH.read_text()
     spec_md = SPEC_PATH.read_text()
     policy_version = parse_tokenomics_version(policy_md)
+    spec_version = parse_tokenomics_version(spec_md)
     spec_rows = parse_parameter_table(spec_md)
     json_version, json_rows = load_json_params()
 
-    if policy_version != json_version:
+    if policy_version != json_version or policy_version != spec_version:
         fail(
-            f"Version mismatch: Tokenomics.md has `{policy_version}` but tokenomics-params.json has `{json_version}`."
+            f"Version mismatch: policy={policy_version}, operations={spec_version}, JSON={json_version}."
         )
+
+    values = {row["Parameter"]: row["Current Value"] for row in json_rows}
+    if len(values) != len(json_rows):
+        fail("Duplicate policy parameters.")
+    required = {
+        "STAKE_MIN": "10000",
+        "NODE_REWARDS_ENABLED": "false",
+        "LOVEPIPE_ALLOCATION_BPS": "700",
+        "NET_REVENUE_ALLOCATION_PCT": "unspecified",
+        "LOVEPIPE_FUNDING_TREATMENT": "unspecified",
+    }
+    for name, expected in required.items():
+        if values.get(name) != expected:
+            fail(f"Current mainnet policy requires {name}={expected}.")
+    if not re.search(r"10,000\s+PIPE", policy_md):
+        fail("The public policy must state the 10,000 PIPE participation requirement.")
+    if "Individual nodes receive no rewards or payouts" not in policy_md:
+        fail("The public policy must explicitly state that individual nodes receive no rewards or payouts.")
+    if not re.search(r"\b7%", policy_md):
+        fail("The public policy must state the 7% LovePIPE contribution.")
 
     if spec_rows != json_rows:
         print("ERROR: Parameter registry drift detected between markdown table and JSON.")

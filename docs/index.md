@@ -1,25 +1,29 @@
 # Welcome to Pipe Network
 
-Pipe Network is the **permissionless full-stack cloud**. It combines **content delivery (CDN)**, **Firestarter Storage**, and **overlay network** into one platform for delivering, storing, and routing data with hyperscale performance without lock-in.
+Pipe Network combines content delivery, distributed object storage, and network routing. The current storage system uses Lattice gateways and a control plane to coordinate independently operated storage nodes.
 
-## What You Can Do with Pipe
+## Use Pipe
 
-- **Deliver** content from hyperlocal PoP nodes with low latency
-- **Store** objects in Firestarter and serve them directly through the network
-- **Route** traffic across the fastest paths in real time with the P1 overlay network
-- **Operate** PoP nodes and participate permissionlessly
+- **Store objects** through the [S3-compatible storage service](storage/overview.md), native HTTP interfaces, or SDKs. Customers purchase prepaid storage credit with USDC on Solana.
+- **Deliver content** through Pipe's CDN and routing infrastructure.
+- **Contribute storage** by [running a storage node](nodes/mainnet.md), subject to enrollment, stake qualification, and operational requirements.
 
-## Getting Started
+## Node Participation and LovePIPE
 
-1. Read the "Getting Started" guide to set up keys and your first request
-2. Pick a product track: CDN, Firestarter Storage, or P1 Overlay Network
-3. Explore best practices for performance, security, and monitoring when ready for production
-4. Review [Mainnet Tokenomics Policy](Tokenomics.md) and [Tokenomics Operations Spec](tokenomics-operations-spec.md)
+**Each storage node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** The node wallet must hold LSTs representing that underlying PIPE amount and pass the control plane's ownership and qualification checks.
 
-> If you're new to Pipe, begin with the overview pages for each product. If you already know where you're headed, jump straight to the API reference and quickstarts.
+Operators contribute capacity, availability, and resilience to support the protocol over the long term. Removing individual node rewards avoids recurring node-payment obligations and reward emissions.
 
-## Operating Nodes
+The [tokenomics policy](Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
 
-- **[Mainnet Node Operations](nodes/mainnet-operations.md)** - Monitoring, troubleshooting, and performance tuning
-- **[Mainnet Quality Standards Checklist](nodes/mainnet-quality-standards.md)** - Mainnet activation and quality eligibility checklist
-- **[LovePIPE Restaking Vault](https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/)** - Stake PIPE for per-node mainnet activation eligibility
+Read [Tokenomics Operations](tokenomics-operations-spec.md) for accounting and implementation details.
+
+## Get Started
+
+- [Quickstart](getting-started/quickstart.md)
+- [Storage API Quickstart](storage/api.md)
+- [Architecture](getting-started/architecture.md)
+- [Mainnet Storage Nodes](nodes/mainnet.md)
+- [Node Wallet and LovePIPE](nodes/wallet-setup.md)
+- [Node Operations](nodes/mainnet-operations.md)
+- [Eligibility Checklist](nodes/mainnet-quality-standards.md)

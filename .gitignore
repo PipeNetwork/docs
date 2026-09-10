@@ -1,6 +1,8 @@
 # Rust
 /target/
 Cargo.lock
+__pycache__/
+*.py[cod]
 **/*.rs.bk
 *.pdb
 

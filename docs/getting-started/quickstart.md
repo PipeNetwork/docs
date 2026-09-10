@@ -1,17 +1,21 @@
-# Operating a DevNet CDN PoP Node
+# Get Started with Pipe
 
-The binary of the CDN PoP node For DevNet2 is publicly available.
+## Use Storage
 
-Fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLScbxN1qlstpbyU55K5I1UPufzfwshcv7uRJG6aLZQDk52ma0w/viewform) to be notified of new releases and to be entered for a chance to win on-chain prizes.
+Open the storage interface at [pipe.love](https://pipe.love/storage), connect your wallet, and purchase prepaid storage credit with USDC. Create credentials for your application and configure an S3-compatible client with the supplied endpoint. Follow the [mainnet storage API quickstart](../storage/api.md) for a complete upload/download example, credential setup, and billing details.
 
-💡 Prepare for Testnet: Run a DevNet2 node, and keeping it running 24/7 will increase your node score, this will directly translate into a high node score for Testnet. The higher the node score the more traffic the protocol will direct to the node and increase the rewards.
+## Run a Storage Node
 
-## Key Features
+**You need 10,000 PIPE staked through LovePIPE for each node. Individual nodes receive no rewards or payouts.**
 
-- **Location-Based Rewards:** Operators in underrepresented or high-demand regions earn additional incentives.
+1. Prepare a dedicated node identity and its corresponding Solana wallet.
+2. Ensure the wallet holds LovePIPE LSTs representing at least 10,000 underlying PIPE.
+3. Obtain the network's enrollment settings and install a compatible release of the public `lattice-node` software.
+4. Enroll the node, keep it healthy, and retain the required stake through a complete UTC calendar month of finalized hourly checks.
+5. Maintain stake, storage integrity, and availability while participating.
 
-- **PoP Node Rewards:** Rewards are based on metrics such as data served, latency, and uptime. Consistent uptime and performance standards yield higher rewards, while downtime and churn result in rejoin penalties to deter disruption.
+Follow [Mainnet Storage Nodes](../nodes/mainnet.md) and [Wallet Setup](../nodes/wallet-setup.md) for details.
 
-## Basic Tests
+## Understand the Contribution Model
 
-Perform basic tests to verify your node is operating correctly.
+The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.

@@ -1,130 +1,53 @@
-# Pipe Network Mainnet Tokenomics Policy
+# Pipe Network Tokenomics
 
-Metadata: `Version 2.6.0` | Effective Date: March 3, 2026 | Status: Active
+Metadata: `Version 3.0.0` | Updated: September 10, 2026 | Status: Current documentation
 
-This document is the canonical reference for Mainnet payout rules.
+Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity and revenue-funded token buybacks. **Running a node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
 
-## Non-Negotiables
+## Node Participation
 
-- CDN payout rate is fixed at `$0.25/TB`.
-- Storage capacity payout rate is fixed at `$0.50/TB-month`.
-- Minimum active stake per node is `10,000 PIPE` in LovePIPE.
-- Payout wallet binding is strict `1:1` (one node per wallet, one wallet per node).
-- Audit and eligibility gates are mandatory. Any gate breach in a settlement_epoch makes the node ineligible for payout for that full settlement_epoch.
-- Pricing scope is fixed to CDN bandwidth and storage capacity; storage bandwidth pricing is out of scope.
+Each node wallet must hold LovePIPE liquid staking tokens (LSTs), also called vault receipt tokens (VRTs), representing at least **10,000 PIPE**. The requirement is measured in underlying PIPE, not a fixed number of LovePIPE tokens. Operators can deposit PIPE into LovePIPE or transfer an existing LovePIPE position into the node wallet.
 
-## 1) Scope
+The control plane verifies current ownership using finalized Solana state every UTC hour. Under ordinary public admission, a node must pass every hourly check in one complete UTC calendar month before becoming eligible for routing, and maintain the required position while active. Each node uses its own wallet; the same position cannot qualify multiple nodes.
 
-- Network: Mainnet
-- Chain: Solana (SPL token)
-- Token: PIPE
-- Model: Proof-of-Useful-Work (PoUW) for CDN bandwidth and storage capacity
+Missing, invalid, or below-threshold observations invalidate the qualification month. An active node that fails ownership or balance verification is removed from routing and must complete a new valid month to qualify again. Health, capacity, enrollment, and storage integrity checks also apply.
 
-This policy does not define storage bandwidth pricing.
+Stake affects eligibility and placement priority. It does not create an entitlement to payment for running a node. See the [node setup guide](nodes/mainnet.md), [wallet guide](nodes/wallet-setup.md), and [eligibility checklist](nodes/mainnet-quality-standards.md).
 
-### Epoch Terminology
+## No Individual Node Rewards
 
-- `settlement_epoch`: the monthly accounting and payout window used by this policy.
-- `jito_epoch`: the slot-based epoch used by Jito restaking (currently observed at `432000` slots on mainnet; upstream-configurable).
-- Unless explicitly stated otherwise, "epoch" means `settlement_epoch`.
+Storage, bandwidth, uptime, receipts, and repair work do not accrue rewards or payouts to individual nodes. There are no per-TB operator payments, node reward emissions, or location bonuses under this model. Customer storage charges fund the protocol's service; they do not become a payable balance for the node that serves a request. Net revenue is determined separately under the protocol's accounting policy.
 
-## 2) Units and Metering
+Running a storage node contributes capacity, availability, and resilience to the protocol over the long term. Operators contribute the resources and operating costs needed to provide that service. Removing individual node rewards avoids recurring node-payment obligations and reward-driven token emissions, supporting the protocol's long-term sustainability.
 
-- `1 TB = 1,000,000,000,000 bytes` (decimal, not TiB)
-- `1 TB-month = 1 TB held for a full calendar month settlement_epoch`
-- CDN bandwidth work counts successful edge egress bytes delivered to clients.
-- Storage capacity work counts average stored bytes over the settlement_epoch.
+## Net Revenue, Buyback and Burn, and LovePIPE
 
-Storage capacity proration:
+A percentage of net protocol revenue will be used to buy back and burn PIPE. A LovePIPE pool contribution equal to **7% of the monthly revenue amount designated for the buyback program** will increase the backing of existing LSTs for everyone staking.
 
-```text
-storage_tb_month_i = (sum_over_settlement_epoch_days(avg_stored_bytes_i_day) / 1e12) / days_in_settlement_epoch
-```
+The following accounting details remain to be specified:
 
-Settlement output rounding is `round_down` to `PIPE_DECIMALS = 6` at final payout output.
-Detailed settlement ordering and tie-break rules are defined in [Tokenomics Operations Spec](tokenomics-operations-spec.md).
+- The percentage of net revenue committed to the program and its effective month.
+- The accounting definition of net revenue, including deductions and execution costs.
+- Whether the LovePIPE contribution is taken from the buyback allocation or funded in addition to it.
+- The execution and vault-accounting mechanism used to increase backing for existing LST holders.
 
-## 3) Mainnet Base Rates
+For a monthly buyback reference amount of $10,000, the LovePIPE contribution is $700. This example does not determine the remaining burn budget or total treasury spending, because the contribution's funding treatment has not been finalized. Actual PIPE quantities depend on completed purchases.
 
-- CDN bandwidth: `$0.25` per TB delivered
-- Storage capacity: `$0.50` per TB-month held
-- Payout rates are flat. No bonus tiers.
+The 7% is a share of the monthly buyback reference amount, not of all protocol revenue and not a commission on node earnings. PIPE contributed to LovePIPE remains pool backing and is not also counted as burned.
 
-## 4) Activation and Hard-Fail Eligibility
+## How LovePIPE Stakers Benefit
 
-- Stake requirement: minimum active stake per node is `STAKE_MIN = 10,000 PIPE` (verified via LovePIPE). PIPE is staked via the LovePIPE (Jito) vault, and LovePIPE is the receipt token used to verify eligibility.
-- Stake link: <https://www.jito.network/restaking/vaults/AoitBUHCmupYA61GrCdXWwU5KqFFVs2fLsAHayywFYRw/>
-- `STAKE_MIN` can change with protocol updates.
-- Wallet binding requirement: one payout wallet per node, and one node per payout wallet (strict `1:1`).
+LovePIPE represents a proportional claim on PIPE held in the pool. Adding PIPE to the backing of existing LSTs increases the PIPE represented by each LST. This benefits all LovePIPE stakers, including those who do not run nodes. A node operator participates in this benefit through their LovePIPE holdings on the same basis as other stakers, without receiving a separate node reward.
 
-Eligibility gates are mandatory and fail-closed. Nodes must satisfy all audit, performance, stake, and wallet-binding requirements for the full settlement_epoch to remain eligible for payout:
+The 7% contribution is a revenue allocation, not a 7% staking yield. The benefit depends on the monthly allocation, the PIPE acquired, and the pool's backing and outstanding LST supply. It describes growth in underlying PIPE backing per token, not a guaranteed market price.
 
-| Rule | Threshold / Requirement | Breach Result |
-| --- | --- | --- |
-| Uptime | `>= 98%` for full settlement_epoch | `q_i = 0` for that settlement_epoch |
-| Reliability error rate | `< 0.1%` for full settlement_epoch | `q_i = 0` for that settlement_epoch |
-| Latency | Within healthy band for route class for full settlement_epoch | `q_i = 0` for that settlement_epoch |
-| CDN cache efficiency | `>= 80%` for CDN workload for full settlement_epoch | `q_i = 0` for that settlement_epoch |
-| Active stake | `stake_i >= STAKE_MIN` for full settlement_epoch | `s_i = 0` for that settlement_epoch |
-| Wallet binding | Exactly one payout wallet per node and no shared payout wallet for full settlement_epoch | `w_i = 0` for that settlement_epoch |
+Deposits and withdrawals use the existing LovePIPE vault. Withdrawal timing follows the vault's current on-chain configuration and is separate from the node's calendar-month qualification period.
 
-Stake gate adjudication (`s_i`) is deterministic:
+## Implementation and References
 
-- Data source: finalized on-chain LovePIPE stake records for each node.
-- Sampling cadence: hourly snapshots across the full settlement_epoch.
-- Pass condition: every snapshot must satisfy `stake_i >= STAKE_MIN`.
-- Any snapshot below `STAKE_MIN` sets `s_i = 0` for the full settlement_epoch.
-- `STAKE_MIN` updates activate only at `effective_settlement_epoch` boundaries.
+The storage implementation already verifies LovePIPE eligibility and records customer credit usage without creating node earnings. The monthly revenue allocation, buybacks, burns, and LovePIPE contributions described here are treasury policy; this documentation does not establish that automated treasury execution is deployed.
 
-Combined settlement eligibility:
-
-```text
-e_i = q_i * s_i * w_i
-```
-
-Ruthless enforcement:
-
-- Any single audit or eligibility breach makes the node ineligible for payout for the full settlement_epoch.
-- No pro-rating, no grace windows, and no in-settlement_epoch manual override.
-- Re-eligibility is evaluated only at the next settlement_epoch boundary.
-
-Assignment note:
-
-- Assignment priority is stake-weighted. Nodes with more PIPE staked receive higher priority for CDN egress and storage placement jobs.
-- This improves Sybil resistance and helps route work toward more committed operators, while payout rates remain flat.
-
-LovePIPE unstake timing:
-
-- Unstake and withdraw timing is `jito_epoch`-based, not a fixed 30-day lock.
-- Current observed Jito epoch length on mainnet is `432000` slots (upstream parameter, can change).
-
-## 5) Canonical Payout Formula
-
-Definitions:
-
-- `P`: PIPE oracle price in USD for settlement_epoch
-- `bw_tb_i`: metered CDN TB delivered by node `i`
-- `st_tbm_i`: metered storage TB-month by node `i`
-- `e_i`: combined eligibility gate (`0` or `1`)
-- `B_scale`, `S_scale`: bucket scaling factors from [Tokenomics Operations Spec](tokenomics-operations-spec.md)
-
-Canonical settlement formulas:
-
-```text
-cdn_usd_i      = bw_tb_i * 0.25 * e_i
-st_usd_i       = st_tbm_i * 0.50 * e_i
-cdn_raw_pipe_i = cdn_usd_i / P
-st_raw_pipe_i  = st_usd_i / P
-gross_pipe_i   = (cdn_raw_pipe_i * B_scale) + (st_raw_pipe_i * S_scale)
-net_pipe_i     = floor_6(gross_pipe_i * 0.93)
-```
-
-## Implementation References
-
-- Settlement math and parameter registry: [Tokenomics Operations Spec](tokenomics-operations-spec.md)
-- Machine-readable parameter registry: [tokenomics-params.json](tokenomics-params.json)
-- Deterministic vectors: `docs/test-vectors/*.json`
-
-## Disclaimer
-
-This document is informational policy guidance and not legal, tax, or investment advice.
+- [Tokenomics Operations Spec](tokenomics-operations-spec.md): allocation accounting and implementation boundaries.
+- [Parameter registry](tokenomics-params.json): machine-readable policy values, including the unspecified net-revenue percentage.
+- [Storage overview](storage/overview.md): customer access and storage-node responsibilities.
+- [LovePIPE](https://pipe.love): staking interface for the existing vault.

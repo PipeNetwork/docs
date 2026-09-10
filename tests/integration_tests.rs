@@ -1,130 +1,209 @@
+use axum::{
+    body::{to_bytes, Body},
+    http::{header, Request, StatusCode},
+    Router,
+};
+use pipe_docs_server::app;
 use std::fs;
 use tempfile::TempDir;
+use tower::ServiceExt;
 
-/// Helper to create test markdown files
-fn create_test_docs() -> TempDir {
-    let temp_dir = TempDir::new().unwrap();
-    let docs_path = temp_dir.path().join("docs");
-    fs::create_dir_all(&docs_path).unwrap();
-
-    // Create test markdown file
-    let test_md = docs_path.join("test.md");
-    fs::write(&test_md, "# Test Document\n\nThis is a test.").unwrap();
-
-    // Create nested directory structure
-    let nested_path = docs_path.join("nested");
-    fs::create_dir_all(&nested_path).unwrap();
+fn fixture() -> (TempDir, Router) {
+    let root = TempDir::new().unwrap();
+    fs::create_dir_all(root.path().join("docs/storage")).unwrap();
+    fs::create_dir_all(root.path().join("internal")).unwrap();
     fs::write(
-        nested_path.join("nested.md"),
-        "## Nested Document\n\nNested content here.",
+        root.path().join("README.md"),
+        "# Mainnet\n\n[API](docs/storage/api.md)",
     )
     .unwrap();
+    fs::write(root.path().join("docs/storage/api.md"), "# Storage API\n\n## Billing and credit\n\n**Mainnet**\n\n## Billing and credit\n\n```sh\necho ready\n```\n\n| A | B |\n|---|---|\n| 1 | 2 |\n").unwrap();
+    fs::write(
+        root.path().join("docs/tokenomics-params.json"),
+        br#"{"version":"3.0.0"}"#,
+    )
+    .unwrap();
+    fs::write(
+        root.path().join("docs/whitepaper.pdf"),
+        b"%PDF-1.4\n\xff\x00\xfe\n%%EOF",
+    )
+    .unwrap();
+    fs::write(root.path().join("internal/notes.md"), "internal-only").unwrap();
+    let router = app(root.path().to_path_buf());
+    (root, router)
+}
 
-    temp_dir
+async fn request(router: Router, path: &str, method: &str) -> axum::response::Response {
+    router
+        .oneshot(
+            Request::builder()
+                .method(method)
+                .uri(path)
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap()
 }
 
 #[tokio::test]
-async fn test_server_serves_markdown_files() {
-    let temp_dir = create_test_docs();
-    std::env::set_current_dir(temp_dir.path()).unwrap();
-
-    // Note: This test verifies the concept, but requires the actual app setup
-    // In a real integration test, you'd start the server and make HTTP requests
+async fn renders_markdown_with_working_anchors_and_root_links() {
+    let (_root, router) = fixture();
+    let response = request(router.clone(), "/docs/storage/api.md", "GET").await;
+    assert_eq!(response.status(), StatusCode::OK);
+    assert!(response.headers()[header::CONTENT_TYPE]
+        .to_str()
+        .unwrap()
+        .starts_with("text/html"));
+    let body = String::from_utf8(
+        to_bytes(response.into_body(), usize::MAX)
+            .await
+            .unwrap()
+            .to_vec(),
+    )
+    .unwrap();
+    assert!(body.contains("id=\"billing-and-credit\""));
+    assert!(body.contains("id=\"billing-and-credit-1\""));
+    assert!(body.contains("<strong>Mainnet</strong>"));
+    assert!(body.contains("<table>"));
+    assert!(body.contains("echo ready"));
+    let response = request(router, "/", "GET").await;
+    let body = String::from_utf8(
+        to_bytes(response.into_body(), usize::MAX)
+            .await
+            .unwrap()
+            .to_vec(),
+    )
+    .unwrap();
+    assert!(body.contains("href=\"/docs/storage/api.md\""));
 }
 
 #[tokio::test]
-async fn test_concurrent_requests() {
-    use tokio::task::JoinSet;
-
-    // Simulate multiple concurrent cache accesses
-    let mut tasks = JoinSet::new();
-
-    for i in 0..100 {
-        tasks.spawn(async move {
-            // Simulate cache key access
-            format!("docs/test_{}.md", i)
-        });
+async fn serves_binary_pdf_and_json_without_html_wrapping() {
+    let (root, router) = fixture();
+    for (name, mime) in [
+        ("whitepaper.pdf", "application/pdf"),
+        ("tokenomics-params.json", "application/json"),
+    ] {
+        let expected = fs::read(root.path().join("docs").join(name)).unwrap();
+        for prefix in ["/docs/", "/static/"] {
+            let response = request(router.clone(), &format!("{prefix}{name}"), "GET").await;
+            assert_eq!(response.status(), StatusCode::OK);
+            assert_eq!(response.headers()[header::CONTENT_TYPE], mime);
+            assert_eq!(
+                to_bytes(response.into_body(), usize::MAX)
+                    .await
+                    .unwrap()
+                    .as_ref(),
+                expected
+            );
+            let head = request(router.clone(), &format!("{prefix}{name}"), "HEAD").await;
+            assert_eq!(head.status(), StatusCode::OK);
+            assert_eq!(head.headers()[header::CONTENT_TYPE], mime);
+            assert!(to_bytes(head.into_body(), usize::MAX)
+                .await
+                .unwrap()
+                .is_empty());
+        }
     }
+}
 
-    let mut results = Vec::new();
-    while let Some(res) = tasks.join_next().await {
-        results.push(res.unwrap());
+#[tokio::test]
+async fn raw_markdown_does_not_return_cached_html() {
+    let (root, router) = fixture();
+    assert_eq!(
+        request(router.clone(), "/docs/storage/api.md", "GET")
+            .await
+            .status(),
+        StatusCode::OK
+    );
+    let response = request(router, "/static/storage/api.md", "GET").await;
+    assert_eq!(
+        response.headers()[header::CONTENT_TYPE],
+        "text/plain; charset=utf-8"
+    );
+    assert_eq!(
+        to_bytes(response.into_body(), usize::MAX)
+            .await
+            .unwrap()
+            .as_ref(),
+        fs::read(root.path().join("docs/storage/api.md")).unwrap()
+    );
+}
+
+#[tokio::test]
+async fn old_product_urls_redirect_to_current_documents() {
+    let (_root, router) = fixture();
+    for (old, new) in [
+        (
+            "/docs/pipe-firestarter-storage.md",
+            "/docs/storage/overview.md",
+        ),
+        ("/docs/cdn-api/api-documentation.md", "/docs/storage/api.md"),
+        ("/docs/mica.pdf", "/docs/archive/README.md"),
+        ("/md/docs/storage/api.md", "/docs/storage/api.md"),
+    ] {
+        let response = request(router.clone(), old, "GET").await;
+        assert_eq!(response.status(), StatusCode::PERMANENT_REDIRECT);
+        assert_eq!(response.headers()[header::LOCATION], new);
     }
-
-    assert_eq!(results.len(), 100);
 }
 
 #[tokio::test]
-async fn test_file_not_found_returns_404() {
-    // Test that requesting non-existent files returns 404
-    // This would be tested with actual HTTP requests in full integration
-    assert!(true); // Placeholder - shows test structure
-}
-
-#[tokio::test]
-async fn test_static_file_serving() {
-    let temp_dir = create_test_docs();
-
-    // Verify test files exist
-    let test_file = temp_dir.path().join("docs/test.md");
-    assert!(test_file.exists());
-
-    let content = fs::read_to_string(&test_file).unwrap();
-    assert!(content.contains("Test Document"));
-}
-
-#[tokio::test]
-async fn test_markdown_special_characters() {
-    let markdown = "# Title with `code`\n\n- List item with **bold**\n- Item with [link](https://example.com)";
-
-    // Would test actual rendering through the server
-    assert!(markdown.contains("**bold**"));
-    assert!(markdown.contains("[link]"));
-}
-
-#[test]
-fn test_cache_key_generation() {
-    // Test that cache keys are generated consistently
-    let path1 = "docs/getting-started/intro.md";
-    let path2 = "docs/getting-started/intro.md";
-
-    assert_eq!(path1, path2);
-}
-
-#[tokio::test]
-async fn test_large_file_handling() {
-    // Create a large markdown file
-    let large_content = "# Large File\n\n".to_string() + &"Lorem ipsum ".repeat(10000);
-
-    assert!(large_content.len() > 100_000);
-    // Would test that server can handle large files
-}
-
-#[tokio::test]
-async fn test_cache_under_load() {
-    use std::sync::Arc;
-    use moka::future::Cache;
-
-    let cache: Cache<String, Arc<String>> = Cache::builder()
-        .max_capacity(100)
-        .build();
-
-    // Simulate load with many inserts
-    for i in 0..200 {
-        let key = format!("key_{}", i);
-        let value = Arc::new(format!("value_{}", i));
-        cache.insert(key, value).await;
+async fn removed_pages_and_files_outside_public_docs_are_unavailable() {
+    let (_root, router) = fixture();
+    for path in [
+        "/docs/nodes/devnet-2.md",
+        "/docs/nodes/testnet.md",
+        "/md/internal/notes.md",
+        "/docs/%2e%2e/internal/notes.md",
+        "/static/%2e%2e/internal/notes.md",
+        "/md/docs/%2e%2e/internal/notes.md",
+        "/md/%2Finternal/notes.md",
+        "/docs//internal/notes.md",
+        "/docs/.hidden",
+        "/unknown",
+    ] {
+        let response = request(router.clone(), path, "GET").await;
+        assert_eq!(response.status(), StatusCode::NOT_FOUND, "{path}");
     }
-
-    // Cache should maintain max capacity
-    assert!(cache.entry_count() <= 100);
 }
 
-#[test]
-fn test_html_escaping() {
-    // Test that user content is properly escaped
-    let dangerous_input = "<script>alert('xss')</script>";
+#[cfg(unix)]
+#[tokio::test]
+async fn symlinks_cannot_expose_internal_files() {
+    let (root, router) = fixture();
+    std::os::unix::fs::symlink(
+        root.path().join("internal/notes.md"),
+        root.path().join("docs/external.md"),
+    )
+    .unwrap();
+    for path in ["/docs/external.md", "/static/external.md"] {
+        assert_eq!(
+            request(router.clone(), path, "GET").await.status(),
+            StatusCode::NOT_FOUND
+        );
+    }
+}
 
-    // The markdown renderer should escape this
-    assert!(dangerous_input.contains("<script>"));
+#[tokio::test]
+async fn cache_is_scoped_to_each_repository() {
+    let (_first, first) = fixture();
+    let (second_root, second) = fixture();
+    fs::write(
+        second_root.path().join("docs/storage/api.md"),
+        "# Different repository",
+    )
+    .unwrap();
+    request(first, "/docs/storage/api.md", "GET").await;
+    let response = request(second, "/docs/storage/api.md", "GET").await;
+    let body = String::from_utf8(
+        to_bytes(response.into_body(), usize::MAX)
+            .await
+            .unwrap()
+            .to_vec(),
+    )
+    .unwrap();
+    assert!(body.contains("Different repository"));
+    assert!(!body.contains("Billing and credit"));
 }
