@@ -11,6 +11,7 @@ ALL_PAGES_PATTERNS = {
     "public node source claim": r"Public Node Repository|public `lattice-node`|clone the public node repository|public clone URL",
     "undocumented customer sdk": r"Pipe SDKs|native HTTP interfaces",
     "suggest making node repo public": r"make (?:the )?(?:node )?repo(?:sitory)? public",
+    "outdated no-contact-channel claim": r"does not publish a (?:public )?contact channel",
 }
 
 PATTERNS = {

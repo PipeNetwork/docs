@@ -9,7 +9,7 @@ The current storage system uses Lattice gateways and a control plane to coordina
 - **Store objects** through the [S3-compatible storage service](storage/overview.md) using clients such as AWS CLI or boto3. Customers purchase prepaid storage credit with USDC on Solana. See also the [pipe.love storage docs](https://pipe.love/storage/docs).
 - **Contribute storage** by [running a Lattice Firestarter node](nodes/mainnet.md), subject to invite-gated enrollment, stake qualification, and operational requirements.
 
-Public Lattice Firestarter enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. See [Mainnet Lattice Firestarter Nodes](nodes/mainnet.md).
+Enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. To inquire about running a node, email [hello@pipe.network](mailto:hello@pipe.network). Compatible `lattice-node` software is supplied with the invite. See [Mainnet Lattice Firestarter Nodes](nodes/mainnet.md).
 
 ## Node Participation and LovePIPE
 

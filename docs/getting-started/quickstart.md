@@ -8,7 +8,7 @@ Open the storage interface at [pipe.love](https://pipe.love/storage), connect yo
 
 **You need 10,000 PIPE staked through LovePIPE for each Lattice Firestarter node. Individual nodes receive no rewards or payouts.**
 
-Public mainnet Lattice Firestarter enrollment is invite-only. Installing `lattice-node` does not enroll a node. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations.
+Enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. To inquire about running a node, email [hello@pipe.network](mailto:hello@pipe.network). Compatible `lattice-node` software is supplied with the invite. Installing `lattice-node` does not enroll a node.
 
 Ordinary public admission requires an invite, the 10,000 PIPE LovePIPE position, and a complete UTC calendar month of passing hourly checks. If you already have an invite and the required position:
 

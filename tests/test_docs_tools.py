@@ -152,6 +152,16 @@ class DocumentationGuardTests(unittest.TestCase):
             'suggest making node repo public',
             guard.check_text('We should make the node repository public.'),
         )
+        self.assertIn(
+            'outdated no-contact-channel claim',
+            guard.check_text('This repository does not publish a public contact channel for requesting invites.'),
+        )
+        self.assertEqual(
+            guard.check_text(
+                'Enrollment is invite-only. To inquire about running a node, email hello@pipe.network.'
+            ),
+            [],
+        )
         self.assertEqual(
             guard.check_text(
                 'A compatible lattice-node source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.'
@@ -170,9 +180,12 @@ class DocumentationGuardTests(unittest.TestCase):
         mainnet = (ROOT / 'docs/nodes/mainnet.md').read_text()
         self.assertIn('hello@pipe.network', mainnet)
         self.assertIn('invite-only', mainnet.lower())
+        self.assertIn('To inquire about running a node, email', mainnet)
+        self.assertNotIn('does not publish a public contact channel', mainnet)
         published = '\n'.join(
             p.read_text() for p in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]
         )
+        self.assertNotIn('does not publish a public contact channel', published)
         self.assertNotIn('discord', published.lower())
         self.assertNotIn('telegram', published.lower())
 

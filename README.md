@@ -6,7 +6,7 @@ These pages describe the current mainnet Lattice storage system and how independ
 
 **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
-Public mainnet Lattice Firestarter enrollment is invite-only. Ordinary public admission also requires the 10,000 PIPE LovePIPE position and a complete UTC qualification month. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations.
+Enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. To inquire about running a node, email [hello@pipe.network](mailto:hello@pipe.network). Compatible `lattice-node` software is supplied with the invite. Ordinary public admission also requires the 10,000 PIPE LovePIPE position and a complete UTC qualification month.
 
 See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional treasury policy.
 
