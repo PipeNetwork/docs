@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "generated_from": "docs/tokenomics-operations-spec.md#2-parameter-registry-defaults",
   "parameters": [
     {
@@ -23,39 +23,6 @@
       "Protocol-Updateable": "Explicit protocol release",
       "Change Effective Field": "release",
       "Parameter Owner": "Protocol"
-    },
-    {
-      "Parameter": "NET_REVENUE_ALLOCATION_PCT",
-      "Current Value": "unspecified",
-      "Unit": "% of monthly net revenue",
-      "Min": "0",
-      "Max": "100",
-      "Enforced Where": "Treasury policy; execution not established",
-      "Protocol-Updateable": "Yes",
-      "Change Effective Field": "reporting month",
-      "Parameter Owner": "Treasury"
-    },
-    {
-      "Parameter": "LOVEPIPE_ALLOCATION_BPS",
-      "Current Value": "700",
-      "Unit": "basis points of monthly buyback reference amount",
-      "Min": "n/a",
-      "Max": "n/a",
-      "Enforced Where": "Treasury policy; execution not established",
-      "Protocol-Updateable": "Explicit policy update",
-      "Change Effective Field": "reporting month",
-      "Parameter Owner": "Treasury"
-    },
-    {
-      "Parameter": "LOVEPIPE_FUNDING_TREATMENT",
-      "Current Value": "unspecified",
-      "Unit": "allocation deduction or additional funding",
-      "Min": "n/a",
-      "Max": "n/a",
-      "Enforced Where": "Treasury policy; execution not established",
-      "Protocol-Updateable": "Explicit policy update",
-      "Change Effective Field": "reporting month",
-      "Parameter Owner": "Treasury"
     },
     {
       "Parameter": "PRIORITY_STAKE_CAP",

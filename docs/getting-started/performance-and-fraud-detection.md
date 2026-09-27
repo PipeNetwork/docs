@@ -1,6 +1,6 @@
 # Storage Performance and Integrity
 
-Node participation depends on verifiable identity, LovePIPE ownership, healthy storage, and authorized service. These checks protect stored data and customer accounting. **They do not calculate node rewards; individual nodes receive no rewards or payouts.**
+Lattice Firestarter node participation depends on verifiable identity, LovePIPE ownership, healthy storage, and authorized service. These checks protect stored data and customer accounting. **They do not calculate node rewards; individual nodes receive no rewards or payouts.**
 
 ## Identity and Ownership
 

@@ -2,6 +2,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import stat
 import subprocess
@@ -111,6 +112,14 @@ class DocumentationGuardTests(unittest.TestCase):
         self.assertIn('obsolete network instructions', guard.check_text('Run on DevNet2'))
         self.assertIn('obsolete network instructions', guard.check_text('Testnet setup'))
         self.assertIn('unconfirmed burn percentage', guard.check_text('Burn 93%'))
+        self.assertIn(
+            'unpublished net-revenue share',
+            guard.check_text('A percentage of net protocol revenue will be used to buy back PIPE.'),
+        )
+        self.assertIn(
+            'incomplete treasury parameters',
+            guard.check_text('Set NET_REVENUE_ALLOCATION_PCT in the registry.'),
+        )
 
     def test_registry_consistency_rejects_spec_version_drift(self):
         with tempfile.TemporaryDirectory(prefix='pipe-policy-test-') as path:
@@ -119,11 +128,49 @@ class DocumentationGuardTests(unittest.TestCase):
             for name in ('Tokenomics.md', 'tokenomics-operations-spec.md', 'tokenomics-params.json'):
                 shutil.copyfile(ROOT / 'docs' / name, target / name)
             spec = target / 'tokenomics-operations-spec.md'
-            spec.write_text(spec.read_text().replace('Version 3.0.0', 'Version 3.0.1'))
+            spec.write_text(
+                re.sub(
+                    r'(Version )([0-9]+\.[0-9]+\.[0-9]+)',
+                    r'\g<1>9.9.9',
+                    spec.read_text(),
+                    count=1,
+                )
+            )
             result = subprocess.run([sys.executable, str(ROOT / 'docs/scripts/check_tokenomics_params_sync.py')],
                                     cwd=path, capture_output=True, text=True)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('Version mismatch', result.stdout)
+
+    def test_registry_rejects_unpublished_treasury_parameters(self):
+        with tempfile.TemporaryDirectory(prefix='pipe-policy-test-') as path:
+            target = Path(path) / 'docs'
+            target.mkdir()
+            for name in ('Tokenomics.md', 'tokenomics-operations-spec.md', 'tokenomics-params.json'):
+                shutil.copyfile(ROOT / 'docs' / name, target / name)
+            params_path = target / 'tokenomics-params.json'
+            data = json.loads(params_path.read_text())
+            data['parameters'].append(
+                {
+                    'Parameter': 'NET_REVENUE_ALLOCATION_PCT',
+                    'Current Value': 'unspecified',
+                    'Unit': '% of monthly net revenue',
+                    'Min': '0',
+                    'Max': '100',
+                    'Enforced Where': 'Treasury policy',
+                    'Protocol-Updateable': 'Yes',
+                    'Change Effective Field': 'reporting month',
+                    'Parameter Owner': 'Treasury',
+                }
+            )
+            params_path.write_text(json.dumps(data))
+            result = subprocess.run(
+                [sys.executable, str(ROOT / 'docs/scripts/check_tokenomics_params_sync.py')],
+                cwd=path,
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('incomplete treasury parameter NET_REVENUE_ALLOCATION_PCT', result.stdout)
 
     def test_link_check_rejects_private_file_even_when_it_exists(self):
         with tempfile.TemporaryDirectory(prefix='pipe-links-test-') as path:

@@ -1,33 +1,35 @@
 # Pipe Network Documentation
 
-Pipe Network provides content delivery, distributed object storage, and network routing. These docs describe the current mainnet Lattice storage system and its node participation model.
+> **Scope.** This documentation covers Pipe Storage, Lattice Firestarter node participation, and related protocol material.
 
-**Running a storage node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
+These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. CDN and P1 Overlay appear only as high-level product names; this documentation set does not provide customer APIs, onboarding, or operating guides for them.
 
-A percentage of net protocol revenue will support PIPE buyback and burn, with a LovePIPE contribution equal to 7% of the monthly buyback reference amount. See [Tokenomics](docs/Tokenomics.md) for the policy and the accounting details still to be specified.
+**Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
+
+See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional treasury policy.
 
 ## Start Here
 
 - [Welcome](docs/index.md): products and participation.
 - [Introduction](docs/getting-started/introduction.md): overview of Pipe Network.
-- [Architecture](docs/getting-started/architecture.md): gateways, control plane, storage nodes, and Solana integration.
-- [Quickstart](docs/getting-started/quickstart.md): choose customer storage or node participation.
+- [Architecture](docs/getting-started/architecture.md): gateways, control plane, Lattice Firestarter nodes, and Solana integration.
+- [Quickstart](docs/getting-started/quickstart.md): choose customer storage or Lattice Firestarter participation.
 - [Pipe Storage](docs/storage/overview.md): S3-compatible access, customer credits, and storage behavior.
 - [Storage API Quickstart](docs/storage/api.md): fund an account, create credentials, and upload an object.
 
-## Storage Nodes
+## Lattice Firestarter Nodes
 
-- [Mainnet Storage Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
+- [Mainnet Lattice Firestarter Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
 - [Wallet and LovePIPE Setup](docs/nodes/wallet-setup.md): node identity and the 10,000 PIPE requirement.
 - [Node Operations](docs/nodes/mainnet-operations.md): health, capacity, and troubleshooting.
 - [Eligibility Checklist](docs/nodes/mainnet-quality-standards.md): qualification and ongoing participation.
-- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for `lattice-node`.
+- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for the `lattice-node` executable.
 - [LovePIPE](https://pipe.love): staking, wallet positions, and storage account access.
 
 ## Protocol and Economics
 
-- [Tokenomics](docs/Tokenomics.md): no individual node rewards, revenue-funded buybacks, and shared LovePIPE backing.
-- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): allocation accounting, policy parameters, and implementation boundaries.
+- [Tokenomics](docs/Tokenomics.md): no individual node rewards, LovePIPE staking, and optional treasury policy.
+- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): eligibility parameters and implementation boundaries.
 - [Network Growth](docs/getting-started/scalability-and-network-growth.md): capacity, coverage, and long-term participation.
 - [Performance and Integrity](docs/getting-started/performance-and-fraud-detection.md): storage verification and node eligibility.
 
@@ -36,6 +38,7 @@ A percentage of net protocol revenue will support PIPE buyback and burn, with a 
 - [Key Features](docs/getting-started/key-features.md)
 - [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md)
 - [Historical Whitepaper](docs/archive/README.md): dated publication, separate from current mainnet policy.
+- [Whitepaper to Current Mainnet](docs/archive/whitepaper-to-current.md): what changed versus the archived 2025 PDF.
 
 ## Contributing
 
@@ -54,4 +57,4 @@ Run the documentation server locally with `cargo run` and open `http://localhost
 
 Refer to the relevant Pipe Network repositories for license information.
 
-Last updated: September 10, 2026.
+Last updated: September 27, 2026.

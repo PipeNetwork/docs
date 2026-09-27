@@ -1,6 +1,6 @@
 # Storage Architecture
 
-Pipe's current storage system separates customer gateways, protocol coordination, and the machines holding object data.
+Pipe's current storage system separates customer gateways, protocol coordination, and Lattice Firestarter nodes holding object data.
 
 ## Gateways and Control Plane
 
@@ -8,9 +8,9 @@ Customers use S3-compatible or native interfaces through a gateway. The gateway 
 
 A central control plane backed by PostgreSQL manages enrollment, node authority, LovePIPE eligibility, signed routing topology, metadata, customer credit, and storage jobs. Gateways and the control plane are service availability dependencies.
 
-## Storage Nodes
+## Lattice Firestarter Nodes
 
-The public `lattice-node` process stores objects, accepts authorized reads and writes, and provides signed receipts and integrity proofs. Payloads remain on storage nodes. The control plane and gateways decide placement and coordinate replication, adaptive layouts, and repair.
+The public `lattice-node` process stores objects, accepts authorized reads and writes, and provides signed receipts and integrity proofs. Payloads remain on Lattice Firestarter nodes. The control plane and gateways decide placement and coordinate replication, adaptive layouts, and repair.
 
 The standalone node uses persistent disk by default. Compatible releases can also qualify an optional external S3 payload backend while retaining local metadata. Storage policies account for host and shared-backend failures; extra capacity does not guarantee placement.
 
@@ -22,4 +22,4 @@ Customer USDC payments purchase prepaid storage credit. The control plane reserv
 
 Each node must hold LovePIPE LSTs representing at least **10,000 PIPE**. The control plane reads finalized Solana ownership and vault state hourly and requires a complete valid calendar month for qualification. It does not take custody of or transfer those positions.
 
-There are **no individual node rewards or payouts**. Revenue-funded buyback, burn, and LovePIPE contributions are defined separately in [Tokenomics](../Tokenomics.md); serving a storage request does not execute that treasury policy.
+There are **no individual node rewards or payouts**. Optional treasury actions are described in [Tokenomics](../Tokenomics.md); serving a storage request does not execute treasury policy.

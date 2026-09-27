@@ -99,7 +99,7 @@ Writes account for stored bytes and replication work. Reads account for bytes se
 
 Multipart uploads retain parts until they are completed or aborted. Abort unused uploads instead of assuming they will disappear under an automatic lifecycle rule. Revoking a credential does not delete its objects.
 
-Check the service's current rates and account usage rather than applying the former node-payment rates to customer bills. **No customer charge creates a reward or payout for an individual storage node.**
+Check the service's current rates and account usage rather than applying the former node-payment rates to customer bills. **No customer charge creates a reward or payout for an individual Lattice Firestarter node.**
 
 ## Compatibility Limits
 

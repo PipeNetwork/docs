@@ -140,19 +140,32 @@ def main() -> None:
     required = {
         "STAKE_MIN": "10000",
         "NODE_REWARDS_ENABLED": "false",
-        "LOVEPIPE_ALLOCATION_BPS": "700",
-        "NET_REVENUE_ALLOCATION_PCT": "unspecified",
-        "LOVEPIPE_FUNDING_TREATMENT": "unspecified",
+        "PRIORITY_STAKE_CAP": "4.0",
+        "STAKE_SNAPSHOT_INTERVAL_SECONDS": "3600",
+        "QUALIFICATION_PERIOD": "one_complete_utc_calendar_month",
+        "NODE_WALLET_BINDING": "1:1",
     }
     for name, expected in required.items():
         if values.get(name) != expected:
             fail(f"Current mainnet policy requires {name}={expected}.")
+    unpublished_treasury = (
+        "NET_REVENUE_ALLOCATION_PCT",
+        "LOVEPIPE_ALLOCATION_BPS",
+        "LOVEPIPE_FUNDING_TREATMENT",
+    )
+    for name in unpublished_treasury:
+        if name in values:
+            fail(f"Do not publish incomplete treasury parameter {name}.")
+    if any(str(value).strip().lower() == "unspecified" for value in values.values()):
+        fail("Parameter registry must not publish unspecified Current Value rows.")
     if not re.search(r"10,000\s+PIPE", policy_md):
         fail("The public policy must state the 10,000 PIPE participation requirement.")
     if "Individual nodes receive no rewards or payouts" not in policy_md:
         fail("The public policy must explicitly state that individual nodes receive no rewards or payouts.")
-    if not re.search(r"\b7%", policy_md):
-        fail("The public policy must state the 7% LovePIPE contribution.")
+    if re.search(r"percentage of net protocol revenue will", policy_md, flags=re.I):
+        fail("The public policy must not commit an unpublished share of net revenue.")
+    if re.search(r"\b(?:NET_REVENUE_ALLOCATION_PCT|LOVEPIPE_ALLOCATION_BPS|LOVEPIPE_FUNDING_TREATMENT)\b", policy_md):
+        fail("The public policy must not publish incomplete treasury parameter names.")
 
     if spec_rows != json_rows:
         print("ERROR: Parameter registry drift detected between markdown table and JSON.")

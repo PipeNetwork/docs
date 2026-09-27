@@ -1,12 +1,16 @@
-# Mainnet Storage Nodes
+# Mainnet Lattice Firestarter Nodes
 
-Public mainnet node participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
+Public mainnet Lattice Firestarter participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
 
 This guide uses the public `lattice-node` executable on an Ubuntu or Debian host with systemd. Customer storage access is covered in the [storage quickstart](../storage/api.md).
 
 ## 1. Obtain Enrollment Settings
 
-Mainnet enrollment is issued by Pipe Network operations. Obtain a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit from the network operator before starting the service. The public node cannot issue its own invite. These values are deployment-specific; a sample UUID or token will not enroll a node.
+Mainnet enrollment is invite-gated. The public `lattice-node` software cannot issue its own invite, and this repository does not publish a self-serve enrollment form or a public contact channel for requesting access.
+
+Obtain a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit from Pipe Network operations before starting the service. These values are deployment-specific; a sample UUID or token will not enroll a node.
+
+This documentation set does not currently publish hardware sizing, utilization targets, or capacity-planning tables. Plan host resources from the capacity you intend to offer, the node's memory limits, and operational headroom described below.
 
 Also prepare a public HTTPS hostname for this node, a reverse proxy forwarding to `127.0.0.1:7101`, and the capacity you intend to contribute. Keep persistent local space for payloads, metadata, and maintenance. The standalone node uses local disk by default.
 
@@ -128,4 +132,4 @@ Maintain the required position while active. Dropping below 10,000 PIPE-equivale
 
 Preserve the entire persistent data directory during upgrades. Follow [Node Operations](mainnet-operations.md) for maintenance, repair, and safe retirement. Optional external S3 storage requires a compatible release and backend qualification; configure it for a new or drained instance using the [public node's S3 guide](https://github.com/PipeNetwork/pipe-node/blob/main/lattice-node/S3.md).
 
-Node contributions support the protocol's long-term capacity and resilience. Removing individual reward obligations supports long-term sustainability. The separate shared staking benefit is described in [Tokenomics](../Tokenomics.md).
+Node contributions support the protocol's long-term capacity and resilience. Removing individual reward obligations supports long-term sustainability. Participation requirements and optional treasury policy are described in [Tokenomics](../Tokenomics.md).
