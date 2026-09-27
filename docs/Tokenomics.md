@@ -1,6 +1,6 @@
 # Pipe Network Tokenomics
 
-Metadata: `Version 3.1.0` | Updated: September 27, 2026 | Status: Current documentation
+Metadata: `Version 3.1.1` | Updated: September 27, 2026 | Status: Current documentation
 
 Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity. **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
 
@@ -8,7 +8,7 @@ Pipe Network's storage model supports the long-term operation of the protocol th
 
 Each node wallet must hold LovePIPE liquid staking tokens (LSTs), also called vault receipt tokens (VRTs), representing at least **10,000 PIPE**. The requirement is measured in underlying PIPE, not a fixed number of LovePIPE tokens. Operators can deposit PIPE into LovePIPE or transfer an existing LovePIPE position into the node wallet.
 
-The control plane verifies current ownership using finalized Solana state every UTC hour. Under ordinary public admission, a node must pass every hourly check in one complete UTC calendar month before becoming eligible for routing, and maintain the required position while active. Each node uses its own wallet; the same position cannot qualify multiple nodes.
+The control plane verifies current ownership using finalized Solana state every UTC hour. Ordinary public admission is invite-only and also requires the 10,000 PIPE LovePIPE position. Under that public path, a node must pass every hourly check in one complete UTC calendar month before becoming eligible for routing, and maintain the required position while active. Each node uses its own wallet; the same position cannot qualify multiple nodes. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting invites.
 
 Missing, invalid, or below-threshold observations invalidate the qualification month. An active node that fails ownership or balance verification is removed from routing and must complete a new valid month to qualify again. Health, capacity, enrollment, and storage integrity checks also apply.
 
@@ -36,7 +36,7 @@ Deposits and withdrawals use the existing LovePIPE vault. Withdrawal timing foll
 
 ## Implementation and References
 
-The storage implementation verifies LovePIPE eligibility and records customer credit usage without creating node earnings.
+The storage implementation verifies LovePIPE eligibility and records customer credit usage without creating node earnings. This documentation revision is `3.1.1`. It does not change the Lattice implementation eligibility policy identifier `v2.6.0`. Updating documentation is not a protocol release.
 
 - [Tokenomics Operations Spec](tokenomics-operations-spec.md): eligibility parameters and implementation boundaries.
 - [Parameter registry](tokenomics-params.json): machine-readable protocol values currently documented here.

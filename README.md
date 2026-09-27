@@ -1,17 +1,19 @@
 # Pipe Network Documentation
 
-> **Scope.** This documentation covers Pipe Storage, Lattice Firestarter node participation, and related protocol material.
+> **Scope.** This documentation covers Pipe Storage and Lattice Firestarter nodes only. It does not list or document other products.
 
-These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. CDN and P1 Overlay appear only as high-level product names; this documentation set does not provide customer APIs, onboarding, or operating guides for them.
+These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. Lattice Firestarter is the product name; the public node software is the `lattice-node` executable, configured with `LATTICE_*` settings.
 
 **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
+
+Public mainnet admission is invite-only. Ordinary public admission also requires the 10,000 PIPE LovePIPE position and a complete UTC qualification month. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access.
 
 See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional treasury policy.
 
 ## Start Here
 
-- [Welcome](docs/index.md): products and participation.
-- [Introduction](docs/getting-started/introduction.md): overview of Pipe Network.
+- [Welcome](docs/index.md): scope and participation.
+- [Introduction](docs/getting-started/introduction.md): overview of Pipe Storage and Lattice Firestarter.
 - [Architecture](docs/getting-started/architecture.md): gateways, control plane, Lattice Firestarter nodes, and Solana integration.
 - [Quickstart](docs/getting-started/quickstart.md): choose customer storage or Lattice Firestarter participation.
 - [Pipe Storage](docs/storage/overview.md): S3-compatible access, customer credits, and storage behavior.
@@ -19,7 +21,7 @@ See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional
 
 ## Lattice Firestarter Nodes
 
-- [Mainnet Lattice Firestarter Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
+- [Mainnet Lattice Firestarter Nodes](docs/nodes/mainnet.md): invite-gated enrollment, identity helper, and qualification.
 - [Wallet and LovePIPE Setup](docs/nodes/wallet-setup.md): node identity and the 10,000 PIPE requirement.
 - [Node Operations](docs/nodes/mainnet-operations.md): health, capacity, and troubleshooting.
 - [Eligibility Checklist](docs/nodes/mainnet-quality-standards.md): qualification and ongoing participation.
@@ -30,13 +32,10 @@ See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional
 
 - [Tokenomics](docs/Tokenomics.md): no individual node rewards, LovePIPE staking, and optional treasury policy.
 - [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): eligibility parameters and implementation boundaries.
-- [Network Growth](docs/getting-started/scalability-and-network-growth.md): capacity, coverage, and long-term participation.
 - [Performance and Integrity](docs/getting-started/performance-and-fraud-detection.md): storage verification and node eligibility.
 
 ## Other Documentation
 
-- [Key Features](docs/getting-started/key-features.md)
-- [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md)
 - [Historical Whitepaper](docs/archive/README.md): dated publication, separate from current mainnet policy.
 - [Whitepaper to Current Mainnet](docs/archive/whitepaper-to-current.md): what changed versus the archived 2025 PDF.
 

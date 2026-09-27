@@ -16,6 +16,10 @@ The standalone node uses persistent disk by default. Compatible releases can als
 
 Adaptive storage can use three full replicas or Reed–Solomon 4+2 fragments across approved hosts. Reads verify integrity before serving data, and retirement of older layouts requires verified replacement data and cleared references. Layout changes depend on the fleet and active policy.
 
+## Capacity and Coverage
+
+Lattice Firestarter nodes add useful capacity, geographic coverage, and availability. Growth depends on reliable operators, customer demand, and the protocol's ability to place, verify, and repair data across eligible infrastructure. Contributing additional capacity does not guarantee that all of it will be used. Operators in underserved regions can improve coverage and resilience without receiving location-based node rewards.
+
 ## Solana and LovePIPE
 
 Customer USDC payments purchase prepaid storage credit. The control plane reserves and debits that credit for authorized usage. This accounting does not create node earnings.

@@ -6,9 +6,13 @@ This guide uses the public `lattice-node` executable on an Ubuntu or Debian host
 
 ## 1. Obtain Enrollment Settings
 
-Mainnet enrollment is invite-gated. The public `lattice-node` software cannot issue its own invite, and this repository does not publish a self-serve enrollment form or a public contact channel for requesting access.
+Public mainnet admission is invite-only. Ordinary public admission also requires **10,000 PIPE staked through LovePIPE** and a complete UTC calendar month of passing hourly ownership checks. The public `lattice-node` software cannot issue its own invite. Installing the software does not enroll a node.
 
-Obtain a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit from Pipe Network operations before starting the service. These values are deployment-specific; a sample UUID or token will not enroll a node.
+There is no public waitlist and no self-serve enrollment form in this repository. This repository does not publish a public contact channel for requesting invites.
+
+Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit. These values are deployment-specific; a sample UUID or token will not enroll a node.
+
+Private bootstrap exemptions may exist. They are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement. Detailed exemption mechanics are not part of this public guide.
 
 This documentation set does not currently publish hardware sizing, utilization targets, or capacity-planning tables. Plan host resources from the capacity you intend to offer, the node's memory limits, and operational headroom described below.
 
@@ -43,6 +47,8 @@ sudo install -m 0644 deploy/pipe-node.service /etc/systemd/system/pipe-node.serv
 Use the systemd unit from the same node checkout as the binary. Review its memory limits against the host and offered capacity.
 
 ## 3. Install the Prepared Identity
+
+The `lattice-node` binary is built from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node). The identity helper `docs/scripts/prepare_node_identity.py` lives in the [PipeNetwork/docs](https://github.com/PipeNetwork/docs) repository. A `pipe-node` clone does not include that helper. Use a docs checkout on the node host, or copy the script from a docs checkout. This repository does not publish a separate packaged installer for the helper.
 
 Privately transfer the `node.key` prepared in the [wallet guide](wallet-setup.md) to the host. From the documentation checkout on the node host, install it into a new empty data directory:
 
@@ -126,9 +132,9 @@ A healthy endpoint does not mean the node has completed stake qualification. Che
 
 ## 6. Qualification and Ongoing Operation
 
-Ordinary mainnet admission requires every finalized hourly LovePIPE ownership check in one complete UTC calendar month to pass. For example, a node enrolled on September 10 that passes every October check can qualify at the November rollover, subject to health and other eligibility checks.
+Ordinary public admission requires every finalized hourly LovePIPE ownership check in one complete UTC calendar month to pass. For example, a node enrolled on September 10 that passes every October check can qualify at the November rollover, subject to health and other eligibility checks.
 
-Maintain the required position while active. Dropping below 10,000 PIPE-equivalent or moving the position away causes the next ownership check to fail, removes the node from routing, and requires a new complete valid month for requalification. Narrow bootstrap exceptions are administered separately by the protocol; they do not change the public participation requirement or create node rewards.
+Maintain the required position while active. Dropping below 10,000 PIPE-equivalent or moving the position away causes the next ownership check to fail, removes the node from routing, and requires a new complete valid month for requalification. Private bootstrap exemptions may exist; they are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement.
 
 Preserve the entire persistent data directory during upgrades. Follow [Node Operations](mainnet-operations.md) for maintenance, repair, and safe retirement. Optional external S3 storage requires a compatible release and backend qualification; configure it for a new or drained instance using the [public node's S3 guide](https://github.com/PipeNetwork/pipe-node/blob/main/lattice-node/S3.md).
 

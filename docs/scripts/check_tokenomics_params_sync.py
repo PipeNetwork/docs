@@ -166,6 +166,10 @@ def main() -> None:
         fail("The public policy must not commit an unpublished share of net revenue.")
     if re.search(r"\b(?:NET_REVENUE_ALLOCATION_PCT|LOVEPIPE_ALLOCATION_BPS|LOVEPIPE_FUNDING_TREATMENT)\b", policy_md):
         fail("The public policy must not publish incomplete treasury parameter names.")
+    if "v2.6.0" not in spec_md:
+        fail("The operations spec must state that the Lattice eligibility policy identifier remains v2.6.0.")
+    if "not a protocol release" not in spec_md:
+        fail("The operations spec must state that updating documentation is not a protocol release.")
 
     if spec_rows != json_rows:
         print("ERROR: Parameter registry drift detected between markdown table and JSON.")

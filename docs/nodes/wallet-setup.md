@@ -1,10 +1,10 @@
 # Lattice Firestarter Node Wallet and LovePIPE
 
-Public mainnet Lattice Firestarter participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-gated; obtain control-plane settings from Pipe Network operations as described in [Mainnet Lattice Firestarter Nodes](mainnet.md).
+Public mainnet Lattice Firestarter participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-only. See [Mainnet Lattice Firestarter Nodes](mainnet.md) for ordinary public admission requirements. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access.
 
 ## Prepare the Wallet Locally
 
-The helper below creates compatible wallet and node identity files locally. It makes no network requests, transfers no tokens, and does not enroll a node. It refuses to overwrite existing files or initialize a directory that already contains node data.
+The helper below creates compatible wallet and node identity files locally. It lives in this documentation repository as `docs/scripts/prepare_node_identity.py`. It is not shipped in [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node); that repository is the source of the `lattice-node` binary. Operators need the helper from a docs checkout, a copied script, or the documentation website path below. It makes no network requests, transfers no tokens, and does not enroll a node. It refuses to overwrite existing files or initialize a directory that already contains node data.
 
 Use a trusted machine for wallet preparation. Install Python 3 and its `cryptography` package; on Ubuntu or Debian:
 
@@ -68,6 +68,6 @@ A label or public key written in configuration cannot change the node's signing 
 
 ## Maintain Qualification
 
-Ordinary mainnet admission requires every finalized hourly observation in one complete UTC calendar month to pass. An active node that drops below the minimum is removed from routing and must qualify again through a complete valid month.
+Ordinary public admission requires every finalized hourly observation in one complete UTC calendar month to pass. An active node that drops below the minimum is removed from routing and must qualify again through a complete valid month.
 
 LovePIPE is the staking path for eligibility. Any later treasury support for PIPE is independent of node operation. See [Tokenomics](../Tokenomics.md) and the [Eligibility Checklist](mainnet-quality-standards.md).

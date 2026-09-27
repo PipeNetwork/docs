@@ -21,8 +21,8 @@ Those statements belong to the dated publication. They are not current mainnet p
 | Node software | PoP-era node guides and binaries | Public `lattice-node` executable from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node), configured with `LATTICE_*` settings |
 | Node rewards | Participation incentives for PoPs | **Individual nodes receive no rewards or payouts** |
 | Participation stake | Token stake or delegation for PoP eligibility | **10,000 PIPE staked through LovePIPE** per Lattice Firestarter node |
-| Enrollment | Permissionless PoP participation | Invite-gated enrollment issued by Pipe Network operations |
-| Delivery / routing products | Decentralized CDN / streaming framing | High-level names only; this docs set covers Pipe Storage and Lattice Firestarter nodes, not CDN or P1 customer APIs |
+| Enrollment | Permissionless PoP participation | Invite-only public admission; this repository does not publish a waitlist or contact channel for requesting access |
+| Delivery / routing products | Decentralized CDN / streaming framing | This documentation set covers Pipe Storage and Lattice Firestarter nodes only |
 
 Older PoP-era setup pages, environment names, and reward language are obsolete. Do not follow them for mainnet.
 

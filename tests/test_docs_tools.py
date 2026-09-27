@@ -120,6 +120,35 @@ class DocumentationGuardTests(unittest.TestCase):
             'incomplete treasury parameters',
             guard.check_text('Set NET_REVENUE_ALLOCATION_PCT in the registry.'),
         )
+        self.assertIn(
+            'undocumented cdn or p1 product',
+            guard.check_text('Pipe CDN delivers content through distributed points of presence.'),
+        )
+        self.assertIn(
+            'undocumented cdn or p1 product',
+            guard.check_text('P1 Overlay Network provides routing.'),
+        )
+        self.assertEqual(
+            guard.check_text('This documentation covers Pipe Storage and Lattice Firestarter nodes only.'),
+            [],
+        )
+
+    def test_thin_getting_started_stubs_are_removed(self):
+        for name in (
+            'key-features.md',
+            'opportunities-and-use-cases.md',
+            'scalability-and-network-growth.md',
+        ):
+            self.assertFalse((ROOT / 'docs/getting-started' / name).exists(), name)
+
+    def test_public_readme_and_index_do_not_list_removed_stubs(self):
+        published = (ROOT / 'README.md').read_text() + (ROOT / 'docs/index.md').read_text()
+        for name in (
+            'key-features.md',
+            'opportunities-and-use-cases.md',
+            'scalability-and-network-growth.md',
+        ):
+            self.assertNotIn(name, published)
 
     def test_registry_consistency_rejects_spec_version_drift(self):
         with tempfile.TemporaryDirectory(prefix='pipe-policy-test-') as path:

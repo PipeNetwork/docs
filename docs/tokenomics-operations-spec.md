@@ -1,6 +1,6 @@
 # Tokenomics Operations Spec
 
-Metadata: `Version 3.1.0` | Updated: September 27, 2026 | Status: Current documentation
+Metadata: `Version 3.1.1` | Updated: September 27, 2026 | Status: Current documentation
 
 This document accompanies the [tokenomics policy](Tokenomics.md). It separates implemented node eligibility and customer accounting from optional treasury actions.
 
@@ -40,13 +40,13 @@ pipe_equivalent_atoms = floor(vrt_atoms * vault_pipe_atoms / vrt_supply_atoms)
 priority = min(4.0, sqrt(pipe_equivalent / 10000))
 ```
 
-The control plane verifies ownership, vault and mint identity, and the conversion inputs. Under ordinary public admission, every hourly snapshot in a complete UTC calendar month must pass. Placement additionally depends on node health, available capacity, and the storage policy; priority is not a guaranteed assignment share or financial return.
+The control plane verifies ownership, vault and mint identity, and the conversion inputs. Ordinary public admission is invite-only. It also requires the 10,000 PIPE LovePIPE minimum and a complete UTC calendar month of passing hourly checks. There is no public waitlist and no self-serve enrollment form in this repository, and this repository does not publish a public contact channel for requesting invites. Installing node software does not enroll a node. Placement additionally depends on node health, available capacity, and the storage policy; priority is not a guaranteed assignment share or financial return.
 
 Missing or invalid observations fail qualification. Ownership or balance failures remove an active node from routing. Administrators can blacklist nodes, but the storage control plane does not seize, burn, withdraw, or transfer LovePIPE positions.
 
-The protocol can grant narrowly scoped bootstrap exemptions to enrolled identities through its private operator controls. Exemptions create no rewards and do not bypass node health, integrity, or blacklist checks. They do not change the public 10,000 PIPE participation requirement.
+Private bootstrap exemptions may exist. They are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement. Detailed exemption mechanics are not published here.
 
-This documentation revision is `3.1.0`. The reviewed Lattice implementation still identifies its eligibility policy as `v2.6.0` and enforces the 10,000 PIPE minimum. Updating these documents does not change that runtime identifier or deploy a new configuration.
+This documentation revision is `3.1.1`. It does not change the Lattice implementation eligibility policy identifier `v2.6.0`. The reviewed implementation still enforces the 10,000 PIPE minimum. Updating these documents is not a protocol release and does not deploy a new configuration.
 
 ## 4) Reporting
 

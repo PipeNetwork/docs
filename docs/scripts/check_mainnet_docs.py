@@ -17,6 +17,7 @@ PATTERNS = {
     "incomplete treasury parameters": r"\b(?:NET_REVENUE_ALLOCATION_PCT|LOVEPIPE_ALLOCATION_BPS|LOVEPIPE_FUNDING_TREATMENT)\b",
     "incorrect fixed withdrawal period": r"\b(?:is|has|uses)\s+(?:a\s+)?(?:fixed\s+)?30[- ]day\s+(?:cooldown|lock)\b",
     "retired reward program": r"scarcity-based reward|location-based rewards|referral rewards",
+    "undocumented cdn or p1 product": r"\b(?:pipe\s*cdn|pipecdn|p1 overlay)\b|\bcdn\b",
 }
 
 RETIRED = (
@@ -26,6 +27,9 @@ RETIRED = (
     "docs/pipe-firestarter-storage.md", "docs/mica.pdf",
     "docs/internal/tokenomics-internal-ops.md", "docs/test-vectors",
     "docs/scripts/run_tokenomics_test_vectors.py",
+    "docs/getting-started/key-features.md",
+    "docs/getting-started/opportunities-and-use-cases.md",
+    "docs/getting-started/scalability-and-network-growth.md",
 )
 
 

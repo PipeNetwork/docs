@@ -1,6 +1,6 @@
 # Tokenomics Internal Operations Notes
 
-Aligned with documentation policy `v3.1.0`, updated September 27, 2026.
+Aligned with documentation policy `v3.1.1`, updated September 27, 2026.
 
 ## Storage Operations
 
