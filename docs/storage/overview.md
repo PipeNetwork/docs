@@ -1,6 +1,6 @@
 # Pipe Storage
 
-Pipe Storage uses Lattice gateways, a control plane, and Lattice Firestarter nodes to store and serve objects. Customers access storage through an S3-compatible API using clients such as AWS CLI, boto3, or similar S3 tools. Lattice Firestarter nodes run the `lattice-node` executable. A compatible release (source or binary) is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
+Pipe Storage uses Lattice gateways, a control plane, and Lattice Firestarter nodes to store and serve objects. Customers access storage through an S3-compatible API using clients such as AWS CLI, boto3, or similar S3 tools. Lattice Firestarter nodes run the `lattice-node` executable. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.
 
 The service uses prepaid customer credit purchased with USDC on Solana mainnet.
 

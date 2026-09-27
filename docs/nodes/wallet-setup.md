@@ -4,7 +4,7 @@ Public mainnet Lattice Firestarter participation requires a dedicated node walle
 
 ## Prepare the Wallet Locally
 
-The helper below creates compatible wallet and node identity files locally. It lives in this documentation repository as `docs/scripts/prepare_node_identity.py`. The `lattice-node` executable is supplied with the enrollment invite (source or binary); the helper is not part of that node release package. Operators need the helper from a docs checkout, a copied script, or the documentation website path below. It makes no network requests, transfers no tokens, and does not enroll a node. It refuses to overwrite existing files or initialize a directory that already contains node data.
+The helper below creates compatible wallet and node identity files locally. It lives in this documentation repository as `docs/scripts/prepare_node_identity.py`. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations; the helper is not part of that node release package. Operators need the helper from a docs checkout, a copied script, or the documentation website path below. It makes no network requests, transfers no tokens, and does not enroll a node. It refuses to overwrite existing files or initialize a directory that already contains node data.
 
 Use a trusted machine for wallet preparation. Install Python 3 and its `cryptography` package; on Ubuntu or Debian:
 

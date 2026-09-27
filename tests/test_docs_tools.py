@@ -144,6 +144,20 @@ class DocumentationGuardTests(unittest.TestCase):
             'undocumented customer sdk',
             guard.check_text('Customers use Pipe SDKs and native HTTP interfaces.'),
         )
+        self.assertIn(
+            'public node source claim',
+            guard.check_text('This documentation set does not publish a public clone URL.'),
+        )
+        self.assertIn(
+            'suggest making node repo public',
+            guard.check_text('We should make the node repository public.'),
+        )
+        self.assertEqual(
+            guard.check_text(
+                'A compatible lattice-node source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.'
+            ),
+            [],
+        )
 
     def test_published_docs_do_not_link_private_pipe_node_repo(self):
         for path in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]:
@@ -152,6 +166,8 @@ class DocumentationGuardTests(unittest.TestCase):
                 path.read_text(),
                 path,
             )
+            self.assertNotIn('Public Node Repository', path.read_text(), path)
+            self.assertNotIn('public clone URL', path.read_text(), path)
 
     def test_thin_getting_started_stubs_are_removed(self):
         for name in (

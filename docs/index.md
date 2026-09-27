@@ -2,7 +2,7 @@
 
 > **Scope.** This documentation covers Pipe Storage and Lattice Firestarter nodes only. It does not list or document other products.
 
-The current storage system uses Lattice gateways and a control plane to coordinate independently operated Lattice Firestarter nodes. Lattice Firestarter is the product name; nodes run the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible release is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
+The current storage system uses Lattice gateways and a control plane to coordinate independently operated Lattice Firestarter nodes. Lattice Firestarter is the product name; nodes run the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.
 
 ## Use Pipe
 

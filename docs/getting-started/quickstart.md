@@ -12,9 +12,9 @@ Public mainnet admission is invite-only. Installing `lattice-node` does not enro
 
 Ordinary public admission requires an invite, the 10,000 PIPE LovePIPE position, and a complete UTC calendar month of passing hourly checks. If you already have an invite and the required position:
 
-1. Prepare a dedicated node identity and its corresponding Solana wallet. The identity helper lives in this documentation repository. A compatible `lattice-node` release (source or binary) is supplied with the invite; this documentation set does not publish a public clone URL.
+1. Prepare a dedicated node identity and its corresponding Solana wallet. The identity helper lives in this documentation repository. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.
 2. Ensure the wallet holds LovePIPE LSTs representing at least 10,000 underlying PIPE.
-3. Use the invite's mesh UUID, trusted HTTPS control-plane URL, and the compatible `lattice-node` release supplied with that invite. Sample values will not enroll a node.
+3. Use the invite's mesh UUID, trusted HTTPS control-plane URL, and the compatible `lattice-node` source or binary provided with that invite, by Pipe Network operations. Sample values will not enroll a node.
 4. Enroll the node, keep it healthy, and retain the required stake through a complete UTC calendar month of finalized hourly checks.
 5. Maintain stake, storage integrity, and availability while participating.
 

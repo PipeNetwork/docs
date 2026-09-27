@@ -2,7 +2,7 @@
 
 Public mainnet Lattice Firestarter participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
 
-This guide uses the `lattice-node` executable on an Ubuntu or Debian host with systemd. A compatible release (source or binary) is supplied with the enrollment invite. Customer storage access is covered in the [storage quickstart](../storage/api.md).
+This guide uses the `lattice-node` executable on an Ubuntu or Debian host with systemd. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. Customer storage access is covered in the [storage quickstart](../storage/api.md).
 
 ## 1. Obtain Enrollment Settings
 
@@ -10,7 +10,7 @@ Public mainnet admission is invite-only. Ordinary public admission also requires
 
 There is no public waitlist and no self-serve enrollment form in this repository. This repository does not publish a public contact channel for requesting invites.
 
-Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, a compatible `lattice-node` release (source or binary), and the matching release tag or commit when building from source. These values are supplied with the enrollment invite. A sample UUID or token will not enroll a node. This documentation set does not publish a public clone URL for the node repository.
+Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, a compatible `lattice-node` source or binary, and the matching release tag or commit when building from source. These are provided with the enrollment invite, by Pipe Network operations. A sample UUID or token will not enroll a node. This documentation set does not publish a clone URL.
 
 Private bootstrap exemptions may exist. They are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement. Detailed exemption mechanics are not part of this public guide.
 
@@ -22,7 +22,7 @@ Prepare and fund the dedicated identity using [Wallet and LovePIPE Setup](wallet
 
 ## 2. Obtain and Install the Node Software
 
-A compatible `lattice-node` release (source or binary) is supplied with the enrollment invite. This documentation set does not publish a public clone URL for the node repository, and it does not publish a contact channel for requesting that software.
+A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL, and it does not publish a contact channel for requesting that software.
 
 Install the system packages used by this guide:
 
@@ -60,7 +60,7 @@ Review the unit's memory limits against the host and offered capacity.
 
 ## 3. Install the Prepared Identity
 
-The identity helper `docs/scripts/prepare_node_identity.py` lives in the [PipeNetwork/docs](https://github.com/PipeNetwork/docs) repository. The `lattice-node` executable is supplied with the enrollment invite (source or binary). The helper is not part of that node release package. Use a docs checkout on the node host, or copy the script from a docs checkout. This documentation set does not publish a public clone URL for the node repository and does not publish a separate packaged installer for the helper.
+The identity helper `docs/scripts/prepare_node_identity.py` lives in the [PipeNetwork/docs](https://github.com/PipeNetwork/docs) repository. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. The helper is not part of that node release package. Use a docs checkout on the node host, or copy the script from a docs checkout. This documentation set does not publish a clone URL for the node software and does not publish a separate packaged installer for the helper.
 
 Privately transfer the `node.key` prepared in the [wallet guide](wallet-setup.md) to the host. From the documentation checkout on the node host, install it into a new empty data directory:
 

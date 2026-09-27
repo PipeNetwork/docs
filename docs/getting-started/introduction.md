@@ -2,7 +2,7 @@
 
 > **Scope.** This documentation covers Pipe Storage and Lattice Firestarter nodes only. It does not name or document other products.
 
-Independent operators run Lattice Firestarter nodes that store object data for the current Lattice storage system. Lattice Firestarter is the product name; the implementation is the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible release (source or binary) is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
+Independent operators run Lattice Firestarter nodes that store object data for the current Lattice storage system. Lattice Firestarter is the product name; the implementation is the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.
 
 ## The Current Storage System
 

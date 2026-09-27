@@ -18,7 +18,7 @@ Those statements belong to the dated publication. They are not current mainnet p
 | --- | --- | --- |
 | Customer credits | Token converted to Data Credits | Prepaid storage credit purchased with USDC on Solana |
 | Operator product | Permissionless PoP nodes | Lattice Firestarter nodes |
-| Node software | PoP-era node guides and binaries | Invite-supplied `lattice-node` executable, configured with `LATTICE_*` settings. This documentation set does not publish a public clone URL |
+| Node software | PoP-era node guides and binaries | Invite-gated `lattice-node` source or binary, provided with the enrollment invite, by Pipe Network operations, and configured with `LATTICE_*` settings. This documentation set does not publish a clone URL |
 | Node rewards | Participation incentives for PoPs | **Individual nodes receive no rewards or payouts** |
 | Participation stake | Token stake or delegation for PoP eligibility | **10,000 PIPE staked through LovePIPE** per Lattice Firestarter node |
 | Enrollment | Permissionless PoP participation | Invite-only public admission; this repository does not publish a waitlist or contact channel for requesting access |
