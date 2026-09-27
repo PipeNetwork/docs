@@ -1,6 +1,6 @@
 # Storage Node Wallet and LovePIPE
 
-Public mainnet node participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts.
+Public mainnet node participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-gated; obtain control-plane settings from Pipe Network operations as described in [Mainnet Storage Nodes](mainnet.md).
 
 ## Prepare the Wallet Locally
 

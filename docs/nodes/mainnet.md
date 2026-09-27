@@ -6,7 +6,11 @@ This guide uses the public `lattice-node` executable on an Ubuntu or Debian host
 
 ## 1. Obtain Enrollment Settings
 
-Mainnet enrollment is issued by Pipe Network operations. Obtain a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit from the network operator before starting the service. The public node cannot issue its own invite. These values are deployment-specific; a sample UUID or token will not enroll a node.
+Mainnet enrollment is invite-gated. The public `lattice-node` software cannot issue its own invite, and this repository does not publish a self-serve enrollment form or a public contact channel for requesting access.
+
+Obtain a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit from Pipe Network operations before starting the service. These values are deployment-specific; a sample UUID or token will not enroll a node.
+
+This documentation set does not currently publish hardware sizing, utilization targets, or capacity-planning tables. Plan host resources from the capacity you intend to offer, the node's memory limits, and operational headroom described below.
 
 Also prepare a public HTTPS hostname for this node, a reverse proxy forwarding to `127.0.0.1:7101`, and the capacity you intend to contribute. Keep persistent local space for payloads, metadata, and maintenance. The standalone node uses local disk by default.
 

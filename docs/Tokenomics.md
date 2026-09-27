@@ -24,7 +24,9 @@ Running a storage node contributes capacity, availability, and resilience to the
 
 A percentage of net protocol revenue will be used to buy back and burn PIPE. A LovePIPE pool contribution equal to **7% of the monthly revenue amount designated for the buyback program** will increase the backing of existing LSTs for everyone staking.
 
-The following accounting details remain to be specified:
+### Open parameters
+
+The following accounting details remain unspecified (`NET_REVENUE_ALLOCATION_PCT` and `LOVEPIPE_FUNDING_TREATMENT` in the [parameter registry](tokenomics-params.json)):
 
 - The percentage of net revenue committed to the program and its effective month.
 - The accounting definition of net revenue, including deductions and execution costs.
@@ -51,3 +53,4 @@ The storage implementation already verifies LovePIPE eligibility and records cus
 - [Parameter registry](tokenomics-params.json): machine-readable policy values, including the unspecified net-revenue percentage.
 - [Storage overview](storage/overview.md): customer access and storage-node responsibilities.
 - [LovePIPE](https://pipe.love): staking interface for the existing vault.
+- [Whitepaper to current mainnet](archive/whitepaper-to-current.md): differences from the archived 2025 publication.

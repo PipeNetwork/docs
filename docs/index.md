@@ -1,11 +1,12 @@
 # Welcome to Pipe Network
 
-Pipe Network combines content delivery, distributed object storage, and network routing. The current storage system uses Lattice gateways and a control plane to coordinate independently operated storage nodes.
+> **Scope.** This documentation covers Lattice storage, LovePIPE node participation, and related protocol material. Prepaid OpenAI-compatible inference at [pipenetwork.ai](https://pipenetwork.ai) is a separate product and is not documented here.
+
+The current storage system uses Lattice gateways and a control plane to coordinate independently operated storage nodes. CDN and P1 Overlay are high-level product names only in this docs set; customer paths and APIs for those products are not published here.
 
 ## Use Pipe
 
 - **Store objects** through the [S3-compatible storage service](storage/overview.md), native HTTP interfaces, or SDKs. Customers purchase prepaid storage credit with USDC on Solana.
-- **Deliver content** through Pipe's CDN and routing infrastructure.
 - **Contribute storage** by [running a storage node](nodes/mainnet.md), subject to enrollment, stake qualification, and operational requirements.
 
 ## Node Participation and LovePIPE
@@ -14,7 +15,7 @@ Pipe Network combines content delivery, distributed object storage, and network 
 
 Operators contribute capacity, availability, and resilience to support the protocol over the long term. Removing individual node rewards avoids recurring node-payment obligations and reward emissions.
 
-The [tokenomics policy](Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
+Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](Tokenomics.md). [Open parameters](Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
 Read [Tokenomics Operations](tokenomics-operations-spec.md) for accounting and implementation details.
 

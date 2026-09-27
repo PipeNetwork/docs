@@ -28,6 +28,6 @@ Customers use the [storage workspace](https://pipe.love/storage). Customer payme
 
 **Each node requires 10,000 PIPE staked through LovePIPE, and individual nodes receive no rewards or payouts.** The node wallet must retain LovePIPE LSTs representing at least 10,000 underlying PIPE. Enrollment, a complete calendar month of finalized hourly stake checks, node health, and storage eligibility determine participation.
 
-The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
+Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
 See [Mainnet Storage Nodes](../nodes/mainnet.md), [Node Operations](../nodes/mainnet-operations.md), and [Tokenomics](../Tokenomics.md) for requirements and the revenue policy.

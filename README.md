@@ -1,10 +1,12 @@
 # Pipe Network Documentation
 
-Pipe Network provides content delivery, distributed object storage, and network routing. These docs describe the current mainnet Lattice storage system and its node participation model.
+> **Scope.** This documentation covers Lattice storage, LovePIPE node participation, and related protocol material. Prepaid OpenAI-compatible inference at [pipenetwork.ai](https://pipenetwork.ai) is a separate product and is not documented here.
+
+These pages describe the current mainnet Lattice storage system and how independently operated storage nodes participate. CDN and P1 Overlay appear only as high-level product names; this documentation set does not provide customer APIs, onboarding, or operating guides for them.
 
 **Running a storage node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
-A percentage of net protocol revenue will support PIPE buyback and burn, with a LovePIPE contribution equal to 7% of the monthly buyback reference amount. See [Tokenomics](docs/Tokenomics.md) for the policy and the accounting details still to be specified.
+See [Tokenomics](docs/Tokenomics.md) for revenue-funded buybacks and the shared LovePIPE contribution. [Open parameters](docs/Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
 ## Start Here
 
@@ -36,6 +38,7 @@ A percentage of net protocol revenue will support PIPE buyback and burn, with a 
 - [Key Features](docs/getting-started/key-features.md)
 - [Opportunities and Use Cases](docs/getting-started/opportunities-and-use-cases.md)
 - [Historical Whitepaper](docs/archive/README.md): dated publication, separate from current mainnet policy.
+- [Whitepaper to Current Mainnet](docs/archive/whitepaper-to-current.md): what changed versus the archived 2025 PDF.
 
 ## Contributing
 
@@ -54,4 +57,4 @@ Run the documentation server locally with `cargo run` and open `http://localhost
 
 Refer to the relevant Pipe Network repositories for license information.
 
-Last updated: September 10, 2026.
+Last updated: September 27, 2026.

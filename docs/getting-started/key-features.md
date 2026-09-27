@@ -2,7 +2,7 @@
 
 ## Object Storage and Delivery
 
-Pipe Storage supports S3-compatible clients, native HTTP interfaces, and SDKs. Customers use scoped credentials to store and retrieve objects, while gateways coordinate access to distributed storage nodes. Pipe's CDN and routing products support content delivery across the network.
+Pipe Storage supports S3-compatible clients, native HTTP interfaces, and SDKs. Customers use scoped credentials to store and retrieve objects, while gateways coordinate access to distributed storage nodes. CDN and P1 Overlay are not covered as customer products in this documentation set.
 
 ## Customer Usage Accounting
 
@@ -18,6 +18,6 @@ Persistent disk is the standalone node's default backend. Compatible releases ca
 
 Each storage node requires **10,000 PIPE staked through LovePIPE**, verified through current LST ownership. **There are no individual node rewards or payouts.** Nodes contribute capacity and availability to support the protocol over the long term.
 
-The [tokenomics policy](../Tokenomics.md) describes revenue-funded PIPE buyback and burn and the shared LovePIPE contribution. The contribution increases PIPE backing per LST for all stakers, independently of node operation. The final revenue allocation and funding treatment remain to be specified.
+Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
 See the [storage guide](../storage/overview.md) for customer access and the [node guide](../nodes/mainnet.md) for participation requirements.
