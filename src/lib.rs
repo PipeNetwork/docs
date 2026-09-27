@@ -65,6 +65,11 @@ fn legacy_target(path: &str) -> Option<&'static str> {
         "pipe-firestarter-storage.md" => Some("/docs/storage/overview.md"),
         "cdn-api/api-documentation.md" => Some("/docs/storage/api.md"),
         "mica.pdf" => Some("/docs/archive/README.md"),
+        "getting-started/key-features.md" => Some("/docs/getting-started/introduction.md"),
+        "getting-started/opportunities-and-use-cases.md" => Some("/docs/storage/overview.md"),
+        "getting-started/scalability-and-network-growth.md" => {
+            Some("/docs/getting-started/architecture.md")
+        }
         _ => None,
     }
 }

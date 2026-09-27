@@ -120,6 +120,91 @@ class DocumentationGuardTests(unittest.TestCase):
             'incomplete treasury parameters',
             guard.check_text('Set NET_REVENUE_ALLOCATION_PCT in the registry.'),
         )
+        self.assertIn(
+            'undocumented cdn or p1 product',
+            guard.check_text('Pipe CDN delivers content through distributed points of presence.'),
+        )
+        self.assertIn(
+            'undocumented cdn or p1 product',
+            guard.check_text('P1 Overlay Network provides routing.'),
+        )
+        self.assertEqual(
+            guard.check_text('This documentation covers Pipe Storage and Lattice Firestarter nodes only.'),
+            [],
+        )
+        self.assertIn(
+            'unpublished pipe-node clone url',
+            guard.check_text('git clone https://github.com/PipeNetwork/pipe-node.git'),
+        )
+        self.assertIn(
+            'public node source claim',
+            guard.check_text('See the Public Node Repository for lattice-node.'),
+        )
+        self.assertIn(
+            'undocumented customer sdk',
+            guard.check_text('Customers use Pipe SDKs and native HTTP interfaces.'),
+        )
+        self.assertIn(
+            'public node source claim',
+            guard.check_text('This documentation set does not publish a public clone URL.'),
+        )
+        self.assertIn(
+            'suggest making node repo public',
+            guard.check_text('We should make the node repository public.'),
+        )
+        self.assertIn(
+            'outdated no-contact-channel claim',
+            guard.check_text('This repository does not publish a public contact channel for requesting invites.'),
+        )
+        self.assertEqual(
+            guard.check_text(
+                'Enrollment is invite-only. To inquire about running a node, email hello@pipe.network.'
+            ),
+            [],
+        )
+        self.assertEqual(
+            guard.check_text(
+                'A compatible lattice-node source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.'
+            ),
+            [],
+        )
+
+    def test_published_docs_do_not_link_private_pipe_node_repo(self):
+        for path in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]:
+            text = path.read_text()
+            self.assertNotIn('github.com/PipeNetwork/pipe-node', text, path)
+            self.assertNotIn('Public Node Repository', text, path)
+            self.assertNotIn('public clone URL', text, path)
+
+    def test_mainnet_docs_publish_hello_email_and_not_other_channels(self):
+        mainnet = (ROOT / 'docs/nodes/mainnet.md').read_text()
+        self.assertIn('hello@pipe.network', mainnet)
+        self.assertIn('invite-only', mainnet.lower())
+        self.assertIn('To inquire about running a node, email', mainnet)
+        self.assertNotIn('does not publish a public contact channel', mainnet)
+        published = '\n'.join(
+            p.read_text() for p in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]
+        )
+        self.assertNotIn('does not publish a public contact channel', published)
+        self.assertNotIn('discord', published.lower())
+        self.assertNotIn('telegram', published.lower())
+
+    def test_thin_getting_started_stubs_are_removed(self):
+        for name in (
+            'key-features.md',
+            'opportunities-and-use-cases.md',
+            'scalability-and-network-growth.md',
+        ):
+            self.assertFalse((ROOT / 'docs/getting-started' / name).exists(), name)
+
+    def test_public_readme_and_index_do_not_list_removed_stubs(self):
+        published = (ROOT / 'README.md').read_text() + (ROOT / 'docs/index.md').read_text()
+        for name in (
+            'key-features.md',
+            'opportunities-and-use-cases.md',
+            'scalability-and-network-growth.md',
+        ):
+            self.assertNotIn(name, published)
 
     def test_registry_consistency_rejects_spec_version_drift(self):
         with tempfile.TemporaryDirectory(prefix='pipe-policy-test-') as path:

@@ -13,6 +13,6 @@
 | Optional external S3 | Compatible release, successful backend qualification and continuing audits. | External capacity remains unavailable or is suspended. |
 | Administrative status | Node is enabled and not blacklisted. | Participation stops; unblacklisting and valid qualification are required for re-entry. |
 
-Health and storage checks apply as the service runs. The calendar-month rule applies to LovePIPE qualification; it is not an earnings settlement window. Narrow bootstrap exemptions are administered separately by the protocol and do not change the public requirement or bypass health, integrity, or blacklist checks.
+Health and storage checks apply as the service runs. The calendar-month rule applies to LovePIPE qualification; it is not an earnings settlement window. Ordinary public admission is invite-only and also requires the 10,000 PIPE LovePIPE position plus a complete valid month. Private bootstrap exemptions may exist; they are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement.
 
 See [Tokenomics](../Tokenomics.md), [Node Operations](mainnet-operations.md), and [LovePIPE](https://pipe.love).

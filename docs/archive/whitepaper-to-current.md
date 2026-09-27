@@ -18,11 +18,11 @@ Those statements belong to the dated publication. They are not current mainnet p
 | --- | --- | --- |
 | Customer credits | Token converted to Data Credits | Prepaid storage credit purchased with USDC on Solana |
 | Operator product | Permissionless PoP nodes | Lattice Firestarter nodes |
-| Node software | PoP-era node guides and binaries | Public `lattice-node` executable from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node), configured with `LATTICE_*` settings |
+| Node software | PoP-era node guides and binaries | Invite-gated `lattice-node` source or binary, provided with the enrollment invite, by Pipe Network operations, and configured with `LATTICE_*` settings. This documentation set does not publish a clone URL |
 | Node rewards | Participation incentives for PoPs | **Individual nodes receive no rewards or payouts** |
 | Participation stake | Token stake or delegation for PoP eligibility | **10,000 PIPE staked through LovePIPE** per Lattice Firestarter node |
-| Enrollment | Permissionless PoP participation | Invite-gated enrollment issued by Pipe Network operations |
-| Delivery / routing products | Decentralized CDN / streaming framing | High-level names only; this docs set covers Pipe Storage and Lattice Firestarter nodes, not CDN or P1 customer APIs |
+| Enrollment | Permissionless PoP participation | Invite-only; no public waitlist or self-serve form; operators may email hello@pipe.network to inquire |
+| Delivery / routing products | Decentralized CDN / streaming framing | This documentation set covers Pipe Storage and Lattice Firestarter nodes only |
 
 Older PoP-era setup pages, environment names, and reward language are obsolete. Do not follow them for mainnet.
 

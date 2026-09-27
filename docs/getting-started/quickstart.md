@@ -8,9 +8,13 @@ Open the storage interface at [pipe.love](https://pipe.love/storage), connect yo
 
 **You need 10,000 PIPE staked through LovePIPE for each Lattice Firestarter node. Individual nodes receive no rewards or payouts.**
 
-1. Prepare a dedicated node identity and its corresponding Solana wallet.
+Enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. To inquire about running a node, email [hello@pipe.network](mailto:hello@pipe.network). Compatible `lattice-node` software is supplied with the invite. Installing `lattice-node` does not enroll a node.
+
+Ordinary public admission requires an invite, the 10,000 PIPE LovePIPE position, and a complete UTC calendar month of passing hourly checks. If you already have an invite and the required position:
+
+1. Prepare a dedicated node identity and its corresponding Solana wallet. The identity helper lives in this documentation repository. A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL.
 2. Ensure the wallet holds LovePIPE LSTs representing at least 10,000 underlying PIPE.
-3. Obtain the network's enrollment settings and install a compatible release of the public `lattice-node` executable.
+3. Use the invite's mesh UUID, trusted HTTPS control-plane URL, and the compatible `lattice-node` source or binary provided with that invite, by Pipe Network operations. Sample values will not enroll a node.
 4. Enroll the node, keep it healthy, and retain the required stake through a complete UTC calendar month of finalized hourly checks.
 5. Maintain stake, storage integrity, and availability while participating.
 

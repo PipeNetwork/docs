@@ -141,6 +141,18 @@ async fn old_product_urls_redirect_to_current_documents() {
         ),
         ("/docs/cdn-api/api-documentation.md", "/docs/storage/api.md"),
         ("/docs/mica.pdf", "/docs/archive/README.md"),
+        (
+            "/docs/getting-started/key-features.md",
+            "/docs/getting-started/introduction.md",
+        ),
+        (
+            "/docs/getting-started/opportunities-and-use-cases.md",
+            "/docs/storage/overview.md",
+        ),
+        (
+            "/docs/getting-started/scalability-and-network-growth.md",
+            "/docs/getting-started/architecture.md",
+        ),
         ("/md/docs/storage/api.md", "/docs/storage/api.md"),
     ] {
         let response = request(router.clone(), old, "GET").await;

@@ -1,6 +1,6 @@
 # Tokenomics Internal Operations Notes
 
-Aligned with documentation policy `v3.1.0`, updated September 27, 2026.
+Aligned with documentation policy `v3.1.1`, updated September 27, 2026.
 
 ## Storage Operations
 
@@ -37,4 +37,4 @@ Reviewed local sources: `lattice-protocol/src/lovepipe.rs`, `lattice-control-pla
 
 The implementation pins eligibility policy `v2.6.0` with a 10,000 PIPE minimum. This documentation update does not change the runtime identifier. Optional treasury actions and automated treasury execution must not be inferred from customer billing or node-payment removal.
 
-The optional external S3 backend is present in the reviewed working tree, whose release guide requires matching public node and private service releases. Its presence does not establish deployment. The public node source also differs from older Lattice identity-import instructions; onboarding documentation must follow the selected node release and must not assume an `import-solana-keypair` subcommand exists.
+The optional external S3 backend is present in the reviewed working tree, whose release guide requires matching node and service releases. Its presence does not establish deployment. Node source and binaries are invite-gated and are provided with the enrollment invite, by Pipe Network operations; this documentation set does not publish a clone URL. Onboarding documentation must follow the selected node release and must not assume an `import-solana-keypair` subcommand exists.
