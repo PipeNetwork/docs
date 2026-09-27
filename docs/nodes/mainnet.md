@@ -6,9 +6,9 @@ This guide uses the `lattice-node` executable on an Ubuntu or Debian host with s
 
 ## 1. Obtain Enrollment Settings
 
-Public mainnet admission is invite-only. Ordinary public admission also requires **10,000 PIPE staked through LovePIPE** and a complete UTC calendar month of passing hourly ownership checks. The `lattice-node` software cannot issue its own invite. Installing the software does not enroll a node.
+Public mainnet Lattice Firestarter enrollment is invite-only. Ordinary public admission also requires **10,000 PIPE staked through LovePIPE** and a complete UTC calendar month of passing hourly ownership checks. The `lattice-node` software cannot issue its own invite. Installing the software does not enroll a node.
 
-There is no public waitlist and no self-serve enrollment form in this repository. This repository does not publish a public contact channel for requesting invites.
+There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. An inquiry is not enrollment and does not by itself provide an invite, mesh settings, or node software.
 
 Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, a compatible `lattice-node` source or binary, and the matching release tag or commit when building from source. These are provided with the enrollment invite, by Pipe Network operations. A sample UUID or token will not enroll a node. This documentation set does not publish a clone URL.
 
@@ -22,7 +22,7 @@ Prepare and fund the dedicated identity using [Wallet and LovePIPE Setup](wallet
 
 ## 2. Obtain and Install the Node Software
 
-A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL, and it does not publish a contact channel for requesting that software.
+A compatible `lattice-node` source or binary is provided with the enrollment invite, by Pipe Network operations. This documentation set does not publish a clone URL. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire; the software is not a public download.
 
 Install the system packages used by this guide:
 

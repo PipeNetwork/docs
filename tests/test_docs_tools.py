@@ -161,13 +161,20 @@ class DocumentationGuardTests(unittest.TestCase):
 
     def test_published_docs_do_not_link_private_pipe_node_repo(self):
         for path in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]:
-            self.assertNotIn(
-                'github.com/PipeNetwork/pipe-node',
-                path.read_text(),
-                path,
-            )
-            self.assertNotIn('Public Node Repository', path.read_text(), path)
-            self.assertNotIn('public clone URL', path.read_text(), path)
+            text = path.read_text()
+            self.assertNotIn('github.com/PipeNetwork/pipe-node', text, path)
+            self.assertNotIn('Public Node Repository', text, path)
+            self.assertNotIn('public clone URL', text, path)
+
+    def test_mainnet_docs_publish_hello_email_and_not_other_channels(self):
+        mainnet = (ROOT / 'docs/nodes/mainnet.md').read_text()
+        self.assertIn('hello@pipe.network', mainnet)
+        self.assertIn('invite-only', mainnet.lower())
+        published = '\n'.join(
+            p.read_text() for p in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]
+        )
+        self.assertNotIn('discord', published.lower())
+        self.assertNotIn('telegram', published.lower())
 
     def test_thin_getting_started_stubs_are_removed(self):
         for name in (

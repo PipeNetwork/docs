@@ -16,7 +16,7 @@ A central control plane manages enrollment, eligibility, metadata, customer acco
 
 **Each Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to the protocol over the long term. Removing recurring node-payment obligations and reward emissions supports protocol sustainability.
 
-Public mainnet admission is invite-only. Ordinary public admission also requires the 10,000 PIPE LovePIPE position and a complete UTC qualification month. Installing node software does not enroll a node. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access.
+Public mainnet Lattice Firestarter enrollment is invite-only. Ordinary public admission also requires the 10,000 PIPE LovePIPE position and a complete UTC qualification month. Installing node software does not enroll a node. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire.
 
 See [Tokenomics](../Tokenomics.md) for participation requirements and optional treasury policy.
 

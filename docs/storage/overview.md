@@ -32,6 +32,6 @@ Customer payments do not create individual node rewards, and customers do not ne
 
 **Each Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE, and individual nodes receive no rewards or payouts.** The node wallet must retain LovePIPE LSTs representing at least 10,000 underlying PIPE. Public admission is invite-only. Ordinary public admission also requires a complete calendar month of finalized hourly stake checks, plus node health and storage eligibility.
 
-This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access. Installing `lattice-node` alone does not enroll a node.
+There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. Installing `lattice-node` alone does not enroll a node.
 
 See [Mainnet Lattice Firestarter Nodes](../nodes/mainnet.md), [Node Operations](../nodes/mainnet-operations.md), and [Tokenomics](../Tokenomics.md) for operator requirements and optional treasury policy.

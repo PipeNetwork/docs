@@ -40,7 +40,7 @@ pipe_equivalent_atoms = floor(vrt_atoms * vault_pipe_atoms / vrt_supply_atoms)
 priority = min(4.0, sqrt(pipe_equivalent / 10000))
 ```
 
-The control plane verifies ownership, vault and mint identity, and the conversion inputs. Ordinary public admission is invite-only. It also requires the 10,000 PIPE LovePIPE minimum and a complete UTC calendar month of passing hourly checks. There is no public waitlist and no self-serve enrollment form in this repository, and this repository does not publish a public contact channel for requesting invites. Installing node software does not enroll a node. Placement additionally depends on node health, available capacity, and the storage policy; priority is not a guaranteed assignment share or financial return.
+The control plane verifies ownership, vault and mint identity, and the conversion inputs. Ordinary public admission is invite-only. It also requires the 10,000 PIPE LovePIPE minimum and a complete UTC calendar month of passing hourly checks. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire. Installing node software does not enroll a node. Placement additionally depends on node health, available capacity, and the storage policy; priority is not a guaranteed assignment share or financial return.
 
 Missing or invalid observations fail qualification. Ownership or balance failures remove an active node from routing. Administrators can blacklist nodes, but the storage control plane does not seize, burn, withdraw, or transfer LovePIPE positions.
 

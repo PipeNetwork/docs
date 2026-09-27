@@ -1,6 +1,6 @@
 # Lattice Firestarter Node Wallet and LovePIPE
 
-Public mainnet Lattice Firestarter participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-only. See [Mainnet Lattice Firestarter Nodes](mainnet.md) for ordinary public admission requirements. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access.
+Public mainnet Lattice Firestarter participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-only. There is no public waitlist and no self-serve enrollment form. Operators who want to run a node may email [hello@pipe.network](mailto:hello@pipe.network) to inquire; see [Mainnet Lattice Firestarter Nodes](mainnet.md) for ordinary public admission requirements.
 
 ## Prepare the Wallet Locally
 
