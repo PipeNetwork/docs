@@ -15,9 +15,9 @@ The current storage system uses Lattice gateways and a control plane to coordina
 
 Operators contribute capacity, availability, and resilience to support the protocol over the long term. Removing individual node rewards avoids recurring node-payment obligations and reward emissions.
 
-Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](Tokenomics.md). [Open parameters](Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](Tokenomics.md) for participation requirements and optional treasury policy.
 
-Read [Tokenomics Operations](tokenomics-operations-spec.md) for accounting and implementation details.
+Read [Tokenomics Operations](tokenomics-operations-spec.md) for eligibility parameters and implementation boundaries.
 
 ## Get Started
 

@@ -14,6 +14,6 @@ Running a Lattice Firestarter node adds capacity and availability to the protoco
 
 ## Participate through LovePIPE
 
-Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](../Tokenomics.md) for participation requirements and optional treasury policy.
 
 Start with [Pipe Storage](../storage/overview.md), [Mainnet Lattice Firestarter Nodes](../nodes/mainnet.md), or [Tokenomics](../Tokenomics.md).

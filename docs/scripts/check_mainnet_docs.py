@@ -13,6 +13,8 @@ PATTERNS = {
     "retired payout parameters": r"\b(?:CDN_RATE_USD_PER_TB|STORAGE_RATE_USD_PER_TB_MONTH|STAKING_COMMISSION_BPS|E_cap_month|net_pipe_i|gross_pipe_i)\b",
     "incorrect PIPE minimum": r"(?<![\d,])(?:100|1[,_]?000)\s+(?:underlying\s+)?PIPE\b",
     "unconfirmed burn percentage": r"\b93\s*%",
+    "unpublished net-revenue share": r"percentage of net protocol revenue will",
+    "incomplete treasury parameters": r"\b(?:NET_REVENUE_ALLOCATION_PCT|LOVEPIPE_ALLOCATION_BPS|LOVEPIPE_FUNDING_TREATMENT)\b",
     "incorrect fixed withdrawal period": r"\b(?:is|has|uses)\s+(?:a\s+)?(?:fixed\s+)?30[- ]day\s+(?:cooldown|lock)\b",
     "retired reward program": r"scarcity-based reward|location-based rewards|referral rewards",
 }

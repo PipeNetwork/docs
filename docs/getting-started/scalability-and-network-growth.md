@@ -12,6 +12,6 @@ Replication, erasure coding, and repair distribute data across approved hosts. O
 
 **Individual nodes receive no rewards or payouts.** Operators contribute infrastructure and ongoing availability to support the protocol's long-term usefulness. Removing recurring node-payment obligations and node reward emissions supports long-term sustainability.
 
-Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](../Tokenomics.md) for participation requirements and optional treasury policy.
 
-This connects the shared staking benefit to protocol revenue rather than to per-node traffic or performance payments. Read the [tokenomics policy](../Tokenomics.md) and [storage overview](../storage/overview.md).
+Read the [tokenomics policy](../Tokenomics.md) and [storage overview](../storage/overview.md).

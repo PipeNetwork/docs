@@ -70,4 +70,4 @@ A label or public key written in configuration cannot change the node's signing 
 
 Ordinary mainnet admission requires every finalized hourly observation in one complete UTC calendar month to pass. An active node that drops below the minimum is removed from routing and must qualify again through a complete valid month.
 
-LovePIPE stakers participate in the shared revenue contribution independently of node operation. See [Tokenomics](../Tokenomics.md) and the [Eligibility Checklist](mainnet-quality-standards.md).
+LovePIPE is the staking path for eligibility. Any later treasury support for PIPE is independent of node operation. See [Tokenomics](../Tokenomics.md) and the [Eligibility Checklist](mainnet-quality-standards.md).

@@ -22,4 +22,4 @@ Customer USDC payments purchase prepaid storage credit. The control plane reserv
 
 Each node must hold LovePIPE LSTs representing at least **10,000 PIPE**. The control plane reads finalized Solana ownership and vault state hourly and requires a complete valid calendar month for qualification. It does not take custody of or transfer those positions.
 
-There are **no individual node rewards or payouts**. Revenue-funded buyback, burn, and LovePIPE contributions are defined separately in [Tokenomics](../Tokenomics.md); serving a storage request does not execute that treasury policy.
+There are **no individual node rewards or payouts**. Optional treasury actions are described in [Tokenomics](../Tokenomics.md); serving a storage request does not execute treasury policy.

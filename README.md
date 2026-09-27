@@ -6,7 +6,7 @@ These pages describe the current mainnet Lattice storage system and how independ
 
 **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
-See [Tokenomics](docs/Tokenomics.md) for revenue-funded buybacks and the shared LovePIPE contribution. [Open parameters](docs/Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional treasury policy.
 
 ## Start Here
 
@@ -28,8 +28,8 @@ See [Tokenomics](docs/Tokenomics.md) for revenue-funded buybacks and the shared 
 
 ## Protocol and Economics
 
-- [Tokenomics](docs/Tokenomics.md): no individual node rewards, revenue-funded buybacks, and shared LovePIPE backing.
-- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): allocation accounting, policy parameters, and implementation boundaries.
+- [Tokenomics](docs/Tokenomics.md): no individual node rewards, LovePIPE staking, and optional treasury policy.
+- [Tokenomics Operations Spec](docs/tokenomics-operations-spec.md): eligibility parameters and implementation boundaries.
 - [Network Growth](docs/getting-started/scalability-and-network-growth.md): capacity, coverage, and long-term participation.
 - [Performance and Integrity](docs/getting-started/performance-and-fraud-detection.md): storage verification and node eligibility.
 

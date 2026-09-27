@@ -19,6 +19,6 @@ Storage uses replication and adaptive layouts, with verified reads and repair ac
 
 **Each Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to the protocol over the long term. Removing recurring node-payment obligations and reward emissions supports protocol sustainability.
 
-Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](../Tokenomics.md) for participation requirements and optional treasury policy.
 
 Read [Tokenomics](../Tokenomics.md) for the policy or [Quickstart](quickstart.md) to begin.

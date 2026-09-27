@@ -1,8 +1,8 @@
 # Pipe Network Tokenomics
 
-Metadata: `Version 3.0.0` | Updated: September 10, 2026 | Status: Current documentation
+Metadata: `Version 3.1.0` | Updated: September 27, 2026 | Status: Current documentation
 
-Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity and revenue-funded token buybacks. **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
+Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity. **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
 
 ## Node Participation
 
@@ -16,41 +16,30 @@ Stake affects eligibility and placement priority. It does not create an entitlem
 
 ## No Individual Node Rewards
 
-Storage, bandwidth, uptime, receipts, and repair work do not accrue rewards or payouts to individual nodes. There are no per-TB operator payments, node reward emissions, or location bonuses under this model. Customer storage charges fund the protocol's service; they do not become a payable balance for the node that serves a request. Net revenue is determined separately under the protocol's accounting policy.
+Storage, bandwidth, uptime, receipts, and repair work do not accrue rewards or payouts to individual nodes. There are no per-TB operator payments, node reward emissions, or location bonuses under this model. Customer storage charges fund the protocol's service; they do not become a payable balance for the node that serves a request.
 
 Running a Lattice Firestarter node contributes capacity, availability, and resilience to the protocol over the long term. Operators contribute the resources and operating costs needed to provide that service. Removing individual node rewards avoids recurring node-payment obligations and reward-driven token emissions, supporting the protocol's long-term sustainability.
 
-## Net Revenue, Buyback and Burn, and LovePIPE
+## Treasury Policy
 
-A percentage of net protocol revenue will be used to buy back and burn PIPE. A LovePIPE pool contribution equal to **7% of the monthly revenue amount designated for the buyback program** will increase the backing of existing LSTs for everyone staking.
+Treasury may use protocol revenue to support PIPE—for example through buybacks, burns, or contributions that increase LovePIPE backing. Those actions are optional. Treasury decides whether to execute them and reports what was actually done. This documentation does not commit a share of net revenue, a buyback formula, or a schedule.
 
-### Open parameters
+Customer storage charges are not a published treasury allocation, and serving a storage request does not execute treasury policy. This documentation does not claim that automated treasury execution is deployed.
 
-The following accounting details remain unspecified (`NET_REVENUE_ALLOCATION_PCT` and `LOVEPIPE_FUNDING_TREATMENT` in the [parameter registry](tokenomics-params.json)):
+## How LovePIPE Stakers Participate
 
-- The percentage of net revenue committed to the program and its effective month.
-- The accounting definition of net revenue, including deductions and execution costs.
-- Whether the LovePIPE contribution is taken from the buyback allocation or funded in addition to it.
-- The execution and vault-accounting mechanism used to increase backing for existing LST holders.
+LovePIPE is the staking path used for Lattice Firestarter eligibility. It represents a proportional claim on PIPE held in the pool. A node operator participates through their LovePIPE holdings on the same basis as other stakers, without receiving a separate node reward.
 
-For a monthly buyback reference amount of $10,000, the LovePIPE contribution is $700. This example does not determine the remaining burn budget or total treasury spending, because the contribution's funding treatment has not been finalized. Actual PIPE quantities depend on completed purchases.
-
-The 7% is a share of the monthly buyback reference amount, not of all protocol revenue and not a commission on node earnings. PIPE contributed to LovePIPE remains pool backing and is not also counted as burned.
-
-## How LovePIPE Stakers Benefit
-
-LovePIPE represents a proportional claim on PIPE held in the pool. Adding PIPE to the backing of existing LSTs increases the PIPE represented by each LST. This benefits all LovePIPE stakers, including those who do not run nodes. A node operator participates in this benefit through their LovePIPE holdings on the same basis as other stakers, without receiving a separate node reward.
-
-The 7% contribution is a revenue allocation, not a 7% staking yield. The benefit depends on the monthly allocation, the PIPE acquired, and the pool's backing and outstanding LST supply. It describes growth in underlying PIPE backing per token, not a guaranteed market price.
+If treasury later contributes PIPE in a way that increases backing of existing LSTs, that change accrues to all LovePIPE stakers, including those who do not run nodes. LovePIPE is not a promised yield, and backing per LST is not a guaranteed market price.
 
 Deposits and withdrawals use the existing LovePIPE vault. Withdrawal timing follows the vault's current on-chain configuration and is separate from the node's calendar-month qualification period.
 
 ## Implementation and References
 
-The storage implementation already verifies LovePIPE eligibility and records customer credit usage without creating node earnings. The monthly revenue allocation, buybacks, burns, and LovePIPE contributions described here are treasury policy; this documentation does not establish that automated treasury execution is deployed.
+The storage implementation verifies LovePIPE eligibility and records customer credit usage without creating node earnings.
 
-- [Tokenomics Operations Spec](tokenomics-operations-spec.md): allocation accounting and implementation boundaries.
-- [Parameter registry](tokenomics-params.json): machine-readable policy values, including the unspecified net-revenue percentage.
+- [Tokenomics Operations Spec](tokenomics-operations-spec.md): eligibility parameters and implementation boundaries.
+- [Parameter registry](tokenomics-params.json): machine-readable protocol values currently documented here.
 - [Storage overview](storage/overview.md): customer access and Lattice Firestarter node responsibilities.
 - [LovePIPE](https://pipe.love): staking interface for the existing vault.
 - [Whitepaper to current mainnet](archive/whitepaper-to-current.md): differences from the archived 2025 publication.

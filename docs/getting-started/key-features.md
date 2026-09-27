@@ -18,6 +18,6 @@ Persistent disk is the standalone node's default backend. Compatible releases ca
 
 Each Lattice Firestarter node requires **10,000 PIPE staked through LovePIPE**, verified through current LST ownership. **There are no individual node rewards or payouts.** Nodes contribute capacity and availability to support the protocol over the long term.
 
-Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
+See [Tokenomics](../Tokenomics.md) for participation requirements and optional treasury policy.
 
 See the [storage guide](../storage/overview.md) for customer access and the [node guide](../nodes/mainnet.md) for participation requirements.

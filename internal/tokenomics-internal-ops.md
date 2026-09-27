@@ -1,6 +1,6 @@
 # Tokenomics Internal Operations Notes
 
-Aligned with documentation policy `v3.0.0`, updated September 10, 2026.
+Aligned with documentation policy `v3.1.0`, updated September 27, 2026.
 
 ## Storage Operations
 
@@ -16,27 +16,25 @@ Ordinary public mainnet admission requires 10,000 PIPE-equivalent of LovePIPE an
 
 An exemption does not bypass lifecycle, heartbeat, endpoint, receipt, integrity, or blacklist checks and creates no node earnings. Revocation removes the exemption and requires ordinary qualification before re-entry. Do not present bootstrap eligibility as evidence that a node passed the normal month of stake checks.
 
-## Monthly Treasury Reporting
+## Treasury Reporting
 
-The [operations spec](../docs/tokenomics-operations-spec.md) defines a LovePIPE contribution equal to 7% of the monthly buyback reference amount. The percentage of net revenue and whether the contribution is deducted from or added to that amount remain unspecified.
+Public documentation does not commit a percentage of net revenue to buybacks, burns, or LovePIPE backing. Treasury may optionally use protocol revenue to support PIPE and should report only what was actually executed.
 
-Before executing the policy, record the net-revenue accounting basis, allocation percentage and effective month, contribution funding treatment, costs, rounding treatment, and pool contribution mechanism. A contribution must benefit existing LST holders; minting a proportional LST position to the treasury through an ordinary deposit is not sufficient by itself.
+If treasury acts in a period, retain:
 
-For each reporting month, retain:
+- Policy version and the actual action taken (buyback, burn, LovePIPE backing, or none).
+- Purchase fills, PIPE acquired, execution costs, and unspent balances.
+- Burn transactions and confirmed PIPE removed from supply, if any.
+- LovePIPE contribution transactions and the corresponding change in backing per LST, if any.
 
-- Policy version and net-revenue calculation, including recognized revenue and deductions.
-- Allocation percentage, total allocation, LovePIPE budget, and buyback-and-burn budget.
-- Purchase fills, actual PIPE acquired, execution costs, and unspent balances.
-- Burn transactions and confirmed PIPE removed from supply.
-- LovePIPE contribution transactions and the corresponding change in backing per LST.
-- Reconciliation of both destinations to the allocation, with pool contributions excluded from burn totals.
+Do not publish `NET_REVENUE_ALLOCATION_PCT`, `LOVEPIPE_ALLOCATION_BPS`, or `LOVEPIPE_FUNDING_TREATMENT` as current policy values. Do not present an intended allocation as a completed transaction. Storage service continues independently of treasury execution; there is no node-payout replay to run.
 
-If purchase, burn, or contribution execution is incomplete, report its actual state and remaining balance. Do not present an intended allocation as a completed transaction. Storage service continues independently of treasury execution; there is no node-payout replay to run.
+A contribution that is meant to increase backing of existing LSTs must account for actual vault state. Minting a proportional LST position to the treasury through an ordinary deposit is not sufficient by itself.
 
 ## Source Review Boundaries
 
 Reviewed local sources: `lattice-protocol/src/lovepipe.rs`, `lattice-control-plane/src/lovepipe.rs`, and the Lattice guides `LOVEPIPE.md`, `CONTROL_PLANE.md`, `NODE-PAYMENTS-REMOVAL.md`, `ADAPTIVE-STORAGE-IMPLEMENTATION.md`, and `EXTERNAL-S3-STORAGE-IMPLEMENTATION.md`.
 
-The implementation pins eligibility policy `v2.6.0` with a 10,000 PIPE minimum. This documentation update does not change the runtime identifier. Revenue allocation and automated treasury execution must not be inferred from customer billing or node-payment removal.
+The implementation pins eligibility policy `v2.6.0` with a 10,000 PIPE minimum. This documentation update does not change the runtime identifier. Optional treasury actions and automated treasury execution must not be inferred from customer billing or node-payment removal.
 
 The optional external S3 backend is present in the reviewed working tree, whose release guide requires matching public node and private service releases. Its presence does not establish deployment. The public node source also differs from older Lattice identity-import instructions; onboarding documentation must follow the selected node release and must not assume an `import-solana-keypair` subcommand exists.

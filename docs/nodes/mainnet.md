@@ -132,4 +132,4 @@ Maintain the required position while active. Dropping below 10,000 PIPE-equivale
 
 Preserve the entire persistent data directory during upgrades. Follow [Node Operations](mainnet-operations.md) for maintenance, repair, and safe retirement. Optional external S3 storage requires a compatible release and backend qualification; configure it for a new or drained instance using the [public node's S3 guide](https://github.com/PipeNetwork/pipe-node/blob/main/lattice-node/S3.md).
 
-Node contributions support the protocol's long-term capacity and resilience. Removing individual reward obligations supports long-term sustainability. The separate shared staking benefit is described in [Tokenomics](../Tokenomics.md).
+Node contributions support the protocol's long-term capacity and resilience. Removing individual reward obligations supports long-term sustainability. Participation requirements and optional treasury policy are described in [Tokenomics](../Tokenomics.md).

@@ -28,7 +28,7 @@ Older PoP-era setup pages, environment names, and reward language are obsolete. 
 
 ## Where to read current policy
 
-- [Tokenomics](../Tokenomics.md): no individual node rewards, revenue-funded buybacks, and unspecified open parameters.
+- [Tokenomics](../Tokenomics.md): no individual node rewards, LovePIPE staking, and optional treasury policy.
 - [Tokenomics operations spec](../tokenomics-operations-spec.md): parameter registry and implementation boundaries.
 - [Pipe Storage](../storage/overview.md) and [Storage API](../storage/api.md): customer access.
 - [Mainnet Lattice Firestarter Nodes](../nodes/mainnet.md): operator enrollment and the `lattice-node` executable.
