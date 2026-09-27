@@ -1,6 +1,6 @@
 # Scalability and Network Growth
 
-Storage nodes add useful capacity, geographic coverage, and availability to Pipe Network. Growth depends on reliable operators, customer demand, and the protocol's ability to place, verify, and repair data across eligible infrastructure.
+Lattice Firestarter nodes add useful capacity, geographic coverage, and availability to Pipe Network. Growth depends on reliable operators, customer demand, and the protocol's ability to place, verify, and repair data across eligible infrastructure.
 
 ## Contributing Capacity
 

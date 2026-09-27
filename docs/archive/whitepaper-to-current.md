@@ -17,12 +17,12 @@ Those statements belong to the dated publication. They are not current mainnet p
 | Topic | Archived 2025 PDF | Current docs |
 | --- | --- | --- |
 | Customer credits | Token converted to Data Credits | Prepaid storage credit purchased with USDC on Solana |
-| Node software | PoP-era node guides and binaries | Public `lattice-node` from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node), configured with `LATTICE_*` settings |
+| Operator product | Permissionless PoP nodes | Lattice Firestarter nodes |
+| Node software | PoP-era node guides and binaries | Public `lattice-node` executable from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node), configured with `LATTICE_*` settings |
 | Node rewards | Participation incentives for PoPs | **Individual nodes receive no rewards or payouts** |
-| Participation stake | Token stake or delegation for PoP eligibility | **10,000 PIPE staked through LovePIPE** per node |
+| Participation stake | Token stake or delegation for PoP eligibility | **10,000 PIPE staked through LovePIPE** per Lattice Firestarter node |
 | Enrollment | Permissionless PoP participation | Invite-gated enrollment issued by Pipe Network operations |
-| Delivery / routing products | Decentralized CDN / streaming framing | High-level names only; this docs set covers Lattice storage, not CDN or P1 customer APIs |
-| Inference | Not the subject of the PDF | Prepaid OpenAI-compatible inference at [pipenetwork.ai](https://pipenetwork.ai) is a separate product and is not documented here |
+| Delivery / routing products | Decentralized CDN / streaming framing | High-level names only; this docs set covers Pipe Storage and Lattice Firestarter nodes, not CDN or P1 customer APIs |
 
 Older PoP-era setup pages, environment names, and reward language are obsolete. Do not follow them for mainnet.
 
@@ -31,6 +31,6 @@ Older PoP-era setup pages, environment names, and reward language are obsolete. 
 - [Tokenomics](../Tokenomics.md): no individual node rewards, revenue-funded buybacks, and unspecified open parameters.
 - [Tokenomics operations spec](../tokenomics-operations-spec.md): parameter registry and implementation boundaries.
 - [Pipe Storage](../storage/overview.md) and [Storage API](../storage/api.md): customer access.
-- [Mainnet storage nodes](../nodes/mainnet.md): `lattice-node` enrollment and qualification.
+- [Mainnet Lattice Firestarter Nodes](../nodes/mainnet.md): operator enrollment and the `lattice-node` executable.
 
 The PDF is preserved unchanged. A revised whitepaper has not been provided for this documentation update.

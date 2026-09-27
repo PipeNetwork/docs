@@ -2,7 +2,7 @@
 
 ## Object Storage and Delivery
 
-Pipe Storage supports S3-compatible clients, native HTTP interfaces, and SDKs. Customers use scoped credentials to store and retrieve objects, while gateways coordinate access to distributed storage nodes. CDN and P1 Overlay are not covered as customer products in this documentation set.
+Pipe Storage supports S3-compatible clients, native HTTP interfaces, and SDKs. Customers use scoped credentials to store and retrieve objects, while gateways coordinate access to Lattice Firestarter nodes. CDN and P1 Overlay are not covered as customer products in this documentation set.
 
 ## Customer Usage Accounting
 
@@ -16,7 +16,7 @@ Persistent disk is the standalone node's default backend. Compatible releases ca
 
 ## LovePIPE Participation
 
-Each storage node requires **10,000 PIPE staked through LovePIPE**, verified through current LST ownership. **There are no individual node rewards or payouts.** Nodes contribute capacity and availability to support the protocol over the long term.
+Each Lattice Firestarter node requires **10,000 PIPE staked through LovePIPE**, verified through current LST ownership. **There are no individual node rewards or payouts.** Nodes contribute capacity and availability to support the protocol over the long term.
 
 Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 

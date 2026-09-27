@@ -1,6 +1,6 @@
-# Mainnet Storage Nodes
+# Mainnet Lattice Firestarter Nodes
 
-Public mainnet node participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
+Public mainnet Lattice Firestarter participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
 
 This guide uses the public `lattice-node` executable on an Ubuntu or Debian host with systemd. Customer storage access is covered in the [storage quickstart](../storage/api.md).
 

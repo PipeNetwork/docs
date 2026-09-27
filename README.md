@@ -1,10 +1,10 @@
 # Pipe Network Documentation
 
-> **Scope.** This documentation covers Lattice storage, LovePIPE node participation, and related protocol material. Prepaid OpenAI-compatible inference at [pipenetwork.ai](https://pipenetwork.ai) is a separate product and is not documented here.
+> **Scope.** This documentation covers Pipe Storage, Lattice Firestarter node participation, and related protocol material.
 
-These pages describe the current mainnet Lattice storage system and how independently operated storage nodes participate. CDN and P1 Overlay appear only as high-level product names; this documentation set does not provide customer APIs, onboarding, or operating guides for them.
+These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. CDN and P1 Overlay appear only as high-level product names; this documentation set does not provide customer APIs, onboarding, or operating guides for them.
 
-**Running a storage node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
+**Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
 See [Tokenomics](docs/Tokenomics.md) for revenue-funded buybacks and the shared LovePIPE contribution. [Open parameters](docs/Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
@@ -12,18 +12,18 @@ See [Tokenomics](docs/Tokenomics.md) for revenue-funded buybacks and the shared 
 
 - [Welcome](docs/index.md): products and participation.
 - [Introduction](docs/getting-started/introduction.md): overview of Pipe Network.
-- [Architecture](docs/getting-started/architecture.md): gateways, control plane, storage nodes, and Solana integration.
-- [Quickstart](docs/getting-started/quickstart.md): choose customer storage or node participation.
+- [Architecture](docs/getting-started/architecture.md): gateways, control plane, Lattice Firestarter nodes, and Solana integration.
+- [Quickstart](docs/getting-started/quickstart.md): choose customer storage or Lattice Firestarter participation.
 - [Pipe Storage](docs/storage/overview.md): S3-compatible access, customer credits, and storage behavior.
 - [Storage API Quickstart](docs/storage/api.md): fund an account, create credentials, and upload an object.
 
-## Storage Nodes
+## Lattice Firestarter Nodes
 
-- [Mainnet Storage Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
+- [Mainnet Lattice Firestarter Nodes](docs/nodes/mainnet.md): requirements, enrollment, and qualification.
 - [Wallet and LovePIPE Setup](docs/nodes/wallet-setup.md): node identity and the 10,000 PIPE requirement.
 - [Node Operations](docs/nodes/mainnet-operations.md): health, capacity, and troubleshooting.
 - [Eligibility Checklist](docs/nodes/mainnet-quality-standards.md): qualification and ongoing participation.
-- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for `lattice-node`.
+- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for the `lattice-node` executable.
 - [LovePIPE](https://pipe.love): staking, wallet positions, and storage account access.
 
 ## Protocol and Economics

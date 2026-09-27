@@ -1,6 +1,6 @@
 # Storage Architecture
 
-Pipe's current storage system separates customer gateways, protocol coordination, and the machines holding object data.
+Pipe's current storage system separates customer gateways, protocol coordination, and Lattice Firestarter nodes holding object data.
 
 ## Gateways and Control Plane
 
@@ -8,9 +8,9 @@ Customers use S3-compatible or native interfaces through a gateway. The gateway 
 
 A central control plane backed by PostgreSQL manages enrollment, node authority, LovePIPE eligibility, signed routing topology, metadata, customer credit, and storage jobs. Gateways and the control plane are service availability dependencies.
 
-## Storage Nodes
+## Lattice Firestarter Nodes
 
-The public `lattice-node` process stores objects, accepts authorized reads and writes, and provides signed receipts and integrity proofs. Payloads remain on storage nodes. The control plane and gateways decide placement and coordinate replication, adaptive layouts, and repair.
+The public `lattice-node` process stores objects, accepts authorized reads and writes, and provides signed receipts and integrity proofs. Payloads remain on Lattice Firestarter nodes. The control plane and gateways decide placement and coordinate replication, adaptive layouts, and repair.
 
 The standalone node uses persistent disk by default. Compatible releases can also qualify an optional external S3 payload backend while retaining local metadata. Storage policies account for host and shared-backend failures; extra capacity does not guarantee placement.
 

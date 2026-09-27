@@ -2,7 +2,7 @@
 
 Metadata: `Version 3.0.0` | Updated: September 10, 2026 | Status: Current documentation
 
-Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity and revenue-funded token buybacks. **Running a node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
+Pipe Network's storage model supports the long-term operation of the protocol through useful storage capacity and revenue-funded token buybacks. **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.**
 
 ## Node Participation
 
@@ -18,7 +18,7 @@ Stake affects eligibility and placement priority. It does not create an entitlem
 
 Storage, bandwidth, uptime, receipts, and repair work do not accrue rewards or payouts to individual nodes. There are no per-TB operator payments, node reward emissions, or location bonuses under this model. Customer storage charges fund the protocol's service; they do not become a payable balance for the node that serves a request. Net revenue is determined separately under the protocol's accounting policy.
 
-Running a storage node contributes capacity, availability, and resilience to the protocol over the long term. Operators contribute the resources and operating costs needed to provide that service. Removing individual node rewards avoids recurring node-payment obligations and reward-driven token emissions, supporting the protocol's long-term sustainability.
+Running a Lattice Firestarter node contributes capacity, availability, and resilience to the protocol over the long term. Operators contribute the resources and operating costs needed to provide that service. Removing individual node rewards avoids recurring node-payment obligations and reward-driven token emissions, supporting the protocol's long-term sustainability.
 
 ## Net Revenue, Buyback and Burn, and LovePIPE
 
@@ -51,6 +51,6 @@ The storage implementation already verifies LovePIPE eligibility and records cus
 
 - [Tokenomics Operations Spec](tokenomics-operations-spec.md): allocation accounting and implementation boundaries.
 - [Parameter registry](tokenomics-params.json): machine-readable policy values, including the unspecified net-revenue percentage.
-- [Storage overview](storage/overview.md): customer access and storage-node responsibilities.
+- [Storage overview](storage/overview.md): customer access and Lattice Firestarter node responsibilities.
 - [LovePIPE](https://pipe.love): staking interface for the existing vault.
 - [Whitepaper to current mainnet](archive/whitepaper-to-current.md): differences from the archived 2025 publication.

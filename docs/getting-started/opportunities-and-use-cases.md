@@ -10,10 +10,10 @@ CDN and P1 Overlay are not documented customer paths in this repository. Do not 
 
 ## Contribute Storage Capacity
 
-Running a storage node adds capacity and availability to the protocol. Each node requires **10,000 PIPE staked through LovePIPE** and must satisfy enrollment, qualification, and operational checks. **Individual nodes receive no rewards or payouts.** Operators contribute resources to support the protocol over the long term.
+Running a Lattice Firestarter node adds capacity and availability to the protocol. Each node requires **10,000 PIPE staked through LovePIPE** and must satisfy enrollment, qualification, and operational checks. **Individual nodes receive no rewards or payouts.** Operators contribute resources to support the protocol over the long term.
 
 ## Participate through LovePIPE
 
 Revenue-funded buybacks and the shared LovePIPE contribution are documented in [Tokenomics](../Tokenomics.md). [Open parameters](../Tokenomics.md#open-parameters), including net-revenue allocation and LovePIPE funding treatment, remain unspecified.
 
-Start with [Pipe Storage](../storage/overview.md), [Mainnet Storage Nodes](../nodes/mainnet.md), or [Tokenomics](../Tokenomics.md).
+Start with [Pipe Storage](../storage/overview.md), [Mainnet Lattice Firestarter Nodes](../nodes/mainnet.md), or [Tokenomics](../Tokenomics.md).

@@ -1,6 +1,6 @@
-# Mainnet Storage Node Eligibility Checklist
+# Mainnet Lattice Firestarter Node Eligibility Checklist
 
-**Public mainnet participation requires at least 10,000 PIPE staked through LovePIPE per node. There are no individual node rewards or payouts.** These checks describe ordinary admission and ongoing routing eligibility.
+**Public mainnet Lattice Firestarter participation requires at least 10,000 PIPE staked through LovePIPE per node. There are no individual node rewards or payouts.** These checks describe ordinary admission and ongoing routing eligibility.
 
 | Check | Requirement | Effect of Failure |
 | --- | --- | --- |

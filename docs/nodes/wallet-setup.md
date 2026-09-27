@@ -1,6 +1,6 @@
-# Storage Node Wallet and LovePIPE
+# Lattice Firestarter Node Wallet and LovePIPE
 
-Public mainnet node participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-gated; obtain control-plane settings from Pipe Network operations as described in [Mainnet Storage Nodes](mainnet.md).
+Public mainnet Lattice Firestarter participation requires a dedicated node wallet holding **LovePIPE LSTs representing at least 10,000 PIPE**. Individual nodes receive no rewards or payouts. Enrollment is invite-gated; obtain control-plane settings from Pipe Network operations as described in [Mainnet Lattice Firestarter Nodes](mainnet.md).
 
 ## Prepare the Wallet Locally
 
@@ -58,7 +58,7 @@ The minimum is measured in PIPE-equivalent, not a fixed number of LST units. Acq
 
 Transfer only the prepared `node.key` to the node host through your private file-transfer channel. Preserve the original wallet backup separately. The node host holds a signing seed that can control the wallet, so protect this file and its backups as wallet material.
 
-Follow [Mainnet Storage Nodes](mainnet.md) to install it without overwriting an existing identity. Verify the installed binary prints the same `lattice_hex` before starting enrollment:
+Follow [Mainnet Lattice Firestarter Nodes](mainnet.md) to install it without overwriting an existing identity. Verify the installed binary prints the same `lattice_hex` before starting enrollment:
 
 ```bash
 sudo -u pipe-node /usr/local/bin/lattice-node identity --data-dir /var/lib/pipe-node

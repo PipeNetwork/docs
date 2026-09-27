@@ -1,6 +1,6 @@
-# Storage Node Operations
+# Lattice Firestarter Node Operations
 
-Use this guide after [storage-node setup](mainnet.md). Nodes receive no individual rewards or payouts; monitoring focuses on availability, eligibility, capacity, and data integrity.
+Use this guide after [Lattice Firestarter node setup](mainnet.md). Nodes receive no individual rewards or payouts; monitoring focuses on availability, eligibility, capacity, and data integrity.
 
 ## Monitoring
 
