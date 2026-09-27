@@ -6,6 +6,12 @@ import sys
 from pathlib import Path
 
 
+ALL_PAGES_PATTERNS = {
+    "unpublished pipe-node clone url": r"github\.com/PipeNetwork/pipe-node",
+    "public node source claim": r"Public Node Repository|public `lattice-node`|clone the public node repository",
+    "undocumented customer sdk": r"Pipe SDKs|native HTTP interfaces",
+}
+
 PATTERNS = {
     "obsolete network instructions": r"\b(?:devnet\d*|testnet)\b",
     "obsolete account API": r"\buser_app_key\b|/(?:createUser|rotateAppKey|checkBalance)\b",
@@ -18,6 +24,7 @@ PATTERNS = {
     "incorrect fixed withdrawal period": r"\b(?:is|has|uses)\s+(?:a\s+)?(?:fixed\s+)?30[- ]day\s+(?:cooldown|lock)\b",
     "retired reward program": r"scarcity-based reward|location-based rewards|referral rewards",
     "undocumented cdn or p1 product": r"\b(?:pipe\s*cdn|pipecdn|p1 overlay)\b|\bcdn\b",
+    **ALL_PAGES_PATTERNS,
 }
 
 RETIRED = (
@@ -33,8 +40,9 @@ RETIRED = (
 )
 
 
-def check_text(content: str) -> list[str]:
-    return [label for label, pattern in PATTERNS.items() if re.search(pattern, content, re.I)]
+def check_text(content: str, patterns: dict[str, str] | None = None) -> list[str]:
+    items = PATTERNS if patterns is None else patterns
+    return [label for label, pattern in items.items() if re.search(pattern, content, re.I)]
 
 
 def main() -> None:
@@ -42,9 +50,12 @@ def main() -> None:
     errors = [f"Remove retired artifact: {path}" for path in RETIRED
               if Path(path).is_file() or (Path(path).is_dir() and any(Path(path).rglob('*.*')))]
     for path in [Path("README.md"), *sorted(Path("docs").rglob("*.md"))]:
+        text = path.read_text()
         if Path("docs/archive") in path.parents:
-            continue
-        for label in check_text(path.read_text()):
+            labels = check_text(text, ALL_PAGES_PATTERNS)
+        else:
+            labels = check_text(text)
+        for label in labels:
             errors.append(f"{path}: {label}")
     if errors:
         print("\n".join(errors))

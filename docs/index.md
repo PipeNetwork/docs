@@ -2,11 +2,11 @@
 
 > **Scope.** This documentation covers Pipe Storage and Lattice Firestarter nodes only. It does not list or document other products.
 
-The current storage system uses Lattice gateways and a control plane to coordinate independently operated Lattice Firestarter nodes. Lattice Firestarter is the product name; nodes run the public `lattice-node` executable from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node).
+The current storage system uses Lattice gateways and a control plane to coordinate independently operated Lattice Firestarter nodes. Lattice Firestarter is the product name; nodes run the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible release is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
 
 ## Use Pipe
 
-- **Store objects** through the [S3-compatible storage service](storage/overview.md), native HTTP interfaces, or SDKs. Customers purchase prepaid storage credit with USDC on Solana.
+- **Store objects** through the [S3-compatible storage service](storage/overview.md) using clients such as AWS CLI or boto3. Customers purchase prepaid storage credit with USDC on Solana. See also the [pipe.love storage docs](https://pipe.love/storage/docs).
 - **Contribute storage** by [running a Lattice Firestarter node](nodes/mainnet.md), subject to invite-gated enrollment, stake qualification, and operational requirements.
 
 Public Lattice Firestarter admission is invite-only. This repository does not publish a waitlist, a self-serve enrollment form, or a public contact channel for requesting access.

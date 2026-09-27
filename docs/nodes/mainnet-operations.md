@@ -10,7 +10,7 @@ Check the node's local health endpoint using its configured bind address:
 curl -fsS http://127.0.0.1:7101/health
 ```
 
-For installations using the public repository's systemd service, inspect logs with:
+For installations using the systemd unit supplied with the compatible release, inspect logs with:
 
 ```bash
 journalctl -u pipe-node -f

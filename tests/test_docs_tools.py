@@ -132,6 +132,26 @@ class DocumentationGuardTests(unittest.TestCase):
             guard.check_text('This documentation covers Pipe Storage and Lattice Firestarter nodes only.'),
             [],
         )
+        self.assertIn(
+            'unpublished pipe-node clone url',
+            guard.check_text('git clone https://github.com/PipeNetwork/pipe-node.git'),
+        )
+        self.assertIn(
+            'public node source claim',
+            guard.check_text('See the Public Node Repository for lattice-node.'),
+        )
+        self.assertIn(
+            'undocumented customer sdk',
+            guard.check_text('Customers use Pipe SDKs and native HTTP interfaces.'),
+        )
+
+    def test_published_docs_do_not_link_private_pipe_node_repo(self):
+        for path in [ROOT / 'README.md', *sorted((ROOT / 'docs').rglob('*.md'))]:
+            self.assertNotIn(
+                'github.com/PipeNetwork/pipe-node',
+                path.read_text(),
+                path,
+            )
 
     def test_thin_getting_started_stubs_are_removed(self):
         for name in (

@@ -1,6 +1,6 @@
 # Pipe Storage
 
-Pipe Storage uses Lattice gateways, a control plane, and Lattice Firestarter nodes to store and serve objects. Customers access storage through an S3-compatible API, native HTTP interfaces, or Pipe SDKs. Lattice Firestarter nodes run the public `lattice-node` executable from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node).
+Pipe Storage uses Lattice gateways, a control plane, and Lattice Firestarter nodes to store and serve objects. Customers access storage through an S3-compatible API using clients such as AWS CLI, boto3, or similar S3 tools. Lattice Firestarter nodes run the `lattice-node` executable. A compatible release (source or binary) is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
 
 The service uses prepaid customer credit purchased with USDC on Solana mainnet.
 
@@ -16,13 +16,13 @@ The gateway and control plane coordinate the network. Object payloads are held b
 
 Storage supports replication and adaptive layouts. Eligible large immutable objects can move between three full replicas and Reed–Solomon 4+2 erasure coding across distinct approved hosts. Reads verify integrity; repair replaces unavailable replicas or fragments. Conversion depends on fleet health, capacity, observations, and the configured policy. The control plane and gateways remain service availability dependencies.
 
-The standalone node uses persistent local disk by default. The reviewed implementation also supports an optional external S3 payload backend, with local metadata, integrity checks, and backend qualification. Using it requires compatible node and service releases; it is not automatically enabled by having an S3 bucket. Placement considers shared backend failure risks, so offered capacity may not all be assigned.
+The standalone node uses persistent local disk by default. The reviewed implementation also supports an optional external S3 payload backend, with local metadata, integrity checks, and backend qualification. Using it requires a compatible release and the S3 guide shipped with that release or invite package; it is not automatically enabled by having an S3 bucket. Placement considers shared backend failure risks, so offered capacity may not all be assigned.
 
 Nodes add useful capacity, geographic coverage, and availability. Extra offered capacity is not a guarantee of placement. Growth depends on reliable operators, customer demand, and the protocol's ability to place, verify, and repair data.
 
 ## Customer Access
 
-Use the [mainnet storage quickstart and API reference](api.md) to fund an account with Solana mainnet USDC, create scoped credentials, and upload an object with AWS CLI or Python. That reference also covers billing, multipart completion, credential rotation, and unsupported S3 features.
+Use the [mainnet storage quickstart and API reference](api.md) to fund an account with Solana mainnet USDC, create scoped credentials, and upload an object with AWS CLI or Python. That reference also covers billing, multipart completion, credential rotation, and unsupported S3 features. The [pipe.love storage docs](https://pipe.love/storage/docs) list gateway configuration for the same S3-compatible path.
 
 Customers use the [storage workspace](https://pipe.love/storage). Scoped credentials let applications access selected buckets, prefixes, and operations. Typical uses include application assets, datasets, and media. Plan for the availability and performance of the deployed storage service and the storage policy selected for your data.
 

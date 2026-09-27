@@ -2,15 +2,15 @@
 
 Public mainnet Lattice Firestarter participation requires **10,000 PIPE staked through LovePIPE per node**. Individual nodes receive no rewards or payouts. Operators provide storage, bandwidth, and ongoing availability to support the protocol over the long term.
 
-This guide uses the public `lattice-node` executable on an Ubuntu or Debian host with systemd. Customer storage access is covered in the [storage quickstart](../storage/api.md).
+This guide uses the `lattice-node` executable on an Ubuntu or Debian host with systemd. A compatible release (source or binary) is supplied with the enrollment invite. Customer storage access is covered in the [storage quickstart](../storage/api.md).
 
 ## 1. Obtain Enrollment Settings
 
-Public mainnet admission is invite-only. Ordinary public admission also requires **10,000 PIPE staked through LovePIPE** and a complete UTC calendar month of passing hourly ownership checks. The public `lattice-node` software cannot issue its own invite. Installing the software does not enroll a node.
+Public mainnet admission is invite-only. Ordinary public admission also requires **10,000 PIPE staked through LovePIPE** and a complete UTC calendar month of passing hourly ownership checks. The `lattice-node` software cannot issue its own invite. Installing the software does not enroll a node.
 
 There is no public waitlist and no self-serve enrollment form in this repository. This repository does not publish a public contact channel for requesting invites.
 
-Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, and the compatible node release tag or commit. These values are deployment-specific; a sample UUID or token will not enroll a node.
+Enrollment requires a one-time invite, mesh UUID, trusted HTTPS control-plane URL, a compatible `lattice-node` release (source or binary), and the matching release tag or commit when building from source. These values are supplied with the enrollment invite. A sample UUID or token will not enroll a node. This documentation set does not publish a public clone URL for the node repository.
 
 Private bootstrap exemptions may exist. They are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement. Detailed exemption mechanics are not part of this public guide.
 
@@ -20,15 +20,22 @@ Also prepare a public HTTPS hostname for this node, a reverse proxy forwarding t
 
 Prepare and fund the dedicated identity using [Wallet and LovePIPE Setup](wallet-setup.md). The corresponding wallet must hold LSTs representing at least 10,000 underlying PIPE.
 
-## 2. Build and Install
+## 2. Obtain and Install the Node Software
 
-Install Rust 1.88 or newer using your normal Rust toolchain installation. Install the system dependencies and clone the public node repository:
+A compatible `lattice-node` release (source or binary) is supplied with the enrollment invite. This documentation set does not publish a public clone URL for the node repository, and it does not publish a contact channel for requesting that software.
+
+Install the system packages used by this guide:
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y build-essential pkg-config libssl-dev git python3 python3-cryptography nginx
-git clone https://github.com/PipeNetwork/pipe-node.git
-cd pipe-node
+```
+
+If you were given a binary with your invite, install it as `/usr/local/bin/lattice-node` using the instructions in that package, then continue with the service account steps below.
+
+If you were given access to the node repository and a release tag or commit with your invite, check out that revision from the access path you were given and build it. Install Rust 1.88 or newer first. This documentation set does not publish a clone URL:
+
+```bash
 read -r -p 'Node release tag or commit supplied with your invite: ' PIPE_NODE_REV
 git checkout --detach "$PIPE_NODE_REV"
 cargo build --locked --release -p lattice-node
@@ -41,14 +48,19 @@ Create a service account and directories for a new installation:
 id pipe-node >/dev/null 2>&1 || sudo useradd --system --home-dir /var/lib/pipe-node --shell /usr/sbin/nologin pipe-node
 sudo install -d -o pipe-node -g pipe-node -m 0700 /var/lib/pipe-node
 sudo install -d -o root -g root -m 0700 /etc/pipe-node
+```
+
+Install the systemd unit supplied with the compatible release into `/etc/systemd/system/pipe-node.service`. If you were given access to the node repository and built from source, the unit is `deploy/pipe-node.service` in that checkout:
+
+```bash
 sudo install -m 0644 deploy/pipe-node.service /etc/systemd/system/pipe-node.service
 ```
 
-Use the systemd unit from the same node checkout as the binary. Review its memory limits against the host and offered capacity.
+Review the unit's memory limits against the host and offered capacity.
 
 ## 3. Install the Prepared Identity
 
-The `lattice-node` binary is built from [PipeNetwork/pipe-node](https://github.com/PipeNetwork/pipe-node). The identity helper `docs/scripts/prepare_node_identity.py` lives in the [PipeNetwork/docs](https://github.com/PipeNetwork/docs) repository. A `pipe-node` clone does not include that helper. Use a docs checkout on the node host, or copy the script from a docs checkout. This repository does not publish a separate packaged installer for the helper.
+The identity helper `docs/scripts/prepare_node_identity.py` lives in the [PipeNetwork/docs](https://github.com/PipeNetwork/docs) repository. The `lattice-node` executable is supplied with the enrollment invite (source or binary). The helper is not part of that node release package. Use a docs checkout on the node host, or copy the script from a docs checkout. This documentation set does not publish a public clone URL for the node repository and does not publish a separate packaged installer for the helper.
 
 Privately transfer the `node.key` prepared in the [wallet guide](wallet-setup.md) to the host. From the documentation checkout on the node host, install it into a new empty data directory:
 
@@ -136,6 +148,6 @@ Ordinary public admission requires every finalized hourly LovePIPE ownership che
 
 Maintain the required position while active. Dropping below 10,000 PIPE-equivalent or moving the position away causes the next ownership check to fail, removes the node from routing, and requires a new complete valid month for requalification. Private bootstrap exemptions may exist; they are administered by the protocol, are not a public enrollment path, create no rewards, and do not change the public 10,000 PIPE requirement.
 
-Preserve the entire persistent data directory during upgrades. Follow [Node Operations](mainnet-operations.md) for maintenance, repair, and safe retirement. Optional external S3 storage requires a compatible release and backend qualification; configure it for a new or drained instance using the [public node's S3 guide](https://github.com/PipeNetwork/pipe-node/blob/main/lattice-node/S3.md).
+Preserve the entire persistent data directory during upgrades. Follow [Node Operations](mainnet-operations.md) for maintenance, repair, and safe retirement. Optional external S3 storage requires a compatible release and backend qualification; configure it for a new or drained instance using the S3 guide shipped with that release or invite package. This documentation set does not publish a public URL for that S3 guide.
 
 Node contributions support the protocol's long-term capacity and resilience. Removing individual reward obligations supports long-term sustainability. Participation requirements and optional treasury policy are described in [Tokenomics](../Tokenomics.md).

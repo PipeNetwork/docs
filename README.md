@@ -2,7 +2,7 @@
 
 > **Scope.** This documentation covers Pipe Storage and Lattice Firestarter nodes only. It does not list or document other products.
 
-These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. Lattice Firestarter is the product name; the public node software is the `lattice-node` executable, configured with `LATTICE_*` settings.
+These pages describe the current mainnet Lattice storage system and how independently operated Lattice Firestarter nodes participate. Lattice Firestarter is the product name; nodes run the `lattice-node` executable, configured with `LATTICE_*` settings. A compatible release (source or binary) is supplied with an enrollment invite. This documentation set does not publish a public clone URL for the node repository.
 
 **Running a Lattice Firestarter node requires 10,000 PIPE staked through LovePIPE. Individual nodes receive no rewards or payouts.** Operators contribute capacity and availability to support the protocol over the long term. Removing node reward obligations supports the protocol's long-term sustainability.
 
@@ -25,7 +25,6 @@ See [Tokenomics](docs/Tokenomics.md) for participation requirements and optional
 - [Wallet and LovePIPE Setup](docs/nodes/wallet-setup.md): node identity and the 10,000 PIPE requirement.
 - [Node Operations](docs/nodes/mainnet-operations.md): health, capacity, and troubleshooting.
 - [Eligibility Checklist](docs/nodes/mainnet-quality-standards.md): qualification and ongoing participation.
-- [Public Node Repository](https://github.com/PipeNetwork/pipe-node): source and release instructions for the `lattice-node` executable.
 - [LovePIPE](https://pipe.love): staking, wallet positions, and storage account access.
 
 ## Protocol and Economics
